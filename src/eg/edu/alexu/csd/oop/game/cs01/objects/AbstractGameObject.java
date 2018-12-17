@@ -20,16 +20,19 @@ public abstract class AbstractGameObject implements GameObject {
 		this.y = y;
 		visible = true;
 		try {
-			images = new BufferedImage[imageFiles.length];
+			images = new BufferedImage[175];
+			BufferedImage[] image = new BufferedImage[imageFiles.length];
 			for (int i = 0; i < imageFiles.length; i++) {
 				try {
-					this.images[i] = ImageIO.read(imageFiles[0]);
+					image[i] = ImageIO.read(imageFiles[i]);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
+			for(int i=0;i<images.length;i++) {
+				images[i]=image[i/25];
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 	}
 
@@ -40,7 +43,7 @@ public abstract class AbstractGameObject implements GameObject {
 
 	@Override
 	public void setX(int x) {
-	System.out.println(x);
+		System.out.println(x);
 		this.x = x;
 	}
 
