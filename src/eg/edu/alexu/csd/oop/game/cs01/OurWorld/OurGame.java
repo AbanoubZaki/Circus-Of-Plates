@@ -19,11 +19,11 @@ public class OurGame implements World {
 	
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
 		this.difficulty = difficulty;
-		this.mode = mode;
+		this.setMode(mode);
 		startTime = System.currentTimeMillis();
-		constant = new ArrayList<>();
+		constant = mode.getConstant();
 		movable = new ArrayList<>();
-		controlable = new ArrayList<>();
+		controlable = mode.getControlable();
 	}
 	
 	@Override
@@ -43,12 +43,23 @@ public class OurGame implements World {
 
 	@Override
 	public int getWidth() {
-		return constant.get(0).getWidth();
+		try {
+			return constant.get(0).getWidth();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return 10;
 	}
 
 	@Override
 	public int getHeight() {
-		return constant.get(0).getHeight();
+		try {
+			return constant.get(0).getHeight();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return 20;
 	}
 
 	@Override
@@ -63,12 +74,20 @@ public class OurGame implements World {
 
 	@Override
 	public int getControlSpeed() {
-		return 0;
+		return 20;
+	}
+
+	public GameMode getMode() {
+		return mode;
+	}
+
+	public void setMode(GameMode mode) {
+		this.mode = mode;
 	}
 
 	@Override
 	public boolean refresh() {
 		
-		return false;
+		return true;
 	}
 }

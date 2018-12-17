@@ -5,11 +5,15 @@ import java.util.List;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 public enum GameMode {
-	christmass(), robot();
+	christmass("resources\\christmass"), robot("resources\\robot");
 	
+	private GameMode(String path) {
+		this.path = path;
+	}
 	private  List<GameObject> constant;
 	private  List<GameObject> movable;
 	private  List<GameObject> controlable;
+	private String path;
 	
 	public List<GameObject> getConstant() {
 		return constant;
@@ -28,6 +32,9 @@ public enum GameMode {
 	}
 	public void setControlable(List<GameObject> controlable) {
 		this.controlable = controlable;
+	}
+	public String getPath() {
+		return path;
 	}
 	
 }

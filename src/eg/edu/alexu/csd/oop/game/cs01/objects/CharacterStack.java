@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.game.cs01.objects;
 
+import java.io.File;
 import java.util.Stack;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
@@ -9,8 +10,8 @@ public class CharacterStack extends AbstractGameObject {
 	private final int MAX_FALLEN_OBJECTS = 15;
 	private Stack<GameObject> stack;
 
-	public CharacterStack(int x, int y, String[] paths) {
-		super(x, y, paths);
+	public CharacterStack(int x, int y, File[] imageFiles) {
+		super(x, y, imageFiles);
 		stack = new Stack<>();
 	}
 
@@ -41,7 +42,6 @@ public class CharacterStack extends AbstractGameObject {
 			stack.pop();
 			stack.pop();
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 	}
 

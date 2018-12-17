@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.game.cs01.objects;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -14,20 +15,24 @@ public abstract class AbstractGameObject implements GameObject {
 	private boolean visible;
 	private BufferedImage[] images;
 
-	public AbstractGameObject(int x, int y, String[] paths) {
-		setX(x);
-		setY(y);
+	public AbstractGameObject(int x, int y, File[] imageFiles) {
+		this.x = x;
+		this.y = y;
 		visible = true;
-		images = new BufferedImage[paths.length];
-		for (int i = 0; i < paths.length; i++) {
-			try {
-				this.images[i] = ImageIO.read(getClass().getResourceAsStream(paths[i]));
-			} catch (IOException e) {
-				e.printStackTrace();
+		try {
+			images = new BufferedImage[imageFiles.length];
+			for (int i = 0; i < imageFiles.length; i++) {
+				try {
+					this.images[i] = ImageIO.read(imageFiles[0]);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 	}
-	
+
 	@Override
 	public int getX() {
 		return x;
@@ -35,6 +40,7 @@ public abstract class AbstractGameObject implements GameObject {
 
 	@Override
 	public void setX(int x) {
+	System.out.println(x);
 		this.x = x;
 	}
 

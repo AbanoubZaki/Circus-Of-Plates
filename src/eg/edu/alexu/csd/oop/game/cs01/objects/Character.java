@@ -1,17 +1,19 @@
 package eg.edu.alexu.csd.oop.game.cs01.objects;
 
+import java.io.File;
+
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 public class Character extends AbstractGameObject {
 	
 	//According to dimensions and properties of the clown shape.
-	private final int CONSTANT_X = 0;
-	private final int CONSTANT_Y = 0;
+	private final int CONSTANT_X = 10;
+	private final int CONSTANT_Y = 10;
 	private GameObject leftStack;
 	private GameObject rightStack;
 	
-	public Character(int x, int y, String[] paths) {
-		super(x, y, paths);
+	public Character(int x, int y, File[] imageFiles) {
+		super(x, y, imageFiles);
 		/**
 		 * x & y are the positions of the top of the empty stack.
 		 */
