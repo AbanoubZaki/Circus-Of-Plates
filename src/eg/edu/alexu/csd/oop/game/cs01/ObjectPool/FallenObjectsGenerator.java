@@ -28,10 +28,13 @@ public class FallenObjectsGenerator {
 		this.difficulty = difficulty;
 		pool = new ArrayList<GameObject>(MAX_FALLEN_OBJECTS);
 		used = new ArrayList<GameObject>(MAX_FALLEN_OBJECTS);
-		final int noOfAvailableColours = difficulty.getColorsOfFallenObjects();
-		Random random = new Random(noOfAvailableColours+1);
 		for (int i = 0; i < MAX_FALLEN_OBJECTS; i++) {
-			pool.add(((FallenObject) map.get(Integer.toString(random.nextInt()))).clone());
+			Random random = new Random();
+			int r = random.nextInt(difficulty.getColorsOfFallenObjects());
+//			System.out.println(r + 1);
+			for (GameObject o : map.get(Integer.toString(r + 1))) {
+				pool.add(((FallenObject) o).clone());
+			}
 		}
 	}
 
@@ -48,19 +51,20 @@ public class FallenObjectsGenerator {
 
 	public GameObject getNewObject() {
 		try {
-			Random random = new Random(mode.getConstant().get(0).getWidth());
-			fallenObject = pool.get(pool.size()-1);
-			pool.remove(pool.size()-1);
-			fallenObject.setX(random.nextInt());
+			Random random = new Random();
+			int r = random.nextInt(pool.size());
+			fallenObject = pool.get(r);
+			pool.remove(r);
+			fallenObject.setX(random.nextInt(mode.getConstant().get(0).getWidth()-20));
 			fallenObject.setY(0);
 			used.add(fallenObject);
 			return fallenObject;
 		} catch (Exception e) {
-			
+
 		}
 		return null;
 	}
-	
+
 	public void releaseObject(GameObject oldObject) {
 		used.remove(oldObject);
 		oldObject.setX(0);
