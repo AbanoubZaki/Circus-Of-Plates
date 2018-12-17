@@ -29,8 +29,12 @@ public abstract class AbstractGameObject implements GameObject {
 					e.printStackTrace();
 				}
 			}
-			for(int i=0;i<images.length;i++) {
-				images[i]=image[i/25];
+			if (imageFiles[0].getParent().contains("constant")) {
+				for (int i = 0; i < images.length; i++) {
+					images[i] = image[i / 25];
+				}
+			}else {
+				images = image;
 			}
 		} catch (Exception e) {
 		}

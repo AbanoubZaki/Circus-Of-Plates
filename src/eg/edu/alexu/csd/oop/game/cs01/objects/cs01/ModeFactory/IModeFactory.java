@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
+package eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory;
 
 public interface IModeFactory {
 	public void buildConstant();

@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
+package eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class ModeFactory implements IModeFactory {
 		folder = new File(mode.getPath() + "\\plates");
 		List<GameObject> list = new ArrayList<>();
 		for(File f:folder.listFiles()) {
-			list.add(new FallenObject(0, 0, new File[] {f}));
+			list.add(new FallenObject(0, 0, f.listFiles()));
 		}
 		mode.setMovable(list);
 	}
@@ -53,7 +53,7 @@ public class ModeFactory implements IModeFactory {
 	public void buildControlable() {
 		folder = new File(mode.getPath() + "\\controlable");
 		List<GameObject> list = new ArrayList<>();
-		list.add(new Character((int)mode.getConstant().get(0).getWidth()/3, (int)(mode.getConstant().get(0).getHeight()*0.8), folder.listFiles()));
+		list.add(new Character((int)mode.getConstant().get(0).getWidth()/3, (int)(mode.getConstant().get(0).getHeight()*0.7), folder.listFiles()));
 		mode.setControlable(list);
 	}
 
