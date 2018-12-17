@@ -26,7 +26,7 @@ public class OurGame implements World {
 		constant = mode.getConstant();
 		movable = new ArrayList<GameObject>();
 		//call 1st constructor only one time to set map of mode & difficulty.
-		FallenObjectsGenerator.getInstance(mode.getMapMovable(), difficulty);
+		FallenObjectsGenerator.getInstance(mode, difficulty);
 		controlable = mode.getControlable();
 	}
 	

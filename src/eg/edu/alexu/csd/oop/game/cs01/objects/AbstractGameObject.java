@@ -15,6 +15,10 @@ public abstract class AbstractGameObject implements GameObject {
 	private boolean visible;
 	private BufferedImage[] images;
 
+	public AbstractGameObject( BufferedImage[] images) {
+		this.images = images;
+	}
+	
 	public AbstractGameObject(int x, int y, File[] imageFiles) {
 		this.x = x;
 		this.y = y;
