@@ -2,7 +2,9 @@ package eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
@@ -21,7 +23,7 @@ public class ModeFactory implements IModeFactory {
 	}
 
 	public static ModeFactory getInstance(GameMode mode) {
-		if(factory==null) {
+		if (factory == null) {
 			factory = new ModeFactory(mode);
 		}
 		if (!ModeFactory.mode.equals(mode)) {
@@ -33,27 +35,42 @@ public class ModeFactory implements IModeFactory {
 	@Override
 	public void buildConstant() {
 		folder = new File(mode.getPath() + "\\constant");
-		System.out.println(folder.exists());
 		List<GameObject> list = new ArrayList<>();
 		list.add(new Background(0, 0, folder.listFiles()));
 		mode.setConstant(list);
 	}
 
+	// @Override
+	// public void buildMovable() {
+	// folder = new File(mode.getPath() + "\\plates");
+	// List<GameObject> list = new ArrayList<>();
+	// for(File f:folder.listFiles()) {
+	// list.add(new FallenObject(515, 485, f.listFiles()));
+	// }
+	// mode.setMovable(list);
+	// }
+	// x = +-137
+	// y = +- 10
 	@Override
 	public void buildMovable() {
 		folder = new File(mode.getPath() + "\\plates");
-		List<GameObject> list = new ArrayList<>();
-		for(File f:folder.listFiles()) {
-			list.add(new FallenObject(0, 0, f.listFiles()));
+		Map<String, List<GameObject>> map = new HashMap<String, List<GameObject>>();
+		for (File f1 : folder.listFiles()) {
+			List<GameObject> list = new ArrayList<GameObject>();
+			for (File f2 : f1.listFiles()) {
+				list.add(new FallenObject(0, 0, new File[] { f2 }));
+			}
+			map.put(f1.getName(), list);
 		}
-		mode.setMovable(list);
+		mode.setMapMovable(map);
 	}
 
 	@Override
 	public void buildControlable() {
 		folder = new File(mode.getPath() + "\\controlable");
 		List<GameObject> list = new ArrayList<>();
-		list.add(new Character((int)mode.getConstant().get(0).getWidth()/3, (int)(mode.getConstant().get(0).getHeight()*0.7), folder.listFiles()));
+		list.add(new Character((int) mode.getConstant().get(0).getWidth() / 3,
+				(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles()));
 		mode.setControlable(list);
 	}
 

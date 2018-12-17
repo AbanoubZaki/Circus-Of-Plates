@@ -5,6 +5,7 @@ import java.util.List;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 
 public class OurGame implements World {
@@ -23,7 +24,9 @@ public class OurGame implements World {
 		this.setMode(mode);
 		startTime = System.currentTimeMillis();
 		constant = mode.getConstant();
-		movable = new ArrayList<>();
+		movable = new ArrayList<GameObject>();
+		//call 1st constructor only one time to set map of mode & difficulty.
+		FallenObjectsGenerator.getInstance(mode.getMapMovable(), difficulty);
 		controlable = mode.getControlable();
 	}
 	
@@ -88,7 +91,13 @@ public class OurGame implements World {
 
 	@Override
 	public boolean refresh() {
-		
+//		movable.get(0).setX(movable.get(0).getX()+1);
+//		movable.get(0).setY(movable.get(0).getY()+1);
+//		movable.get(1).setX(movable.get(1).getX()-1);
+//		movable.get(2).setY(movable.get(2).getY()+1);
+//		movable.get(3).setX(movable.get(3).getX()+1);
+//		movable.get(4).setX(movable.get(4).getX()-1);
+//		movable.get(4).setY(movable.get(4).getY()+1);
 		return true;
 	}
 }

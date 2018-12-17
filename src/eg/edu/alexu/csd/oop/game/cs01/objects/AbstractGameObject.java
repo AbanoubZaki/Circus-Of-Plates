@@ -47,7 +47,6 @@ public abstract class AbstractGameObject implements GameObject {
 
 	@Override
 	public void setX(int x) {
-		System.out.println(x);
 		this.x = x;
 	}
 

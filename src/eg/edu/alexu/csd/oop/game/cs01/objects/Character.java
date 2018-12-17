@@ -7,7 +7,7 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 public class Character extends AbstractGameObject {
 	
 	//According to dimensions and properties of the clown shape.
-	private final int CONSTANT_X = 10;
+	private final int CONSTANT_X = 137;
 	private final int CONSTANT_Y = 10;
 	private GameObject leftStack;
 	private GameObject rightStack;
