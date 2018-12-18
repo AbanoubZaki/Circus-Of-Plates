@@ -55,8 +55,8 @@ public class FallenObjectsGenerator {
 			int r = random.nextInt(pool.size());
 			fallenObject = pool.get(r);
 			pool.remove(r);
-			fallenObject.setX(random.nextInt(mode.getConstant().get(0).getWidth()-20));
-			fallenObject.setY(0);
+			fallenObject.setX(random.nextInt(mode.getConstant().get(0).getWidth()-35));
+			fallenObject.setY(random.nextInt(30));
 			used.add(fallenObject);
 			return fallenObject;
 		} catch (Exception e) {

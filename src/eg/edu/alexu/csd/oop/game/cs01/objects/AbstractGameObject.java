@@ -12,15 +12,25 @@ public abstract class AbstractGameObject implements GameObject {
 
 	private int x;
 	private int y;
+	private int width;
+	private int height;
 	private boolean visible;
 	private BufferedImage[] images;
 
-	public AbstractGameObject( BufferedImage[] images) {
+	public AbstractGameObject(int x, int y, int width, int height) {
+		this.height = height;
+		this.width = width;
+		this.x = x;
+		this.y = y;
+		visible = true;
+	}
+
+	public AbstractGameObject(BufferedImage[] images) {
 		this.images = images;
 		visible = true;
 
 	}
-	
+
 	public AbstractGameObject(int x, int y, File[] imageFiles) {
 		this.x = x;
 		this.y = y;
@@ -39,7 +49,7 @@ public abstract class AbstractGameObject implements GameObject {
 				for (int i = 0; i < images.length; i++) {
 					images[i] = image[i / 25];
 				}
-			}else {
+			} else {
 				images = image;
 			}
 		} catch (Exception e) {
@@ -71,7 +81,7 @@ public abstract class AbstractGameObject implements GameObject {
 		try {
 			return images[0].getWidth();
 		} catch (Exception e) {
-			return 0;
+			return width;
 		}
 	}
 
@@ -80,7 +90,7 @@ public abstract class AbstractGameObject implements GameObject {
 		try {
 			return images[0].getHeight();
 		} catch (Exception e) {
-			return 0;
+			return height;
 		}
 	}
 

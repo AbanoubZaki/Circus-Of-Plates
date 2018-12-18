@@ -11,13 +11,14 @@ public class FallenObject extends AbstractGameObject {
 
 	public FallenObject(int x, int y, File[] imageFiles) {
 		super(x, y, imageFiles);
-		path = imageFiles[0].getParent();
+		this.path = imageFiles[0].getParent();
 	}
 
-	public FallenObject(int x, int y, BufferedImage[] images) {
+	public FallenObject(int x, int y, BufferedImage[] images, String path) {
 		super(images);
 		setX(x);
 		setY(y);
+		this.path = path;
 	}
 
 	public String getPath() {
@@ -25,6 +26,6 @@ public class FallenObject extends AbstractGameObject {
 	}
 
 	public GameObject clone() {
-		return new FallenObject(getX(), getY(), getSpriteImages());
+		return new FallenObject(getX(), getY(), getSpriteImages(), getPath());
 	}
 }

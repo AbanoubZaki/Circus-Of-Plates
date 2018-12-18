@@ -6,18 +6,22 @@ import java.util.List;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
+import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
+import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
+import eg.edu.alexu.csd.oop.game.cs01.objects.Score;
 
 public class OurGame implements World {
 
 	private static int MAX_TIME = 1 * 60 * 1000; // 1 minute
-	private int score = 0;
+	private int score;
 	private long startTime;
 	private List<GameObject> constant;
 	private List<GameObject> movable;
 	private List<GameObject> controlable;
 	private GameDifficulty difficulty;
 	private GameMode mode;
+	private int counter;
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
 		this.difficulty = difficulty;
@@ -27,7 +31,12 @@ public class OurGame implements World {
 		movable = new ArrayList<GameObject>();
 		// call 1st constructor only one time to set map of mode & difficulty.
 		FallenObjectsGenerator.getInstance(mode, difficulty);
+		for (int i = 0; i < 10; i++) {
+			movable.add(FallenObjectsGenerator.getInstance().getNewObject());
+		}
 		controlable = mode.getControlable();
+		counter = 0;
+		score = 0;
 	}
 
 	@Override
@@ -90,30 +99,57 @@ public class OurGame implements World {
 		this.mode = mode;
 	}
 
+	private boolean intersect(GameObject object2, GameObject object1) {
+		return (Math
+				.abs((object1.getX() + object1.getWidth() / 2) - (object2.getX() + object2.getWidth() / 2)) <= object1
+						.getWidth())
+				&& (Math.abs((object1.getY() + object1.getHeight() / 2)
+						- (object2.getY() + object2.getHeight() / 2)) <= object1.getHeight());
+	}
+
 	@Override
 	public boolean refresh() {
-		// movable.get(0).setX(movable.get(0).getX()+1);
-		// movable.get(0).setY(movable.get(0).getY()+1);
-		// movable.get(1).setX(movable.get(1).getX()-1);
-		// movable.get(2).setY(movable.get(2).getY()+1);
-		// movable.get(3).setX(movable.get(3).getX()+1);
-		// movable.get(4).setX(movable.get(4).getX()-1);
-		// movable.get(4).setY(movable.get(4).getY()+1);
-		if (movable.isEmpty()) {
-			movable.add(FallenObjectsGenerator.getInstance().getNewObject());
-		}
+		boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME;
 		try {
 			for (GameObject o : movable) {
-				o.setY(o.getY()+1);
-				if(o.getY()==getHeight()) {
-					FallenObjectsGenerator.getInstance().releaseObject(o);
-					movable.add(FallenObjectsGenerator.getInstance().getNewObject());
+				if (intersect(o, ((Character) this.controlable.get(0)).getLeftStack())) {
+					CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(0)).getLeftStack();
+					Score s = stack.addFallenObject(o,controlable);
+					movable.remove(o);
+					if (s == Score.win) {
+						score++;
+					} else if (s == Score.lose) {
+						return false;
+					}
+				} else if (intersect(o, ((Character) this.controlable.get(0)).getRightStack())) {
+					CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(0)).getRightStack();
+					Score s = stack.addFallenObject(o,controlable);
+					movable.remove(o);
+					if (s == Score.win) {
+						score++;
+					} else if (s == Score.lose) {
+						return false;
+					}
+				} else {
+					o.setY(o.getY() + 1);
+					if (o.getY() == getHeight() / 3) {
+						counter++;
+					}
+					if (o.getY() == getHeight()) {
+						movable.remove(o);
+						FallenObjectsGenerator.getInstance().releaseObject(o);
+					}
+				}
+				if (counter >= 10) {
+					for (int i = 0; i < 10; i++) {
+						movable.add(FallenObjectsGenerator.getInstance().getNewObject());
+					}
+					counter = 0;
 				}
 			}
-
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return true;
+		return !timeout;
 	}
 }

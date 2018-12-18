@@ -2,7 +2,7 @@ package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
 
 public enum GameDifficulty {
 	
-	easy(20 , 4) , medium(10, 7), hard(5, 10);
+	easy(20 , 3) , medium(10, 4), hard(5, 5);
 	
 	private int speed;
 	private int colorsOfFallenObjects;

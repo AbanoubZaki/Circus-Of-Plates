@@ -69,7 +69,7 @@ public class ModeFactory implements IModeFactory {
 	public void buildControlable() {
 		folder = new File(mode.getPath() + "\\controlable");
 		List<GameObject> list = new ArrayList<>();
-		list.add(new Character((int) mode.getConstant().get(0).getWidth() / 3,
+		list.add(new Character((int) (mode.getConstant().get(0).getWidth()*0.33),
 				(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles()));
 		mode.setControlable(list);
 	}

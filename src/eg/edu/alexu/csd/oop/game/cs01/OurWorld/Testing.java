@@ -9,7 +9,7 @@ public class Testing {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		GameEngine.start("Very Simple Game in 99 Line of Code", new OurGame(GameDifficulty.easy , ModeFactory.getInstance(GameMode.christmass).createMode()));
+		GameEngine.start("Circus of plates", new OurGame(GameDifficulty.hard , ModeFactory.getInstance(GameMode.christmass).createMode()));
 
 	}
 
