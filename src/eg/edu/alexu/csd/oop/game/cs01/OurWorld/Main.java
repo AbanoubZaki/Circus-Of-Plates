@@ -53,7 +53,6 @@ public class Main {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Controller.getInstance().resume();
-				;
 				((OurGame) game).setState(CurrentState.running);
 			}
 		});
