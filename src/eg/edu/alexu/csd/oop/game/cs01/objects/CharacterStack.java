@@ -22,6 +22,7 @@ public class CharacterStack extends AbstractGameObject {
 	// stack.get(i).setX(x);
 	// }
 	// }
+	
 	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable) {
 		this.controlable = controlable;
 		if (CheckColors(fallenObject)) {
