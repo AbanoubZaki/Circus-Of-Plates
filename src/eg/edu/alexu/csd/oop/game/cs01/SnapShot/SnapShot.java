@@ -10,12 +10,30 @@ import eg.edu.alexu.csd.oop.game.World;
 
 public class SnapShot implements SnapShotInterface{
 
+	private static SnapShot snapShot;
+	
+	private SnapShot() {
+	}
+
+	public static SnapShot getSnapShot() {
+		if (snapShot == null) {
+			snapShot = new SnapShot();
+		}
+		return snapShot;
+	}
+	
 	@Override
 	public void saveGame(World ourGame, String fileName) {
 		
 		try {
-			FileOutputStream fileStream = new FileOutputStream(new File("D:\\College\\CSED02\\OOP\\circusofplates\\" + fileName + ".xml"));
+			File folder = new File("SavedGames");
+			System.out.println(folder.mkdirs());
+			File savedFile = new File("SavedGames\\" + fileName + ".xml");
+			System.out.println(savedFile.createNewFile());
+			System.out.println(savedFile.exists());
+			FileOutputStream fileStream = new FileOutputStream(savedFile);
 			XMLEncoder encoder = new XMLEncoder(fileStream);
+			
 			encoder.writeObject(ourGame);
 			encoder.close();
 			fileStream.close();

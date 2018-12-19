@@ -5,11 +5,12 @@ import java.util.List;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
-import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Score;
+import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 
 public class OurGame implements World {
 
@@ -21,6 +22,7 @@ public class OurGame implements World {
 	private List<GameObject> controlable;
 	private GameDifficulty difficulty;
 	private GameMode mode;
+	private CurrentState state;
 	private int counter;
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
@@ -37,6 +39,7 @@ public class OurGame implements World {
 		controlable = mode.getControlable();
 		counter = 0;
 		score = 0;
+		state = CurrentState.running;
 	}
 
 	@Override
@@ -60,7 +63,6 @@ public class OurGame implements World {
 			return constant.get(0).getWidth();
 
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 		return 10;
 	}
@@ -70,7 +72,6 @@ public class OurGame implements World {
 		try {
 			return constant.get(0).getHeight();
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 		return 20;
 	}
@@ -107,6 +108,14 @@ public class OurGame implements World {
 						- (object2.getY() + object2.getHeight() / 2)) <= object1.getHeight());
 	}
 
+	public CurrentState getState() {
+		return state;
+	}
+
+	public void setState(CurrentState state) {
+		this.state = state;
+	}
+
 	@Override
 	public boolean refresh() {
 		boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME;
@@ -114,20 +123,26 @@ public class OurGame implements World {
 			for (GameObject o : movable) {
 				if (intersect(o, ((Character) this.controlable.get(0)).getLeftStack())) {
 					CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(0)).getLeftStack();
-					Score s = stack.addFallenObject(o,controlable);
+					Score s = stack.addFallenObject(o, controlable);
 					movable.remove(o);
 					if (s == Score.win) {
 						score++;
 					} else if (s == Score.lose) {
+						Controller.getInstance().pause();
+						state = CurrentState.gameOver;
+						System.out.println("1");
 						return false;
 					}
 				} else if (intersect(o, ((Character) this.controlable.get(0)).getRightStack())) {
 					CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(0)).getRightStack();
-					Score s = stack.addFallenObject(o,controlable);
+					Score s = stack.addFallenObject(o, controlable);
 					movable.remove(o);
 					if (s == Score.win) {
 						score++;
 					} else if (s == Score.lose) {
+						Controller.getInstance().pause();
+						state = CurrentState.gameOver;
+						System.out.println("2");
 						return false;
 					}
 				} else {
@@ -148,7 +163,11 @@ public class OurGame implements World {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+		}
+		if (timeout) {
+			Controller.getInstance().pause();
+			state = CurrentState.gameOver;
+			System.out.println("1");
 		}
 		return !timeout;
 	}
