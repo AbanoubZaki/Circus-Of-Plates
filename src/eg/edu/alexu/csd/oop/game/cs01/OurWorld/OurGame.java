@@ -134,7 +134,13 @@ public class OurGame implements World {
 			int MovingStrategy = 0;
 			for (GameObject o : movable) {
 				if (difficulty == GameDifficulty.hard) {
-					difficulty.moveHard(o, MovingStrategy);
+					if (MovingStrategy == 0) {
+						o.setX(o.getX() + 1);
+						MovingStrategy = 1;
+					} else if (MovingStrategy == 1) {
+						o.setX(o.getX() - 1);
+						MovingStrategy = 0;
+					}
 				}
 				o.setY(o.getY() + 1);
 				boolean objectRemoved = false;

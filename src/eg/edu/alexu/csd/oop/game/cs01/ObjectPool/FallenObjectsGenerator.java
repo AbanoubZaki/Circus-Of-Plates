@@ -32,11 +32,11 @@ public class FallenObjectsGenerator {
 			Random random = new Random();
 			// 2 is the number of the extra objects.
 			int r = random.nextInt(difficulty.getColorsOfFallenObjects() + 2);
-			if (i % 8 == 0 || i % 8 == 1 || i % 8 == 2 || i % 8 == 4 || i % 8 == 6 || i % 8 == 7) {
+			if (i%14 <8 || (i%14 > 8 && i%14 <13)) {
 				r = (r + 2) % difficulty.getColorsOfFallenObjects() + 2;
-			} else if (i % 8 == 3) {
+			} else if (i % 8 == 8) {
 				r = 0;
-			} else {
+			} else if (i % 8 == 13) {
 				r = 1;
 			}
 			// System.out.println(r + 1);
