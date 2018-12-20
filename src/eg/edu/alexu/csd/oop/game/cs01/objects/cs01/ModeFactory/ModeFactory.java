@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
-import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObservableX;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObserverX;
 
@@ -69,11 +69,11 @@ public class ModeFactory implements IModeFactory {
 		folder = new File(mode.getPath() + "\\controlable");
 		List<GameObject> list = new ArrayList<>();
 		list.add(new Character((int) (mode.getConstant().get(0).getWidth() * 0.33),
-				(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles(), ObjectType.left));
+				(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles(), ObjectType.left, mode));
 		if (difficulty == GameDifficulty.hard) {
 			ObservableX.getInstance().addPropertyChangeListener(ObserverX.getInstance());
 			list.add(new Character((int) (mode.getConstant().get(0).getWidth() * 0.67),
-					(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles(), ObjectType.right));
+					(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles(), ObjectType.right, mode));
 		}
 		System.out.println(mode.getConstant().get(0).getWidth() * 0.33-mode.getConstant().get(0).getWidth() * 0.67);
 		mode.setControlable(list);

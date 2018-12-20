@@ -5,13 +5,13 @@ import java.util.List;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
+import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
+import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
-import eg.edu.alexu.csd.oop.game.cs01.objects.Score;
-import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 
 public class OurGame implements World {
@@ -113,15 +113,6 @@ public class OurGame implements World {
 	public void setMode(GameMode mode) {
 		this.mode = mode;
 	}
-
-	// private boolean intersect(GameObject object2, GameObject object1) {
-	// return (Math
-	// .abs((object1.getX() + object1.getWidth() / 2) - (object2.getX() +
-	// object2.getWidth() / 2)) <= object1
-	// .getWidth())
-	// && (Math.abs((object1.getY() + object1.getHeight() / 2)
-	// - (object2.getY() + object2.getHeight() / 2)) <= object1.getHeight());
-	// }
 
 	public CurrentState getState() {
 		return state;

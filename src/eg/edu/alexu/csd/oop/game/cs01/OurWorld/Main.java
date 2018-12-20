@@ -9,9 +9,9 @@ import javax.swing.JMenuItem;
 
 import eg.edu.alexu.csd.oop.game.GameEngine;
 import eg.edu.alexu.csd.oop.game.World;
+import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.SnapShot;
-import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.ModeFactory;
 
@@ -33,16 +33,14 @@ public class Main {
 		options.add(resumeMenuItem);
 		menuBar.add(options);
 
-		game = new OurGame(GameDifficulty.hard, ModeFactory.getInstance(GameMode.christmass, GameDifficulty.hard).createMode());
-		game = new OurGame(GameDifficulty.hard,
-				ModeFactory.getInstance(GameMode.christmass, GameDifficulty.hard).createMode());
+		game = new OurGame(GameDifficulty.hard, ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 
 		newMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				game = new OurGame(GameDifficulty.easy,
-						ModeFactory.getInstance(GameMode.christmass, GameDifficulty.easy).createMode());
+				game = new OurGame(GameDifficulty.hard,
+						ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
 				Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 				Controller.getInstance().changeWorld(game);
 			}

@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.game.cs01.objects.cs01.Difficulty;
+package eg.edu.alexu.csd.oop.game.cs01.Difficulty;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 

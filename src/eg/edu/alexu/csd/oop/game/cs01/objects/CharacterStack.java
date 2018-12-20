@@ -7,6 +7,7 @@ import Strategy.MovableXCondition;
 import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
+import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
 
 public class CharacterStack extends AbstractGameObject {
 

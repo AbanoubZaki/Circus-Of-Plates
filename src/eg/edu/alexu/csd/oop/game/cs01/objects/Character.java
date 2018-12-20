@@ -6,6 +6,7 @@ import java.io.File;
 import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
+import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObservableX;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObserverX;
 
@@ -17,16 +18,18 @@ public class Character extends AbstractGameObject {
 	private GameObject rightStack;
 	private int indexOfClown;
 	private ObjectType type;
+	private GameMode mode;
 
 	public Character() {
 		leftStack = new CharacterStack();
 		rightStack = new CharacterStack();
 	}
 
-	public Character(int x, int y, File[] imageFiles, ObjectType type) {
+	public Character(int x, int y, File[] imageFiles, ObjectType type, GameMode mode) {
 		super(x, y, imageFiles);
 		indexOfClown = 0;
 		this.setType(type);
+		setMode(mode);
 		setMovableY(new NotMovableY(y));
 		ObservableX.getInstance().setX(x);
 		/**
@@ -40,7 +43,11 @@ public class Character extends AbstractGameObject {
 	public void setX(int x) {
 		ObservableX.getInstance().setX(x);
 		if (ObserverX.getInstance().getDifference() == 0 || ObserverX.getInstance().getDifference() > 375) {
-			indexOfClown = x < getX() ? 0 : 1;
+			if (mode == GameMode.christmass) {
+				indexOfClown = x < getX() ? 0 : 1;
+			} else {
+				indexOfClown = 0;
+			}
 			super.setX(x);
 			leftStack.setX(x);
 			rightStack.setX(x + CONSTANT_X);
@@ -53,6 +60,14 @@ public class Character extends AbstractGameObject {
 
 	public GameObject getRightStack() {
 		return rightStack;
+	}
+	
+	private GameMode getMode() {
+		return mode;
+	}
+
+	private void setMode(GameMode mode) {
+		this.mode = mode;
 	}
 
 	@Override
