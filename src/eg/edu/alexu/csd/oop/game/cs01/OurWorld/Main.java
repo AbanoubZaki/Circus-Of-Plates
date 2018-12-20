@@ -12,9 +12,9 @@ import eg.edu.alexu.csd.oop.game.GameEngine;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
+import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
+import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.ModeFactory;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.SnapShot;
-import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
-import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.ModeFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

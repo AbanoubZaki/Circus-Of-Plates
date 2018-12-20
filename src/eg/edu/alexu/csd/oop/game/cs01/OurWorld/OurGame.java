@@ -11,12 +11,13 @@ import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.Iterator.GameObjectCollection;
 import eg.edu.alexu.csd.oop.game.cs01.Iterator.IGameObjectCollection;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
+import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
-import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 
 public class OurGame implements World {
 
@@ -36,6 +37,7 @@ public class OurGame implements World {
 	}
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
+		OurLogger.info(this.getClass(), "a new game of " + mode + " mode & " + difficulty + " difficulty has started");
 		lives = 5;
 		this.difficulty = difficulty;
 		this.setMode(mode);
@@ -136,6 +138,7 @@ public class OurGame implements World {
 			state = CurrentState.gameOver;
 			Track.getInstance().getTrack("theme").stop();
 			Track.getInstance().getTrack("gameover").play();
+			OurLogger.info(this.getClass(), "game has ended with 0 lives");
 			return false;
 		}
 		try {
@@ -161,6 +164,7 @@ public class OurGame implements World {
 						objectRemoved = true;
 						Track.getInstance().getTrack("present").play();
 						score++;
+						OurLogger.info(this.getClass(), "score increased by 1");
 						break;
 					} else if (Refresh.getInstance().intersectWithBad(o,
 							((Character) this.controlable.get(i)).getLeftStack(),
@@ -168,6 +172,7 @@ public class OurGame implements World {
 						movable.remove(o);
 						objectRemoved = true;
 						lives--;
+						OurLogger.info(this.getClass(), "a bomb hit an character");
 						constant.remove(constant.size() - 1);
 						Track.getInstance().getTrack("bomb").play();
 
@@ -180,12 +185,14 @@ public class OurGame implements World {
 						objectRemoved = true;
 						if (s == Score.win) {
 							score++;
+							OurLogger.info(this.getClass(), "3 plates of same colour has been collected");
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
 							// System.out.println("1");
 							Track.getInstance().getTrack("theme").stop();
 							Track.getInstance().getTrack("gameover").play();
+							OurLogger.info(this.getClass(), "character stack full with 15 plate");
 							return false;
 						}
 						break;
@@ -197,12 +204,14 @@ public class OurGame implements World {
 						objectRemoved = true;
 						if (s == Score.win) {
 							score++;
+							OurLogger.info(this.getClass(), "3 plates of same colour has been collected");
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
 							// System.out.println("2");
 							Track.getInstance().getTrack("theme").stop();
 							Track.getInstance().getTrack("gameover").play();
+							OurLogger.info(this.getClass(), "character stack full with 15 plate");
 							return false;
 						}
 						break;
@@ -215,10 +224,12 @@ public class OurGame implements World {
 					if (o.getY() == getHeight() - controlable.get(0).getHeight() + 20) {
 						movable.remove(o);
 						FallenObjectsGenerator.getInstance().releaseObject(o);
+						OurLogger.info(this.getClass(), "plate released into pool");
 					}
 				}
 			}
 			if (counter >= 5) {
+				OurLogger.info(this.getClass(), "plates are added to screen");
 				for (int i = 0; i < 5; i++) {
 					movable.add(FallenObjectsGenerator.getInstance().getNewObject());
 				}
@@ -231,6 +242,8 @@ public class OurGame implements World {
 			state = CurrentState.gameOver;
 			Track.getInstance().getTrack("theme").stop();
 			Track.getInstance().getTrack("gameover").play();
+			OurLogger.info(this.getClass(), "game is over, time ended");
+
 			// System.out.println("3");
 		}
 		return !timeout;

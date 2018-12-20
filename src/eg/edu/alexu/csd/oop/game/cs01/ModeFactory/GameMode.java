@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory;
+package eg.edu.alexu.csd.oop.game.cs01.ModeFactory;
 
 import java.util.List;
 import java.util.Map;
