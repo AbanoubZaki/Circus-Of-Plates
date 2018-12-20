@@ -9,12 +9,14 @@ import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
+import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Score;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 
 public class OurGame implements World {
 
 	private static int MAX_TIME = 1 * 60 * 1000; // 1 minute
+	private int lives;
 	private int score;
 	private long startTime;
 	private List<GameObject> constant;
@@ -26,6 +28,7 @@ public class OurGame implements World {
 	private int counter;
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
+		lives = 5;
 		this.difficulty = difficulty;
 		this.setMode(mode);
 		startTime = System.currentTimeMillis();
@@ -33,7 +36,7 @@ public class OurGame implements World {
 		movable = new ArrayList<GameObject>();
 		// call 1st constructor only one time to set map of mode & difficulty.
 		FallenObjectsGenerator.getInstance(mode, difficulty);
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 5; i++) {
 			movable.add(FallenObjectsGenerator.getInstance().getNewObject());
 		}
 		controlable = mode.getControlable();
@@ -78,8 +81,15 @@ public class OurGame implements World {
 
 	@Override
 	public String getStatus() {
-		return "Score=" + score + "   |   Time="
+		String status = "Score=" + score + "   |   Time="
 				+ Math.max(0, (MAX_TIME - (System.currentTimeMillis() - startTime)) / 1000);
+		for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
+			status += "   |    left = " + ((CharacterStack) (((Character) controlable.get(i)).getLeftStack())).getSize()
+					+ "    |    right = "
+					+ ((CharacterStack) (((Character) controlable.get(i)).getRightStack())).getSize();
+		}
+		status += "   |   lives = " + lives;
+		return status;
 	}
 
 	@Override
@@ -100,12 +110,18 @@ public class OurGame implements World {
 		this.mode = mode;
 	}
 
-	private boolean intersect(GameObject object2, GameObject object1) {
-		return (Math
-				.abs((object1.getX() + object1.getWidth() / 2) - (object2.getX() + object2.getWidth() / 2)) <= object1
-						.getWidth())
-				&& (Math.abs((object1.getY() + object1.getHeight() / 2)
-						- (object2.getY() + object2.getHeight() / 2)) <= object1.getHeight());
+	// private boolean intersect(GameObject object2, GameObject object1) {
+	// return (Math
+	// .abs((object1.getX() + object1.getWidth() / 2) - (object2.getX() +
+	// object2.getWidth() / 2)) <= object1
+	// .getWidth())
+	// && (Math.abs((object1.getY() + object1.getHeight() / 2)
+	// - (object2.getY() + object2.getHeight() / 2)) <= object1.getHeight());
+	// }
+
+	private boolean intersect(GameObject o2, GameObject o1) {
+		return ((o1.getX() < o2.getX() + o2.getWidth()) && (o1.getX() > o2.getX() - o2.getWidth())
+				&& (o1.getY() < o2.getY() + o2.getHeight()) && (o1.getY() > o2.getY() - o2.getHeight()));
 	}
 
 	public CurrentState getState() {
@@ -119,55 +135,83 @@ public class OurGame implements World {
 	@Override
 	public boolean refresh() {
 		boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME;
+		if (lives == 0) {
+			Controller.getInstance().pause();
+			state = CurrentState.gameOver;
+			return false;
+		}
 		try {
 			for (GameObject o : movable) {
-				if (intersect(o, ((Character) this.controlable.get(0)).getLeftStack())) {
-					CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(0)).getLeftStack();
-					Score s = stack.addFallenObject(o, controlable);
-					movable.remove(o);
-					if (s == Score.win) {
+				o.setY(o.getY() + 1);
+				boolean objectRemoved = false;
+				for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
+					if (((FallenObject) o).getPath().contains("0")
+							&& (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())
+									|| intersect(o, ((Character) this.controlable.get(i)).getRightStack()))) {
+						movable.remove(o);
+						objectRemoved = true;
 						score++;
-					} else if (s == Score.lose) {
-						Controller.getInstance().pause();
-						state = CurrentState.gameOver;
-						System.out.println("1");
-						return false;
+						break;
+					} else if (((FallenObject) o).getPath().contains("6")
+							&& (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())
+									|| intersect(o, ((Character) this.controlable.get(i)).getRightStack()))) {
+						movable.remove(o);
+						objectRemoved = true;
+						lives--;
+						constant.remove(constant.size()-1);
+						break;
+					} else if (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())) {
+						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getLeftStack();
+						Score s = stack.addFallenObject(o, controlable, getWidth());
+						movable.remove(o);
+						objectRemoved = true;
+						if (s == Score.win) {
+							score++;
+						} else if (s == Score.lose) {
+							Controller.getInstance().pause();
+							state = CurrentState.gameOver;
+							// System.out.println("1");
+							return false;
+						}
+						break;
+					} else if (intersect(o, ((Character) this.controlable.get(i)).getRightStack())) {
+						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getRightStack();
+						Score s = stack.addFallenObject(o, controlable, getWidth());
+						movable.remove(o);
+						objectRemoved = true;
+						if (s == Score.win) {
+							score++;
+						} else if (s == Score.lose) {
+							Controller.getInstance().pause();
+							state = CurrentState.gameOver;
+							// System.out.println("2");
+							return false;
+						}
+						break;
 					}
-				} else if (intersect(o, ((Character) this.controlable.get(0)).getRightStack())) {
-					CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(0)).getRightStack();
-					Score s = stack.addFallenObject(o, controlable);
-					movable.remove(o);
-					if (s == Score.win) {
-						score++;
-					} else if (s == Score.lose) {
-						Controller.getInstance().pause();
-						state = CurrentState.gameOver;
-						System.out.println("2");
-						return false;
-					}
-				} else {
-					o.setY(o.getY() + 1);
+				}
+				if (!objectRemoved) {
 					if (o.getY() == getHeight() / 3) {
 						counter++;
 					}
-					if (o.getY() == getHeight()) {
+					if (o.getY() == getHeight() - controlable.get(0).getHeight() + 8) {
 						movable.remove(o);
 						FallenObjectsGenerator.getInstance().releaseObject(o);
 					}
 				}
-				if (counter >= 10) {
-					for (int i = 0; i < 10; i++) {
-						movable.add(FallenObjectsGenerator.getInstance().getNewObject());
-					}
-					counter = 0;
+			}
+			if (counter >= 5) {
+				for (int i = 0; i < 5; i++) {
+					movable.add(FallenObjectsGenerator.getInstance().getNewObject());
 				}
+				counter = 0;
 			}
 		} catch (Exception e) {
 		}
 		if (timeout) {
 			Controller.getInstance().pause();
 			state = CurrentState.gameOver;
-			System.out.println("1");
+			// System.out.println("3");
 		}
 		return !timeout;
 	}

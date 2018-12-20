@@ -30,9 +30,10 @@ public class FallenObjectsGenerator {
 		used = new ArrayList<GameObject>(MAX_FALLEN_OBJECTS);
 		for (int i = 0; i < MAX_FALLEN_OBJECTS; i++) {
 			Random random = new Random();
-			int r = random.nextInt(difficulty.getColorsOfFallenObjects());
+			// 2 is the number of the extra objects.
+			int r = random.nextInt(difficulty.getColorsOfFallenObjects()+2);
 //			System.out.println(r + 1);
-			for (GameObject o : map.get(Integer.toString(r + 1))) {
+			for (GameObject o : map.get(Integer.toString(r))) {
 				pool.add(((FallenObject) o).clone());
 			}
 		}

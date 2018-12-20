@@ -10,20 +10,15 @@ public class CharacterStack extends AbstractGameObject {
 	private final int MAX_FALLEN_OBJECTS = 15;
 	private Stack<GameObject> stack;
 	private List<GameObject> controlable;
+	private StackType type;
 
-	public CharacterStack(int x, int y) {
-		super(x, y, 25, 0);
+	public CharacterStack(int x, int y, StackType type) {
+		super(x, y, 35, 0);
 		stack = new Stack<>();
+		this.type = type;
 	}
 
-	// @Override
-	// public void setX(int x) {
-	// for (int i = 0; i < stack.size(); i++) {
-	// stack.get(i).setX(x);
-	// }
-	// }
-	
-	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable) {
+	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable, int backGroundWidth) {
 		this.controlable = controlable;
 		if (CheckColors(fallenObject)) {
 			removeFallenObject();
@@ -34,6 +29,9 @@ public class CharacterStack extends AbstractGameObject {
 			fallenObject.setX(getX());
 			fallenObject.setY(getY());
 			stack.push(fallenObject);
+			((AbstractGameObject) fallenObject).setMovableY(new NotMovableY(fallenObject.getY()));
+			((AbstractGameObject) fallenObject)
+					.setMovableX(new MovableXCondition(backGroundWidth, controlable.get(0).getWidth(), type));
 			this.controlable.add(fallenObject);
 			return Score.noChange;
 		}
@@ -62,6 +60,10 @@ public class CharacterStack extends AbstractGameObject {
 		} catch (Exception e) {
 		}
 		return false;
+	}
+	
+	public int getSize () {
+		return stack.size();
 	}
 
 }

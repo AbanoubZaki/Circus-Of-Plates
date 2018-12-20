@@ -22,7 +22,7 @@ public class Main {
 		JMenuBar menuBar = new JMenuBar();
 		;
 		JMenu menu = new JMenu("Options");
-		JMenuItem newMenuItem = new JMenuItem("New");
+		JMenuItem newMenuItem = new JMenuItem("New Zeft Game");
 		JMenuItem pauseMenuItem = new JMenuItem("Pause");
 		JMenuItem resumeMenuItem = new JMenuItem("Resume");
 		menu.add(newMenuItem);
@@ -31,13 +31,13 @@ public class Main {
 		menu.add(resumeMenuItem);
 		menuBar.add(menu);
 
-		game = new OurGame(GameDifficulty.hard, ModeFactory.getInstance(GameMode.christmass).createMode());
+		game = new OurGame(GameDifficulty.hard, ModeFactory.getInstance(GameMode.christmass, GameDifficulty.hard).createMode());
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 
 		newMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				game = new OurGame(GameDifficulty.easy, ModeFactory.getInstance(GameMode.christmass).createMode());
+				game = new OurGame(GameDifficulty.easy, ModeFactory.getInstance(GameMode.christmass, GameDifficulty.easy).createMode());
 				Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 				Controller.getInstance().changeWorld(game);
 			}

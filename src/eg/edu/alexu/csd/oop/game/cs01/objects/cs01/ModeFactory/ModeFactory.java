@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.OurWorld.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
@@ -14,43 +15,38 @@ import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 public class ModeFactory implements IModeFactory {
 
 	private static GameMode mode;
+	private static GameDifficulty difficulty;
 	private File folder;
 
 	private static ModeFactory factory;
 
-	private ModeFactory(GameMode mode) {
+	private ModeFactory(GameMode mode, GameDifficulty difficulty) {
 		ModeFactory.mode = mode;
+		ModeFactory.difficulty = difficulty;
 	}
 
-	public static ModeFactory getInstance(GameMode mode) {
+	public static ModeFactory getInstance(GameMode mode, GameDifficulty difficulty) {
 		if (factory == null) {
-			factory = new ModeFactory(mode);
+			factory = new ModeFactory(mode, difficulty);
 		}
-		if (!ModeFactory.mode.equals(mode)) {
-			factory = new ModeFactory(mode);
+		if (!ModeFactory.mode.equals(mode) && !ModeFactory.difficulty.equals(difficulty)) {
+			factory = new ModeFactory(mode, difficulty);
 		}
 		return factory;
 	}
 
 	@Override
 	public void buildConstant() {
-		folder = new File(mode.getPath() + "\\constant");
+		folder = new File(mode.getPath() + "\\background");
 		List<GameObject> list = new ArrayList<>();
 		list.add(new Background(0, 0, folder.listFiles()));
+		folder = new File(mode.getPath() + "\\live");
+		for (int i = 0; i < 5; i++) {
+			list.add(new Background(i*55, 10, folder.listFiles()));
+		}
 		mode.setConstant(list);
 	}
 
-	// @Override
-	// public void buildMovable() {
-	// folder = new File(mode.getPath() + "\\plates");
-	// List<GameObject> list = new ArrayList<>();
-	// for(File f:folder.listFiles()) {
-	// list.add(new FallenObject(515, 485, f.listFiles()));
-	// }
-	// mode.setMovable(list);
-	// }
-	// x = +-137
-	// y = +- 10
 	@Override
 	public void buildMovable() {
 		folder = new File(mode.getPath() + "\\plates");
@@ -69,8 +65,12 @@ public class ModeFactory implements IModeFactory {
 	public void buildControlable() {
 		folder = new File(mode.getPath() + "\\controlable");
 		List<GameObject> list = new ArrayList<>();
-		list.add(new Character((int) (mode.getConstant().get(0).getWidth()*0.33),
+		list.add(new Character((int) (mode.getConstant().get(0).getWidth() * 0.33),
 				(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles()));
+		if (difficulty == GameDifficulty.hard) {
+			list.add(new Character((int) (mode.getConstant().get(0).getWidth() * 0.67),
+					(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles()));
+		}
 		mode.setControlable(list);
 	}
 

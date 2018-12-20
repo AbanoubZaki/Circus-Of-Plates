@@ -16,11 +16,13 @@ public class Character extends AbstractGameObject {
 	public Character(int x, int y, File[] imageFiles) {
 		super(x, y, imageFiles);
 		indexOfClown = 0;
+		setMovableY(new NotMovableY(y));
+		
 		/**
 		 * x & y are the positions of the top of the empty stack.
 		 */
-		leftStack = new CharacterStack(x, y);
-		rightStack = new CharacterStack(x + CONSTANT_X, y);
+		leftStack = new CharacterStack(x, y, StackType.left);
+		rightStack = new CharacterStack(x + CONSTANT_X, y, StackType.right);
 	}
 
 	@Override
@@ -29,13 +31,6 @@ public class Character extends AbstractGameObject {
 		super.setX(x);
 		leftStack.setX(x);
 		rightStack.setX(x + CONSTANT_X);
-	}
-
-	/**
-	 * empty method as the character doesn't in y direction;
-	 */
-	@Override
-	public void setY(int y) {
 	}
 
 	public GameObject getLeftStack() {

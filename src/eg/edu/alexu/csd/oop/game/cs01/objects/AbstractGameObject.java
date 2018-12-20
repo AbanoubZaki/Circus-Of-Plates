@@ -16,24 +16,52 @@ public abstract class AbstractGameObject implements GameObject {
 	private int height;
 	private boolean visible;
 	private BufferedImage[] images;
+	private IMovableX movableX;
+	private IMovableY movableY;
+
+	/**
+	 * @param movableX
+	 *            the movableX to set
+	 */
+	public void setMovableX(IMovableX movableX) {
+		this.movableX = movableX;
+	}
+
+	/**
+	 * @param movableY
+	 *            the movableY to set
+	 */
+	public void setMovableY(IMovableY movableY) {
+		this.movableY = movableY;
+	}
 
 	public AbstractGameObject(int x, int y, int width, int height) {
 		this.height = height;
 		this.width = width;
+		this.movableX = new MovableX();
+		this.movableY = new MovableY();
 		this.x = x;
 		this.y = y;
+		movableX.setX(x);
+		movableY.setY(y);
 		visible = true;
 	}
 
 	public AbstractGameObject(BufferedImage[] images) {
+		this.movableX = new MovableX();
+		this.movableY = new MovableY();
 		this.images = images;
 		visible = true;
 
 	}
 
 	public AbstractGameObject(int x, int y, File[] imageFiles) {
+		this.movableX = new MovableX();
+		this.movableY = new MovableY();
 		this.x = x;
 		this.y = y;
+		movableX.setX(x);
+		movableY.setY(y);
 		visible = true;
 		try {
 			images = new BufferedImage[175];
@@ -45,7 +73,7 @@ public abstract class AbstractGameObject implements GameObject {
 					e.printStackTrace();
 				}
 			}
-			if (imageFiles[0].getParent().contains("constant")) {
+			if (imageFiles[0].getParent().contains("background")) {
 				for (int i = 0; i < images.length; i++) {
 					images[i] = image[i / 25];
 				}
@@ -63,7 +91,7 @@ public abstract class AbstractGameObject implements GameObject {
 
 	@Override
 	public void setX(int x) {
-		this.x = x;
+		this.x = movableX.setX(x);
 	}
 
 	@Override
@@ -73,7 +101,7 @@ public abstract class AbstractGameObject implements GameObject {
 
 	@Override
 	public void setY(int y) {
-		this.y = y;
+		this.y = movableY.setY(y);
 	}
 
 	@Override
