@@ -1,4 +1,6 @@
-package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
+package eg.edu.alexu.csd.oop.game.cs01.objects.cs01.Difficulty;
+
+import eg.edu.alexu.csd.oop.game.GameObject;
 
 public enum GameDifficulty {
 	
@@ -25,5 +27,15 @@ public enum GameDifficulty {
 	
 	public int getNoOfCharacters() {
 		return noOfCharacters;
+	}
+	
+	public void moveHard (GameObject o, int MovingStrategy) {
+		if(MovingStrategy==0) {
+			o.setX(o.getX()+1);
+			MovingStrategy=1;
+		} else if(MovingStrategy==1) {
+			o.setX(o.getX()-1);
+			MovingStrategy=0;
+		}
 	}
 }

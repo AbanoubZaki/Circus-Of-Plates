@@ -7,15 +7,17 @@ import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
+import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
 import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Score;
+import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 
 public class OurGame implements World {
 
-	private static int MAX_TIME = 1 * 60 * 1000; // 1 minute
+	private static int MAX_TIME = 2 * 60 * 1000; // 1 minute
 	private int lives;
 	private int score;
 	private long startTime;
@@ -26,7 +28,6 @@ public class OurGame implements World {
 	private GameMode mode;
 	private CurrentState state;
 	private int counter;
-	private int hbl = 0;
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
 		lives = 5;
@@ -120,11 +121,6 @@ public class OurGame implements World {
 	// - (object2.getY() + object2.getHeight() / 2)) <= object1.getHeight());
 	// }
 
-	private boolean intersect(GameObject o2, GameObject o1) {
-		return ((o1.getX() < o2.getX() + o2.getWidth()) && (o1.getX() > o2.getX() - o2.getWidth())
-				&& (o1.getY() < o2.getY() + o2.getHeight()) && (o1.getY() > o2.getY() - o2.getHeight()));
-	}
-
 	public CurrentState getState() {
 		return state;
 	}
@@ -142,33 +138,30 @@ public class OurGame implements World {
 			return false;
 		}
 		try {
+			int MovingStrategy = 0;
 			for (GameObject o : movable) {
-//				if(hbl==0) {
-//					o.setX(o.getX()+1);
-//					hbl=1;
-//				}else if(hbl==1) {
-//					o.setX(o.getX()-1);
-//					hbl=0;
-//				}
+				if (difficulty == GameDifficulty.hard) {
+					difficulty.moveHard(o, MovingStrategy);
+				}
 				o.setY(o.getY() + 1);
 				boolean objectRemoved = false;
 				for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
-					if (((FallenObject) o).getPath().contains("0")
-							&& (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())
-									|| intersect(o, ((Character) this.controlable.get(i)).getRightStack()))) {
+					if (Refresh.getInstance().intersectWithGood(o, ((Character) this.controlable.get(i)).getLeftStack(),
+							((Character) this.controlable.get(i)).getRightStack())) {
 						movable.remove(o);
 						objectRemoved = true;
 						score++;
 						break;
-					} else if (((FallenObject) o).getPath().contains("1")
-							&& (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())
-									|| intersect(o, ((Character) this.controlable.get(i)).getRightStack()))) {
+					} else if (Refresh.getInstance().intersectWithBad(o,
+							((Character) this.controlable.get(i)).getLeftStack(),
+							((Character) this.controlable.get(i)).getRightStack())) {
 						movable.remove(o);
 						objectRemoved = true;
 						lives--;
-						constant.remove(constant.size()-1);
+						constant.remove(constant.size() - 1);
 						break;
-					} else if (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())) {
+					} else if (Refresh.getInstance().intersectWithPlateLeft(o,
+							((Character) this.controlable.get(i)).getLeftStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getLeftStack();
 						Score s = stack.addFallenObject(o, controlable, getWidth());
 						movable.remove(o);
@@ -182,7 +175,8 @@ public class OurGame implements World {
 							return false;
 						}
 						break;
-					} else if (intersect(o, ((Character) this.controlable.get(i)).getRightStack())) {
+					} else if (Refresh.getInstance().intersectWithPlateRight(o,
+							((Character) this.controlable.get(i)).getRightStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getRightStack();
 						Score s = stack.addFallenObject(o, controlable, getWidth());
 						movable.remove(o);
@@ -202,7 +196,7 @@ public class OurGame implements World {
 					if (o.getY() == getHeight() / 3) {
 						counter++;
 					}
-					if (o.getY() == getHeight() - controlable.get(0).getHeight() + 8) {
+					if (o.getY() == getHeight() - controlable.get(0).getHeight() + 20) {
 						movable.remove(o);
 						FallenObjectsGenerator.getInstance().releaseObject(o);
 					}
