@@ -10,7 +10,6 @@ import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
-import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Score;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
@@ -28,6 +27,9 @@ public class OurGame implements World {
 	private GameMode mode;
 	private CurrentState state;
 	private int counter;
+
+	public OurGame() {
+	}
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
 		lives = 5;
@@ -163,7 +165,7 @@ public class OurGame implements World {
 					} else if (Refresh.getInstance().intersectWithPlateLeft(o,
 							((Character) this.controlable.get(i)).getLeftStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getLeftStack();
-						Score s = stack.addFallenObject(o, controlable, getWidth());
+						Score s = stack.addFallenObject(o, controlable, getWidth(), i);
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
@@ -178,7 +180,7 @@ public class OurGame implements World {
 					} else if (Refresh.getInstance().intersectWithPlateRight(o,
 							((Character) this.controlable.get(i)).getRightStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getRightStack();
-						Score s = stack.addFallenObject(o, controlable, getWidth());
+						Score s = stack.addFallenObject(o, controlable, getWidth(), i);
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {

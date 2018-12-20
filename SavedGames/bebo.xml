@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_144" class="java.beans.XMLDecoder">
+ <object class="eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame">
+  <void property="mode">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode</class>
+    <string>christmass</string>
+   </object>
+  </void>
+  <void property="state">
+   <object class="java.lang.Enum" method="valueOf">
+    <class>eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState</class>
+    <string>running</string>
+   </object>
+  </void>
+ </object>
+</java>

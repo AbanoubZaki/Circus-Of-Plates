@@ -6,22 +6,26 @@ import java.util.Stack;
 import Strategy.MovableXCondition;
 import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
-import eg.edu.alexu.csd.oop.game.cs01.Enums.StackType;
+import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 
 public class CharacterStack extends AbstractGameObject {
 
 	private final int MAX_FALLEN_OBJECTS = 15;
 	private Stack<GameObject> stack;
 	private List<GameObject> controlable;
-	private StackType type;
+	private ObjectType type;
 
-	public CharacterStack(int x, int y, StackType type) {
+	public CharacterStack() {
+	}
+
+	public CharacterStack(int x, int y, ObjectType type) {
 		super(x, y, 35, 0);
 		stack = new Stack<>();
 		this.type = type;
 	}
 
-	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable, int backGroundWidth) {
+	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable, int backGroundWidth,
+			int noOfCharacter) {
 		this.controlable = controlable;
 		if (CheckColors(fallenObject)) {
 			removeFallenObject();
@@ -33,8 +37,8 @@ public class CharacterStack extends AbstractGameObject {
 			fallenObject.setY(getY());
 			stack.push(fallenObject);
 			((AbstractGameObject) fallenObject).setMovableY(new NotMovableY(fallenObject.getY()));
-			((AbstractGameObject) fallenObject)
-					.setMovableX(new MovableXCondition(backGroundWidth, controlable.get(0).getWidth(), type));
+			((AbstractGameObject) fallenObject).setMovableX(new MovableXCondition(backGroundWidth,
+					controlable.get(noOfCharacter).getWidth(), type, fallenObject.getX()));
 			this.controlable.add(fallenObject);
 			return Score.noChange;
 		}
@@ -64,8 +68,8 @@ public class CharacterStack extends AbstractGameObject {
 		}
 		return false;
 	}
-	
-	public int getSize () {
+
+	public int getSize() {
 		return stack.size();
 	}
 

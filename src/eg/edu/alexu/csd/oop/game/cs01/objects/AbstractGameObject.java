@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.oop.game.cs01.objects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
@@ -18,6 +19,41 @@ public abstract class AbstractGameObject implements GameObject {
 	private int y;
 	private int width;
 	private int height;
+	/**
+	 * @return the images
+	 */
+	public BufferedImage[] getImages() {
+		return images;
+	}
+
+	/**
+	 * @param images the images to set
+	 */
+	public void setImages(BufferedImage[] images) {
+		this.images = images;
+	}
+
+	/**
+	 * @param width the width to set
+	 */
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	/**
+	 * @param height the height to set
+	 */
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	/**
+	 * @param visible the visible to set
+	 */
+	public void setVisible(boolean visible) {
+		this.visible = visible;
+	}
+
 	private boolean visible;
 	private BufferedImage[] images;
 	private IMovableX movableX;
@@ -37,6 +73,12 @@ public abstract class AbstractGameObject implements GameObject {
 	 */
 	public void setMovableY(IMovableY movableY) {
 		this.movableY = movableY;
+	}
+
+	public AbstractGameObject() {
+		this.movableX = new MovableX();
+		this.movableY = new MovableY();
+		images = new BufferedImage[200];
 	}
 
 	public AbstractGameObject(int x, int y, int width, int height) {
