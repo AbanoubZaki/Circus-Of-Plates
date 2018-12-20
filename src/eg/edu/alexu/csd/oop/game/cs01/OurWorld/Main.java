@@ -10,13 +10,14 @@ import javax.swing.JMenuItem;
 import eg.edu.alexu.csd.oop.game.GameEngine;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.SnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.ModeFactory;
 
 public class Main {
-	
+
 	static volatile World game;
-	
+
 	public static void main(String[] args) {
 
 		JMenuBar menuBar = new JMenuBar();
@@ -31,13 +32,15 @@ public class Main {
 		menu.add(resumeMenuItem);
 		menuBar.add(menu);
 
-		game = new OurGame(GameDifficulty.medium, ModeFactory.getInstance(GameMode.christmass, GameDifficulty.medium).createMode());
+		game = new OurGame(GameDifficulty.hard,
+				ModeFactory.getInstance(GameMode.christmass, GameDifficulty.hard).createMode());
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 
 		newMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				game = new OurGame(GameDifficulty.easy, ModeFactory.getInstance(GameMode.christmass, GameDifficulty.easy).createMode());
+				game = new OurGame(GameDifficulty.easy,
+						ModeFactory.getInstance(GameMode.christmass, GameDifficulty.easy).createMode());
 				Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 				Controller.getInstance().changeWorld(game);
 			}
@@ -57,7 +60,7 @@ public class Main {
 			}
 		});
 
-		// SnapShot.getSnapShot().saveGame(game, "bebo");
+		SnapShot.getSnapShot().saveGame((OurGame) game, "bebo");
 	}
 
 }

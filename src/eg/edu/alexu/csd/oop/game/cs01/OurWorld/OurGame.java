@@ -1,5 +1,6 @@
 package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class OurGame implements World {
 	private CurrentState state;
 	private int counter;
 	private int hbl = 0;
+
+	public OurGame() {
+	}
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
 		lives = 5;
@@ -143,13 +147,13 @@ public class OurGame implements World {
 		}
 		try {
 			for (GameObject o : movable) {
-//				if(hbl==0) {
-//					o.setX(o.getX()+1);
-//					hbl=1;
-//				}else if(hbl==1) {
-//					o.setX(o.getX()-1);
-//					hbl=0;
-//				}
+				// if(hbl==0) {
+				// o.setX(o.getX()+1);
+				// hbl=1;
+				// }else if(hbl==1) {
+				// o.setX(o.getX()-1);
+				// hbl=0;
+				// }
 				o.setY(o.getY() + 1);
 				boolean objectRemoved = false;
 				for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
@@ -166,11 +170,11 @@ public class OurGame implements World {
 						movable.remove(o);
 						objectRemoved = true;
 						lives--;
-						constant.remove(constant.size()-1);
+						constant.remove(constant.size() - 1);
 						break;
 					} else if (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getLeftStack();
-						Score s = stack.addFallenObject(o, controlable, getWidth());
+						Score s = stack.addFallenObject(o, controlable, getWidth(), i);
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
@@ -184,7 +188,7 @@ public class OurGame implements World {
 						break;
 					} else if (intersect(o, ((Character) this.controlable.get(i)).getRightStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getRightStack();
-						Score s = stack.addFallenObject(o, controlable, getWidth());
+						Score s = stack.addFallenObject(o, controlable, getWidth(), i);
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {

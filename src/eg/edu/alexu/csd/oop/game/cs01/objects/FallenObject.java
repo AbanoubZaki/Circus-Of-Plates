@@ -9,6 +9,9 @@ public class FallenObject extends AbstractGameObject {
 
 	private String path;
 
+	public FallenObject() {
+	}
+
 	public FallenObject(int x, int y, File[] imageFiles) {
 		super(x, y, imageFiles);
 		this.path = imageFiles[0].getParent();

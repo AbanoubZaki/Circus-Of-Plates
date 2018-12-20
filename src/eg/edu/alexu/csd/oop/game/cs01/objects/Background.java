@@ -8,4 +8,7 @@ public class Background extends AbstractGameObject {
 		super(x, y, imageFiles);
 	}
 
+	public Background() {
+	}
+
 }

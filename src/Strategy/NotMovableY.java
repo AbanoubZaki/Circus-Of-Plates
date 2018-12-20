@@ -4,8 +4,11 @@ public class NotMovableY implements IMovableY {
 
 	private int initialY;
 
+	public NotMovableY() {
+	}
+
 	public NotMovableY(int y) {
-		this.initialY=y;
+		this.initialY = y;
 	}
 
 	@Override
