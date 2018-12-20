@@ -14,6 +14,5 @@ public class IteratorClass {
 	
 	public void showTheObjects() {
 		Iterator iterator = iter.createIterator();
-	}
-	
+	}	
 }
