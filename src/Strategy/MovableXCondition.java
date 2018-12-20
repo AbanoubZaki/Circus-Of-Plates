@@ -1,4 +1,6 @@
-package eg.edu.alexu.csd.oop.game.cs01.objects;
+package Strategy;
+
+import eg.edu.alexu.csd.oop.game.cs01.Enums.StackType;
 
 public class MovableXCondition implements IMovableX {
 

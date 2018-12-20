@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import Strategy.IMovableX;
+import Strategy.IMovableY;
+import Strategy.MovableX;
+import Strategy.MovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 public abstract class AbstractGameObject implements GameObject {

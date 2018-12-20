@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.game.cs01.objects;
+package Strategy;
 
 public class NotMovableX implements IMovableX {
 	private int initialX;

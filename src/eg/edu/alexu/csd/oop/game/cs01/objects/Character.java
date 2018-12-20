@@ -3,7 +3,9 @@ package eg.edu.alexu.csd.oop.game.cs01.objects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.Enums.StackType;
 
 public class Character extends AbstractGameObject {
 

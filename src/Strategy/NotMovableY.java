@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.oop.game.cs01.objects;
+package Strategy;
 
 public class NotMovableY implements IMovableY {
 

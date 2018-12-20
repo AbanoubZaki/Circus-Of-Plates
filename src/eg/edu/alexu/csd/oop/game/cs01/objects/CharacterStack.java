@@ -3,7 +3,10 @@ package eg.edu.alexu.csd.oop.game.cs01.objects;
 import java.util.List;
 import java.util.Stack;
 
+import Strategy.MovableXCondition;
+import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.Enums.StackType;
 
 public class CharacterStack extends AbstractGameObject {
 
