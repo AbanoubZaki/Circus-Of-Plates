@@ -6,7 +6,7 @@ import java.util.Map;
 import eg.edu.alexu.csd.oop.game.GameObject;
 
 public enum GameMode {
-	christmass("resources\\christmass"), robot("resources\\robot");
+	christmass("resources\\christmass"), robot("resources\\robot") , Tas("resources\\Tas");
 
 	private GameMode(String path) {
 		this.path = path;

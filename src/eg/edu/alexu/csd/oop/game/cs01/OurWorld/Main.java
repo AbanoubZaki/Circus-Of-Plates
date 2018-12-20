@@ -14,15 +14,16 @@ import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.SnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.ModeFactory;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class Main {
+public class Main extends Application {
 
 	static volatile World game;
 
 	public static void main(String[] args) {
 
 		JMenuBar menuBar = new JMenuBar();
-		;
 		JMenu options = new JMenu("Options");
 		JMenuItem newMenuItem = new JMenuItem("New Zeft Game");
 		JMenuItem pauseMenuItem = new JMenuItem("Pause");
@@ -32,8 +33,8 @@ public class Main {
 		options.add(pauseMenuItem);
 		options.add(resumeMenuItem);
 		menuBar.add(options);
-
-		game = new OurGame(GameDifficulty.hard, ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
+		game = new OurGame(GameDifficulty.hard,
+				ModeFactory.getInstance(GameMode.christmass, GameDifficulty.hard).createMode());
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 
 		newMenuItem.addActionListener(new ActionListener() {
@@ -61,6 +62,12 @@ public class Main {
 		});
 
 		SnapShot.getSnapShot().saveGame((OurGame) game, "bebo");
+	}
+
+	@Override
+	public void start(Stage arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

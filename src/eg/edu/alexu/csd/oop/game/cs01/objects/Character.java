@@ -61,8 +61,8 @@ public class Character extends AbstractGameObject {
 	public GameObject getRightStack() {
 		return rightStack;
 	}
-	
-	private GameMode getMode() {
+
+	public GameMode getMode() {
 		return mode;
 	}
 

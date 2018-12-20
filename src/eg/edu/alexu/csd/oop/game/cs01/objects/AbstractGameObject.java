@@ -3,7 +3,6 @@ package eg.edu.alexu.csd.oop.game.cs01.objects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 

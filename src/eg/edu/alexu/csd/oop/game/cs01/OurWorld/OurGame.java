@@ -8,6 +8,7 @@ import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
+import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
@@ -47,6 +48,8 @@ public class OurGame implements World {
 		counter = 0;
 		score = 0;
 		state = CurrentState.running;
+		Track.getInstance().getTrack("theme").setVolume(10);
+		Track.getInstance().getTrack("theme").play();
 	}
 
 	@Override
@@ -128,6 +131,8 @@ public class OurGame implements World {
 		if (lives == 0) {
 			Controller.getInstance().pause();
 			state = CurrentState.gameOver;
+			Track.getInstance().getTrack("theme").stop();
+			Track.getInstance().getTrack("gameover").play();
 			return false;
 		}
 		try {
@@ -149,6 +154,7 @@ public class OurGame implements World {
 							((Character) this.controlable.get(i)).getRightStack())) {
 						movable.remove(o);
 						objectRemoved = true;
+						Track.getInstance().getTrack("present").play();
 						score++;
 						break;
 					} else if (Refresh.getInstance().intersectWithBad(o,
@@ -158,6 +164,8 @@ public class OurGame implements World {
 						objectRemoved = true;
 						lives--;
 						constant.remove(constant.size() - 1);
+						Track.getInstance().getTrack("bomb").play();
+
 						break;
 					} else if (Refresh.getInstance().intersectWithPlateLeft(o,
 							((Character) this.controlable.get(i)).getLeftStack())) {
@@ -171,6 +179,8 @@ public class OurGame implements World {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
 							// System.out.println("1");
+							Track.getInstance().getTrack("theme").stop();
+							Track.getInstance().getTrack("gameover").play();
 							return false;
 						}
 						break;
@@ -186,6 +196,8 @@ public class OurGame implements World {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
 							// System.out.println("2");
+							Track.getInstance().getTrack("theme").stop();
+							Track.getInstance().getTrack("gameover").play();
 							return false;
 						}
 						break;
@@ -212,6 +224,8 @@ public class OurGame implements World {
 		if (timeout) {
 			Controller.getInstance().pause();
 			state = CurrentState.gameOver;
+			Track.getInstance().getTrack("theme").stop();
+			Track.getInstance().getTrack("gameover").play();
 			// System.out.println("3");
 		}
 		return !timeout;

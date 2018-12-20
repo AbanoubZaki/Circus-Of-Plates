@@ -4,5 +4,6 @@ public interface IModeFactory {
 	public void buildConstant();
 	public void buildMovable();
 	public void buildControlable();
+	public void buildTracks();
 	public GameMode createMode();
 }
