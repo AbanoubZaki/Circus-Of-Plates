@@ -73,7 +73,7 @@ public abstract class AbstractGameObject implements GameObject {
 					e.printStackTrace();
 				}
 			}
-			if (imageFiles[0].getParent().contains("background")) {
+			if (imageFiles[0].getParent().contains("backgrounds")) {
 				for (int i = 0; i < images.length; i++) {
 					images[i] = image[i / 25];
 				}

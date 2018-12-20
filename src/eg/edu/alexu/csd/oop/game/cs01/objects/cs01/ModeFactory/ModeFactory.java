@@ -37,7 +37,7 @@ public class ModeFactory implements IModeFactory {
 
 	@Override
 	public void buildConstant() {
-		folder = new File(mode.getPath() + "\\background");
+		folder = new File(mode.getPath() + "\\backgrounds");
 		List<GameObject> list = new ArrayList<>();
 		list.add(new Background(0, 0, folder.listFiles()));
 		folder = new File(mode.getPath() + "\\live");

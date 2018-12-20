@@ -31,7 +31,7 @@ public class Main {
 		menu.add(resumeMenuItem);
 		menuBar.add(menu);
 
-		game = new OurGame(GameDifficulty.hard, ModeFactory.getInstance(GameMode.christmass, GameDifficulty.hard).createMode());
+		game = new OurGame(GameDifficulty.hard, ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 
 		newMenuItem.addActionListener(new ActionListener() {

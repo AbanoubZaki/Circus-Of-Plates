@@ -26,6 +26,7 @@ public class OurGame implements World {
 	private GameMode mode;
 	private CurrentState state;
 	private int counter;
+	private int hbl = 0;
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
 		lives = 5;
@@ -142,6 +143,13 @@ public class OurGame implements World {
 		}
 		try {
 			for (GameObject o : movable) {
+//				if(hbl==0) {
+//					o.setX(o.getX()+1);
+//					hbl=1;
+//				}else if(hbl==1) {
+//					o.setX(o.getX()-1);
+//					hbl=0;
+//				}
 				o.setY(o.getY() + 1);
 				boolean objectRemoved = false;
 				for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
