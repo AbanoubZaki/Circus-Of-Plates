@@ -13,7 +13,7 @@ import eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode;
 public class FallenObjectsGenerator {
 
 	private static FallenObjectsGenerator instance;
-	private final int MAX_FALLEN_OBJECTS = 50;
+	private final int MAX_FALLEN_OBJECTS = 75;
 	private Map<String, List<GameObject>> map;
 	@SuppressWarnings("unused")
 	private GameDifficulty difficulty;
@@ -31,8 +31,15 @@ public class FallenObjectsGenerator {
 		for (int i = 0; i < MAX_FALLEN_OBJECTS; i++) {
 			Random random = new Random();
 			// 2 is the number of the extra objects.
-			int r = random.nextInt(difficulty.getColorsOfFallenObjects()+2);
-//			System.out.println(r + 1);
+			int r = random.nextInt(difficulty.getColorsOfFallenObjects() + 2);
+			if (i % 8 == 0 || i % 8 == 1 || i % 8 == 2 || i % 8 == 4 || i % 8 == 6 || i % 8 == 7) {
+				r = (r + 2) % difficulty.getColorsOfFallenObjects() + 2;
+			} else if (i % 8 == 3) {
+				r = 0;
+			} else {
+				r = 1;
+			}
+			// System.out.println(r + 1);
 			for (GameObject o : map.get(Integer.toString(r))) {
 				pool.add(((FallenObject) o).clone());
 			}
@@ -56,7 +63,7 @@ public class FallenObjectsGenerator {
 			int r = random.nextInt(pool.size());
 			fallenObject = pool.get(r);
 			pool.remove(r);
-			fallenObject.setX(random.nextInt(mode.getConstant().get(0).getWidth()-35));
+			fallenObject.setX(random.nextInt(mode.getConstant().get(0).getWidth() - 35));
 			fallenObject.setY(random.nextInt(30));
 			used.add(fallenObject);
 			return fallenObject;

@@ -160,7 +160,7 @@ public class OurGame implements World {
 						objectRemoved = true;
 						score++;
 						break;
-					} else if (((FallenObject) o).getPath().contains("6")
+					} else if (((FallenObject) o).getPath().contains("1")
 							&& (intersect(o, ((Character) this.controlable.get(i)).getLeftStack())
 									|| intersect(o, ((Character) this.controlable.get(i)).getRightStack()))) {
 						movable.remove(o);
