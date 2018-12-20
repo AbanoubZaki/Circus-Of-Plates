@@ -28,9 +28,9 @@ public class Track {
 
 	public void addTrack(File trackFile) {
 		try {
-			Media hit = new Media(trackFile.toURI().toString());
+			Media media = new Media(trackFile.toURI().toString());
 			if (trackFile.getName().substring(0, trackFile.getName().lastIndexOf(".")).equals("theme")) {
-				theme = new MediaPlayer(hit);
+				theme = new MediaPlayer(media);
 				theme.setOnEndOfMedia(new Runnable() {
 
 					@Override
@@ -39,7 +39,7 @@ public class Track {
 					}
 				});
 			} else {
-				mediaPlayers.put(trackFile.getName().substring(0, trackFile.getName().lastIndexOf(".")), hit);
+				mediaPlayers.put(trackFile.getName().substring(0, trackFile.getName().lastIndexOf(".")), media);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

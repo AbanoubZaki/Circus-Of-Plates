@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
@@ -8,6 +9,8 @@ import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
+import eg.edu.alexu.csd.oop.game.cs01.Iterator.GameObjectCollection;
+import eg.edu.alexu.csd.oop.game.cs01.Iterator.IGameObjectCollection;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
@@ -21,9 +24,9 @@ public class OurGame implements World {
 	private int lives;
 	private int score;
 	private long startTime;
-	private List<GameObject> constant;
-	private List<GameObject> movable;
-	private List<GameObject> controlable;
+	private IGameObjectCollection constant;
+	private IGameObjectCollection movable;
+	private IGameObjectCollection controlable;
 	private GameDifficulty difficulty;
 	private GameMode mode;
 	private CurrentState state;
@@ -37,14 +40,14 @@ public class OurGame implements World {
 		this.difficulty = difficulty;
 		this.setMode(mode);
 		startTime = System.currentTimeMillis();
-		constant = mode.getConstant();
-		movable = new ArrayList<GameObject>();
+		constant = new GameObjectCollection(mode.getConstant());
+		movable = new GameObjectCollection(new ArrayList<GameObject>());
 		// call 1st constructor only one time to set map of mode & difficulty.
 		FallenObjectsGenerator.getInstance(mode, difficulty);
 		for (int i = 0; i < 5; i++) {
 			movable.add(FallenObjectsGenerator.getInstance().getNewObject());
 		}
-		controlable = mode.getControlable();
+		controlable = new GameObjectCollection(mode.getControlable());
 		counter = 0;
 		score = 0;
 		state = CurrentState.running;
@@ -54,17 +57,17 @@ public class OurGame implements World {
 
 	@Override
 	public List<GameObject> getConstantObjects() {
-		return constant;
+		return constant.getList();
 	}
 
 	@Override
 	public List<GameObject> getMovableObjects() {
-		return movable;
+		return movable.getList();
 	}
 
 	@Override
 	public List<GameObject> getControlableObjects() {
-		return controlable;
+		return controlable.getList();
 	}
 
 	@Override
@@ -137,7 +140,9 @@ public class OurGame implements World {
 		}
 		try {
 			int MovingStrategy = 0;
-			for (GameObject o : movable) {
+			Iterator<GameObject> iterator = movable.iterator();
+			while (iterator.hasNext()) {
+				GameObject o = iterator.next();
 				if (difficulty == GameDifficulty.hard) {
 					if (MovingStrategy == 0) {
 						o.setX(o.getX() + 1);
@@ -170,7 +175,7 @@ public class OurGame implements World {
 					} else if (Refresh.getInstance().intersectWithPlateLeft(o,
 							((Character) this.controlable.get(i)).getLeftStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getLeftStack();
-						Score s = stack.addFallenObject(o, controlable, getWidth(), i);
+						Score s = stack.addFallenObject(o, controlable.getList(), getWidth(), i);
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
@@ -187,7 +192,7 @@ public class OurGame implements World {
 					} else if (Refresh.getInstance().intersectWithPlateRight(o,
 							((Character) this.controlable.get(i)).getRightStack())) {
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getRightStack();
-						Score s = stack.addFallenObject(o, controlable, getWidth(), i);
+						Score s = stack.addFallenObject(o, controlable.getList(), getWidth(), i);
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
