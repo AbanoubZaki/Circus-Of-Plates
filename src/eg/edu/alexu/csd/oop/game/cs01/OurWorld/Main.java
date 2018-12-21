@@ -36,7 +36,7 @@ public class Main extends Application {
 		options.add(resumeMenuItem);
 		menuBar.add(options);
 		game = new OurGame(GameDifficulty.hard,
-				ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
+				ModeFactory.getInstance(GameMode.christmass, GameDifficulty.hard).createMode());
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
 		frame = (JFrame) menuBar.getParent().getParent().getParent();
 		newMenuItem.addActionListener(new ActionListener() {
@@ -55,17 +55,23 @@ public class Main extends Application {
 			public void actionPerformed(ActionEvent e) {
 				Controller.getInstance().pause();
 				((OurGame) game).setState(CurrentState.paused);
+				SnapShot.getSnapShot().saveGame((OurGame) game, "bebo");
 			}
 		});
 		resumeMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Controller.getInstance().resume();
-				((OurGame) game).setState(CurrentState.running);
+//				Controller.getInstance().resume();
+//				((OurGame) game).setState(CurrentState.running);
+				frame.dispose();
+				game = SnapShot.getSnapShot().loadGame("bebo");
+				Controller.getInstance().setGameController(GameEngine.start("Circus of plates", game, menuBar));
+				Controller.getInstance().changeWorld(game);
+				frame = (JFrame) menuBar.getParent().getParent().getParent();
+				
 			}
 		});
 
-		SnapShot.getSnapShot().saveGame((OurGame) game, "bebo");
 	}
 
 	@Override

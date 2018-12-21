@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
@@ -13,11 +14,15 @@ import eg.edu.alexu.csd.oop.game.cs01.Iterator.GameObjectCollection;
 import eg.edu.alexu.csd.oop.game.cs01.Iterator.IGameObjectCollection;
 import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
+import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.ModeFactory;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.GameSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
+import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 
 public class OurGame implements World {
 
@@ -32,12 +37,19 @@ public class OurGame implements World {
 	private GameMode mode;
 	private CurrentState state;
 	private int counter;
+	private double remainingTime;
+
+	/**
+	 * @return the remainingTime
+	 */
+	public double getRemainingTime() {
+		return remainingTime;
+	}
 
 	public OurGame() {
 	}
 
 	public OurGame(GameDifficulty difficulty, GameMode mode) {
-		OurLogger.info(this.getClass(), "a new game of " + mode + " mode & " + difficulty + " difficulty has started");
 		lives = 5;
 		this.difficulty = difficulty;
 		this.setMode(mode);
@@ -94,7 +106,7 @@ public class OurGame implements World {
 	@Override
 	public String getStatus() {
 		String status = "Score=" + score + "   |   Time="
-				+ Math.max(0, (MAX_TIME - (System.currentTimeMillis() - startTime)) / 1000);
+				+ Math.max(0, this.remainingTime = (MAX_TIME - (System.currentTimeMillis() - startTime)) / 1000);
 		for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
 			status += "   |    left = " + ((CharacterStack) (((Character) controlable.get(i)).getLeftStack())).getSize()
 					+ "    |    right = "
@@ -102,6 +114,27 @@ public class OurGame implements World {
 		}
 		status += "   |   lives = " + lives;
 		return status;
+	}
+
+	/**
+	 * @return the lives
+	 */
+	public int getLives() {
+		return lives;
+	}
+
+	/**
+	 * @return the score
+	 */
+	public int getScore() {
+		return score;
+	}
+
+	/**
+	 * @return the difficulty
+	 */
+	public GameDifficulty getDifficulty() {
+		return difficulty;
 	}
 
 	@Override
@@ -165,7 +198,6 @@ public class OurGame implements World {
 						objectRemoved = true;
 						Track.getInstance().getTrack("present").play();
 						score++;
-						OurLogger.info(this.getClass(), "score increased by 1");
 						break;
 					} else if (Refresh.getInstance().intersectWithBad(o,
 							((Character) this.controlable.get(i)).getLeftStack(),
@@ -187,14 +219,12 @@ public class OurGame implements World {
 						objectRemoved = true;
 						if (s == Score.win) {
 							score++;
-							OurLogger.info(this.getClass(), "3 plates of same colour has been collected");
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
 							// System.out.println("1");
 							Track.getInstance().getTrack("theme").stop();
 							Track.getInstance().getTrack("gameover").play();
-							OurLogger.info(this.getClass(), "character stack full with 15 plate");
 							return false;
 						}
 						break;
@@ -207,14 +237,12 @@ public class OurGame implements World {
 						objectRemoved = true;
 						if (s == Score.win) {
 							score++;
-							OurLogger.info(this.getClass(), "3 plates of same colour has been collected");
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
 							// System.out.println("2");
 							Track.getInstance().getTrack("theme").stop();
 							Track.getInstance().getTrack("gameover").play();
-							OurLogger.info(this.getClass(), "character stack full with 15 plate");
 							return false;
 						}
 						break;
@@ -250,5 +278,51 @@ public class OurGame implements World {
 			// System.out.println("3");
 		}
 		return !timeout;
+	}
+
+	public GameSnapShot getSnapShot() {
+		return new GameSnapShot(this);
+	}
+
+	@SuppressWarnings("unchecked")
+	public void loadGame(GameSnapShot snapShot) {
+		this.score = snapShot.getScore();
+		this.state = snapShot.getState();
+		this.lives = snapShot.getLives();
+		this.remainingTime = snapShot.getReminingTime();
+		this.difficulty = snapShot.getDifficulty();
+		this.mode = snapShot.getMode();
+		this.mode = ModeFactory.getInstance(this.mode, this.difficulty).loadMode();
+		FallenObjectsGenerator.getInstance(mode, difficulty);
+		ArrayList<GameObject> list = new ArrayList<GameObject>();
+		for (int i = 0; i < snapShot.getConstant().size(); i++) {
+			Background backGround = new Background();
+			backGround.loadBackGround(snapShot.getConstant().get(i));
+			list.add(backGround);
+		}
+		this.constant = new GameObjectCollection((List<GameObject>) list.clone());
+		list = new ArrayList<GameObject>();
+		for (int i = 0; i < snapShot.getMovable().size(); i++) {
+			FallenObject fallenOject = new FallenObject();
+			fallenOject.loadFallenObject(snapShot.getMovable().get(i));
+			list.add(fallenOject);
+		}
+		this.movable = new GameObjectCollection((List<GameObject>) list.clone());
+		list = new ArrayList<GameObject>();
+		for (int i = 0; i < snapShot.getControlableCharacters().size(); i++) {
+			Character o = new Character();
+			((Character) o).loadCharacter(snapShot.getControlableCharacters().get(i));
+			((Character) o).setMovableY(new NotMovableY());
+			list.add(o);
+		}
+		for (int i = 0; i < snapShot.getControlableFallenObject().size(); i++) {
+			FallenObject o = new FallenObject();
+			((FallenObject) o).loadFallenObject(snapShot.getControlableFallenObject().get(i));
+			((FallenObject) o).setMovableY(new NotMovableY());
+			list.add(o);
+		}
+		this.controlable = new GameObjectCollection(list);
+		startTime = System.currentTimeMillis();
+
 	}
 }

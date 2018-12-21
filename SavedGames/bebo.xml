@@ -3,8 +3,8 @@
  <object class="eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame">
   <void property="mode">
    <object class="java.lang.Enum" method="valueOf">
-    <class>eg.edu.alexu.csd.oop.game.cs01.objects.cs01.ModeFactory.GameMode</class>
-    <string>christmass</string>
+    <class>eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode</class>
+    <string>robot</string>
    </object>
   </void>
   <void property="state">

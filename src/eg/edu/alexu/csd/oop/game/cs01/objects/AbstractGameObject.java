@@ -11,6 +11,7 @@ import Strategy.IMovableY;
 import Strategy.MovableX;
 import Strategy.MovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.AbstractSnapShot;
 
 public abstract class AbstractGameObject implements GameObject {
 
@@ -18,36 +19,51 @@ public abstract class AbstractGameObject implements GameObject {
 	private int y;
 	private int width;
 	private int height;
+
+	private File[] imageFiles;
+
 	/**
-	 * @return the images
+	 * @return the imageFiles
 	 */
-	public BufferedImage[] getImages() {
-		return images;
+	public File[] getImageFiles() {
+		return imageFiles;
 	}
 
 	/**
-	 * @param images the images to set
+	 * @param imageFiles
+	 *            the imageFiles to set
+	 */
+	public void setImageFiles(File[] imageFiles) {
+		this.imageFiles = imageFiles;
+	}
+
+	/**
+	 * @param images
+	 *            the images to set
 	 */
 	public void setImages(BufferedImage[] images) {
 		this.images = images;
 	}
 
 	/**
-	 * @param width the width to set
+	 * @param width
+	 *            the width to set
 	 */
 	public void setWidth(int width) {
 		this.width = width;
 	}
 
 	/**
-	 * @param height the height to set
+	 * @param height
+	 *            the height to set
 	 */
 	public void setHeight(int height) {
 		this.height = height;
 	}
 
 	/**
-	 * @param visible the visible to set
+	 * @param visible
+	 *            the visible to set
 	 */
 	public void setVisible(boolean visible) {
 		this.visible = visible;
@@ -108,25 +124,9 @@ public abstract class AbstractGameObject implements GameObject {
 		movableX.setX(x);
 		movableY.setY(y);
 		visible = true;
-		try {
-			images = new BufferedImage[175];
-			BufferedImage[] image = new BufferedImage[imageFiles.length];
-			for (int i = 0; i < imageFiles.length; i++) {
-				try {
-					image[i] = ImageIO.read(imageFiles[i]);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			if (imageFiles[0].getParent().contains("backgrounds")) {
-				for (int i = 0; i < images.length; i++) {
-					images[i] = image[i / 25];
-				}
-			} else {
-				images = image;
-			}
-		} catch (Exception e) {
-		}
+		this.setImageFiles(imageFiles);
+		loadImages();
+
 	}
 
 	@Override
@@ -175,6 +175,47 @@ public abstract class AbstractGameObject implements GameObject {
 	@Override
 	public BufferedImage[] getSpriteImages() {
 		return images;
+	}
+
+	public void loadGameObject(AbstractSnapShot snapShot) {
+		this.setHeight(snapShot.getHeight());
+		this.setWidth(snapShot.getWidth());
+		this.setX(snapShot.getX());
+		this.setY(snapShot.getY());
+		this.setVisible(true);
+		try {
+			File[] images = new File[snapShot.getPaths().length];
+			for (int i = 0; i < snapShot.getPaths().length; i++) {
+				images[i] = new File(snapShot.getPaths()[i]);
+
+			}
+			this.setImageFiles(images);
+			loadImages();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+	private void loadImages() {
+		try {
+			BufferedImage[] image = new BufferedImage[imageFiles.length];
+			for (int i = 0; i < imageFiles.length; i++) {
+				try {
+					image[i] = ImageIO.read(imageFiles[i]);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if (imageFiles[0].getParent().contains("backgrounds")) {
+				images = new BufferedImage[175];
+				for (int i = 0; i < images.length; i++) {
+					images[i] = image[i / 25];
+				}
+			} else {
+				images = image;
+			}
+		} catch (Exception e) {
+		}
 	}
 
 }

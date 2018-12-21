@@ -8,6 +8,8 @@ import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.CharacterStackSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 
 public class CharacterStack extends AbstractGameObject {
 
@@ -72,6 +74,32 @@ public class CharacterStack extends AbstractGameObject {
 
 	public int getSize() {
 		return stack.size();
+	}
+
+	public CharacterStackSnapShot getSnapShot() {
+		return new CharacterStackSnapShot(this);
+	}
+
+	public void loadCharacterStack(CharacterStackSnapShot snapShot) {
+		this.loadGameObject(snapShot);
+		stack = new Stack<GameObject>();
+		for (int i = 0; i < snapShot.getStack().size(); i++) {
+			FallenObject o = new FallenObject();
+			o.loadFallenObject((FallenObjectSnapShot) snapShot.getStack().get(i));
+			stack.add(o);
+		}
+		this.type = snapShot.getType();
+	}
+
+	public ObjectType getType() {
+		return this.type;
+	}
+
+	/**
+	 * @return the stack
+	 */
+	public Stack<GameObject> getStack() {
+		return stack;
 	}
 
 }

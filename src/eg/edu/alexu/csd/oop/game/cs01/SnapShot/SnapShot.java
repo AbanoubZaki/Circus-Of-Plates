@@ -1,17 +1,23 @@
 package eg.edu.alexu.csd.oop.game.cs01.SnapShot;
 
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import eg.edu.alexu.csd.oop.game.World;
+import eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame;
 
-public class SnapShot implements SnapShotInterface{
+public class SnapShot implements SnapShotInterface {
 
 	private static SnapShot snapShot;
-	
+
 	private SnapShot() {
 	}
 
@@ -21,39 +27,50 @@ public class SnapShot implements SnapShotInterface{
 		}
 		return snapShot;
 	}
-	
+
 	@Override
 	public void saveGame(World ourGame, String fileName) {
-		
+
+		File folder = new File("SavedGames");
+		System.out.println(folder.mkdirs());
+		File savedFile = new File("SavedGames\\" + fileName + ".json");
+		Gson gsonT = new Gson();
+		String json = gsonT.toJson(((OurGame) ourGame).getSnapShot());
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonParser jp = new JsonParser();
+		JsonElement je = jp.parse(json);
+		String prettyJsonString = gson.toJson(je);
+
 		try {
-			File folder = new File("SavedGames");
-			System.out.println(folder.mkdirs());
-			File savedFile = new File("SavedGames\\" + fileName + ".xml");
-			System.out.println(savedFile.createNewFile());
-			System.out.println(savedFile.exists());
-			FileOutputStream fileStream = new FileOutputStream(savedFile);
-			XMLEncoder encoder = new XMLEncoder(fileStream);
-			
-			encoder.writeObject(ourGame);
-			encoder.close();
-			fileStream.close();
-		} catch (Exception e) {
+			PrintWriter writer = new PrintWriter(savedFile);
+			writer.println(prettyJsonString);
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public World loadGame(String path) {
+	public World loadGame(String fileName) {
+		FileReader fileReader;
+		BufferedReader bufferReader;
+		StringBuilder builder = new StringBuilder();
 		try {
-			FileInputStream fileStream = new FileInputStream(new File(path));
-			XMLDecoder decoder = new XMLDecoder(fileStream);
-			World loadWorld = (World) decoder.readObject();
-			decoder.close();
-			fileStream.close();
-			return loadWorld;
-		} catch (Exception e) {
-			//chain of responsibility.
-			return null;
+			fileReader = new FileReader(new File("SavedGames\\" + fileName + ".json"));
+			bufferReader = new BufferedReader(fileReader);
+			String line = bufferReader.readLine();
+			while (line != null) {
+				builder.append(line);
+				line = bufferReader.readLine();
+			}
+		} catch (Exception exception) {
+			exception.printStackTrace();
 		}
+		Gson gson = new Gson();
+		OurGame loadedGame = new OurGame();
+		loadedGame.loadGame(gson.fromJson(builder.toString(), GameSnapShot.class));
+		return loadedGame;
 	}
-	
+
 }
