@@ -51,7 +51,6 @@ public class FallenObjectsGenerator {
 		}
 		if (!FallenObjectsGenerator.mode.equals(mode) || !FallenObjectsGenerator.difficulty.equals(difficulty)) {
 			instance = new FallenObjectsGenerator(mode, difficulty);
-			System.out.println("new");
 		}
 		return instance;
 	}
