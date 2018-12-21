@@ -160,6 +160,7 @@ public class OurGame implements World {
 				for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
 					if (Refresh.getInstance().intersectWithGood(o, ((Character) this.controlable.get(i)).getLeftStack(),
 							((Character) this.controlable.get(i)).getRightStack())) {
+						OurLogger.info(this.getClass(), "intersection with good object happened");
 						movable.remove(o);
 						objectRemoved = true;
 						Track.getInstance().getTrack("present").play();
@@ -169,16 +170,17 @@ public class OurGame implements World {
 					} else if (Refresh.getInstance().intersectWithBad(o,
 							((Character) this.controlable.get(i)).getLeftStack(),
 							((Character) this.controlable.get(i)).getRightStack())) {
+						OurLogger.info(this.getClass(), "intersection with good object happened");
 						movable.remove(o);
 						objectRemoved = true;
 						lives--;
-						OurLogger.info(this.getClass(), "a bomb hit an character");
 						constant.remove(constant.size() - 1);
 						Track.getInstance().getTrack("bomb").play();
 
 						break;
 					} else if (Refresh.getInstance().intersectWithPlateLeft(o,
 							((Character) this.controlable.get(i)).getLeftStack())) {
+						OurLogger.info(this.getClass(), "intersection of left stack with a plate happened");
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getLeftStack();
 						Score s = stack.addFallenObject(o, controlable.getList(), getWidth(), i);
 						movable.remove(o);
@@ -198,6 +200,7 @@ public class OurGame implements World {
 						break;
 					} else if (Refresh.getInstance().intersectWithPlateRight(o,
 							((Character) this.controlable.get(i)).getRightStack())) {
+						OurLogger.info(this.getClass(), "intersection of right stack with a plate happened");
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getRightStack();
 						Score s = stack.addFallenObject(o, controlable.getList(), getWidth(), i);
 						movable.remove(o);
