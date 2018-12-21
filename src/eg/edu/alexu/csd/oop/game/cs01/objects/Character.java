@@ -7,6 +7,7 @@ import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.CharacterSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObservableX;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObserverX;
 
@@ -81,6 +82,21 @@ public class Character extends AbstractGameObject {
 
 	public void setType(ObjectType type) {
 		this.type = type;
+	}
+
+	public CharacterSnapShot getSnapShot() {
+		return new CharacterSnapShot(this);
+	}
+
+	public void loadCharacter(CharacterSnapShot snapShot) {
+		this.loadGameObject(snapShot);
+		this.leftStack = new CharacterStack();
+		((CharacterStack) this.leftStack).loadCharacterStack(snapShot.getLeft());
+		this.rightStack = new CharacterStack();
+		((CharacterStack) this.rightStack).loadCharacterStack(snapShot.getRight());
+		this.mode = snapShot.getMode();
+		this.type = snapShot.getType();
+
 	}
 
 }

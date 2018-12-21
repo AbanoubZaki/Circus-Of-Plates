@@ -1,1 +1,883 @@
 [INFO ] 2018-12-21 01:26:49.894 OurGame - a new game of robot mode & hard difficulty has started
+[INFO ] 2018-12-21 03:33:07.903 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:33:10.191 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:33:10.473 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:10.481 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:10.498 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:10.640 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:12.167 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:33:12.547 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:12.616 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:14.216 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:33:14.590 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:14.698 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:16.207 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:33:16.546 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:16.554 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:16.631 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:16.664 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:18.119 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:33:18.526 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:18.526 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:33:18.561 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:47:33.090 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:48:55.379 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:50:30.611 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:09.302 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:25.151 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:27.582 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:27.891 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:28.010 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:28.097 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:29.545 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:29.710 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:29.843 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:29.852 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:30.759 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:31.005 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:31.011 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:31.042 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:31.958 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:32.080 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:32.107 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:32.197 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:33.118 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:33.289 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:33.349 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:34.336 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:34.497 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:34.546 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:34.597 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:35.481 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:35.749 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:35.771 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:36.674 OurGame - plates are added to screen
+[INFO ] 2018-12-21 03:59:36.837 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:36.868 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:36.882 OurGame - plate released into pool
+[INFO ] 2018-12-21 03:59:36.922 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:05.456 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:09:07.564 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:09:07.720 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:07.762 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:07.862 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:07.867 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:08.757 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:09:08.963 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:08.980 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:09.044 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:09.053 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:09.964 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:09:10.167 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:10.251 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:11.125 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:09:11.321 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:11.326 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:09:11.349 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:10.005 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:13:12.325 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:13:12.647 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:12.679 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:12.743 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:12.778 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:13.672 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:13:13.876 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:13.899 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:13.919 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:14.854 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:13:15.042 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:15.109 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:16.030 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:13:16.188 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:16.194 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:16.220 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:13:17.245 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:13:17.385 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:17.366 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:15:18.554 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:15:18.707 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:18.749 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:18.775 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:18.818 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:19.728 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:15:19.982 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:20.010 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:20.015 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:20.925 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:15:21.078 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:21.094 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:21.170 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:15:21.209 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:16:12.715 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:16:15.664 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:16:15.893 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:16:15.996 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:16:16.087 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:16:16.160 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:16:17.965 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:16:18.252 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:16:18.333 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:17:13.876 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:17:15.181 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:17:15.290 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:17:15.305 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:17:15.310 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:17:15.376 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:17:16.356 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:17:16.571 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:17:16.576 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:19:41.658 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:23:55.659 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:23:56.938 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:23:57.067 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:23:57.113 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:23:57.171 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:23:57.194 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:23:58.123 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:34:52.973 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:34:55.359 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:34:55.601 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:35:43.646 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:35:45.147 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:35:45.311 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:35:45.421 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:35:46.348 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:35:46.602 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:35:46.650 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:36:38.667 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:36:39.788 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:36:39.957 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:36:39.963 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:36:40.030 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:38.548 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:44:40.628 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:44:41.012 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:41.058 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:41.103 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:42.668 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:44:43.113 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:44.831 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:44:45.120 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:45.218 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:47.008 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:44:47.392 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:47.411 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:44:47.462 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:46:47.968 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:48:28.271 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:48:30.460 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:48:30.742 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:48:30.788 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:48:30.888 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:48:31.010 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:48:32.507 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:48:33.166 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:51:30.987 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:52:55.328 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:54:33.965 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:55:10.883 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:55:12.162 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:55:12.374 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:12.392 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:12.419 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:12.458 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:13.355 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:55:13.578 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:13.583 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:13.610 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:13.625 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:14.544 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:55:14.714 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:14.736 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:55:14.788 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:19.826 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:57:28.177 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:57:29.344 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:57:29.535 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:29.576 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:29.591 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:29.617 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:29.631 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:30.551 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:57:30.718 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:30.794 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:31.662 OurGame - plates are added to screen
+[INFO ] 2018-12-21 04:57:31.887 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:31.915 OurGame - plate released into pool
+[INFO ] 2018-12-21 04:57:32.000 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:05:58.081 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:08:52.061 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:10:34.765 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:10:36.925 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:10:37.204 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:10:37.248 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:10:37.311 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:10:37.372 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:10:38.982 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:10:41.140 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:10:41.454 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:10:41.479 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:11:54.995 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:23.763 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:24.011 OurGame - game is over, time ended
+[INFO ] 2018-12-21 05:12:28.485 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:28.682 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:28.761 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:29.637 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:29.812 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:29.898 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:30.782 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:30.941 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:31.019 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:31.044 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:31.070 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:31.929 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:32.075 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:32.081 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:32.145 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:32.181 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:32.223 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:33.102 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:33.297 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:33.359 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:33.365 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:34.260 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:34.513 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:35.416 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:35.583 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:35.587 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:35.620 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:35.636 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:35.684 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:36.579 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:36.751 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:36.777 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:36.806 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:36.846 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:37.724 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:37.853 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:37.990 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:38.856 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:39.059 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:39.068 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:39.078 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:39.103 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:39.125 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:39.967 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:40.203 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:40.203 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:40.251 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:40.273 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:41.102 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:41.314 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:41.323 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:41.345 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:41.401 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:42.249 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:12:42.428 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:42.463 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:12:43.384 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:22.665 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:23.510 OurGame - game is over, time ended
+[INFO ] 2018-12-21 05:13:24.657 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:24.873 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:24.896 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:24.921 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:24.949 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:25.840 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:26.060 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:26.061 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:26.064 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:26.105 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:27.043 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:27.219 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:27.237 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:27.296 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:27.307 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:29.128 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:29.354 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:29.469 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:29.565 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:29.812 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:31.270 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:31.488 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:31.556 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:31.566 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:31.655 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:31.959 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:32.427 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:32.436 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:32.495 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:33.234 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:33.399 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:33.437 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:33.449 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:33.454 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:34.331 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:34.607 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:34.626 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:34.636 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:35.498 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:35.698 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:35.703 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:35.722 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:36.486 OurGame - game is over, time ended
+[INFO ] 2018-12-21 05:13:36.742 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:36.869 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:36.923 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:37.003 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:37.888 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:38.048 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:38.097 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:38.185 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:39.080 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:39.261 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:39.305 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:40.228 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:40.357 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:40.368 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:41.420 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:41.598 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:41.633 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:42.645 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:42.760 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:42.840 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:42.902 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:43.751 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:43.943 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:43.993 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:44.086 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:44.899 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:45.108 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:45.140 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:45.155 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:45.168 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:45.180 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:46.009 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:46.211 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:46.300 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:47.157 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:48.263 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:48.463 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:48.498 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:48.514 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:49.441 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:49.647 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:49.685 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:49.698 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:50.608 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:50.866 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:51.779 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:51.928 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:52.026 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:52.056 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:52.976 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:53.095 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:53.163 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:53.195 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:54.096 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:13:54.402 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:13:55.253 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:44.597 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:46.095 OurGame - game is over, time ended
+[INFO ] 2018-12-21 05:14:46.889 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:47.083 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:47.088 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:47.105 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:47.174 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:48.071 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:48.207 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:48.224 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:48.290 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:48.302 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:48.323 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:49.221 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:49.361 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:49.422 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:49.508 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:50.393 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:50.564 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:50.589 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:50.619 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:50.642 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:51.541 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:51.684 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:51.738 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:51.757 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:51.797 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:52.673 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:52.917 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:52.963 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:52.967 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:53.830 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:54.043 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:54.081 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:54.111 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:55.023 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:55.217 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:55.243 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:55.257 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:55.277 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:56.189 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:56.419 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:57.327 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:57.568 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:57.617 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:57.632 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:58.492 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:58.663 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:58.685 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:58.735 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:58.756 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:59.623 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:14:59.794 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:59.880 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:14:59.913 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:49.597 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:50.645 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:50.821 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:50.843 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:50.898 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:50.907 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:50.913 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:51.110 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:51.231 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:51.296 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:51.338 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:51.360 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:51.857 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:52.077 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:52.142 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:52.151 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:52.333 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:52.577 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:53.042 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:53.171 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:53.205 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:53.316 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:53.511 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:53.712 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:53.749 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:54.277 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:54.448 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:54.500 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:54.550 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:54.743 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:54.858 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:54.993 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:55.434 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:55.628 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:55.628 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:55.663 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:55.712 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:55.929 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:56.111 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:56.144 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:56.701 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:56.922 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:56.940 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:57.117 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:57.237 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:57.277 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:57.379 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:57.839 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:58.026 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:58.122 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:58.219 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:58.388 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:58.393 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:58.428 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:58.456 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:58.512 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:58.939 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:59.149 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:59.186 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:59.197 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:59.369 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:16:59.583 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:59.593 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:59.608 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:16:59.613 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:00.086 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:00.262 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:00.330 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:00.335 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:00.339 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:00.502 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:00.756 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:00.762 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.199 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:01.384 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.415 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.463 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.467 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.479 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.604 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:01.824 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.824 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.865 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.895 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:01.901 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:02.303 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:02.535 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:02.555 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:02.569 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:02.610 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:02.756 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:02.940 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:02.945 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:02.965 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:03.025 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:03.450 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:03.909 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:04.063 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:04.563 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:04.783 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:04.789 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:04.837 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:04.868 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:05.084 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:05.220 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:05.282 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:05.705 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:05.938 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:05.944 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:06.219 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:06.412 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:06.418 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:06.861 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:07.044 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:07.069 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:07.100 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:07.109 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:07.390 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:07.580 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:07.585 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:07.607 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:07.972 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:08.147 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:08.206 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:17:08.540 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:17:09.104 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:42.671 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:45.142 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:45.354 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:45.372 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:45.436 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:46.035 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:46.223 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:46.247 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:46.306 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:46.319 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:46.324 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:46.441 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:46.672 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:46.706 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:47.262 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:47.436 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:47.495 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:47.505 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:47.579 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:47.839 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:47.906 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:48.436 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:48.596 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:48.602 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:48.687 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:48.696 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:48.696 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:19:48.961 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:48.993 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:49.017 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:19:49.025 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:41.354 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:20:42.461 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:20:42.640 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:42.665 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:42.719 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:42.730 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:42.737 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:42.962 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:20:43.116 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:43.145 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:43.215 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:43.261 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:43.764 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:20:44.020 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:44.099 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:20:44.113 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:25.881 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:28.538 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:28.644 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:28.879 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:28.888 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:28.899 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:28.940 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:29.038 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:29.067 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:29.105 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:29.153 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:30.721 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:30.768 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:31.015 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:31.042 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:31.164 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:31.246 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:31.255 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:32.737 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:32.754 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:33.051 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:33.191 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:33.220 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:34.797 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:34.836 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:35.153 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:35.178 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:35.233 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:35.286 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:36.778 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:36.788 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:37.103 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:37.305 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:37.314 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:38.794 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:38.860 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:21:39.192 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:39.210 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:39.219 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:39.244 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:39.315 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:21:39.334 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:42.002 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:25:44.191 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:25:44.414 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:44.424 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:44.521 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:44.574 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:44.610 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:46.122 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:25:46.452 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:46.512 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:46.653 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:48.189 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:25:48.551 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:48.633 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:48.643 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:50.318 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:25:52.387 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:25:52.657 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:52.666 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:25:52.869 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:20.345 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:22.452 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:22.748 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:22.927 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:22.963 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:24.504 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:24.797 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:24.870 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:24.961 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:24.979 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:26.713 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:27.087 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:27.186 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:27.364 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:39.157 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:39.575 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:41.359 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:41.662 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:41.699 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:41.859 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:41.867 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:43.472 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:43.812 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:44.009 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:44.091 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:45.532 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:45.867 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:45.919 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:45.953 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:47.608 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:47.902 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:48.020 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:48.029 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:49.624 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:50.023 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:50.173 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:50.181 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:51.755 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:52.073 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:52.134 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:52.198 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:52.243 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:53.772 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:28:53.998 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:28:54.122 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:24.840 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:26.562 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:27.588 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:27.859 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:27.940 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:27.975 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:27.994 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:28.015 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:28.626 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:28.816 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:28.824 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:29.828 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:30.207 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:30.277 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:30.307 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:31.796 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:32.131 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:32.280 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:33.852 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:34.205 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:34.230 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:34.247 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:35.798 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:36.162 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:36.171 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:36.262 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:36.340 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:37.796 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:38.182 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:38.232 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:38.266 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:39.840 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:29:40.137 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:40.154 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:40.271 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:29:40.296 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:43.479 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:32:46.111 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:32:46.166 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:46.418 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:46.544 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:46.563 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:48.304 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:32:48.316 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:48.528 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:48.537 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:48.565 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:48.758 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:50.310 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:32:50.626 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:50.670 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:50.806 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:52.465 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:32:52.666 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:52.750 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:52.855 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:32:54.476 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:09.434 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:11.229 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:12.303 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:12.579 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:12.637 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:12.730 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:12.766 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:13.334 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:13.543 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:13.551 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:13.579 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:47.960 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:49.860 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:50.993 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:51.234 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:51.425 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:51.443 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:52.156 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:52.166 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:53.241 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:53.453 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:53.687 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:55.151 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:55.575 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:55.669 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:57.219 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:57.560 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:57.693 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:59.213 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:33:59.416 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:59.450 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:59.631 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:33:59.640 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:01.150 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:34:01.574 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:01.600 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:01.618 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:03.089 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:34:03.407 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:03.564 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:04.975 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:34:05.308 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:05.380 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:05.422 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:05.439 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:05.498 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:34:06.957 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:34:07.331 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:00.335 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:37:03.001 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:37:03.291 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:03.333 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:03.565 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:05.501 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:37:05.939 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:05.989 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:06.012 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:06.197 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:08.242 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:08.787 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:37:09.345 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:09.345 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:09.438 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:09.578 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:11.091 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:11.103 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:11.252 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:37:11.819 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:11.870 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:11.880 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:11.880 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:11.891 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:13.763 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:37:14.087 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:14.119 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:14.255 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:14.310 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:16.129 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:37:16.560 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:37:16.737 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:25.027 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:44:27.705 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:44:28.155 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:28.210 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:28.221 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:28.242 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:30.217 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:44:30.478 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:30.595 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:30.697 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:30.750 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:32.750 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:44:33.077 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:33.089 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:33.388 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:35.558 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:44:36.502 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:36.510 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:37.230 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:38.940 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:44:40.165 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:44:40.178 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:45:29.954 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:45:29.980 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:47:33.173 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:47:34.409 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:47:36.771 OurGame - plates are added to screen
+[INFO ] 2018-12-21 05:47:37.195 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:47:37.443 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:47:37.455 OurGame - plate released into pool
+[INFO ] 2018-12-21 05:47:37.488 OurGame - plate released into pool

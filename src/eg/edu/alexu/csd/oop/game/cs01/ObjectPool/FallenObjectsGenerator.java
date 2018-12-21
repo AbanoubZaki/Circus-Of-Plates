@@ -15,24 +15,23 @@ public class FallenObjectsGenerator {
 	private static FallenObjectsGenerator instance;
 	private final int MAX_FALLEN_OBJECTS = 75;
 	private Map<String, List<GameObject>> map;
-	@SuppressWarnings("unused")
-	private GameDifficulty difficulty;
+	private static GameDifficulty difficulty;
 	private GameObject fallenObject;
-	private GameMode mode;
+	private static GameMode mode;
 	private ArrayList<GameObject> pool;
 	private ArrayList<GameObject> used;
 
 	private FallenObjectsGenerator(GameMode mode, GameDifficulty difficulty) {
-		this.mode = mode;
+		FallenObjectsGenerator.mode = mode;
 		this.map = mode.getMapMovable();
-		this.difficulty = difficulty;
+		FallenObjectsGenerator.difficulty = difficulty;
 		pool = new ArrayList<GameObject>(MAX_FALLEN_OBJECTS);
 		used = new ArrayList<GameObject>(MAX_FALLEN_OBJECTS);
 		for (int i = 0; i < MAX_FALLEN_OBJECTS; i++) {
 			Random random = new Random();
 			// 2 is the number of the extra objects.
 			int r = random.nextInt(difficulty.getColorsOfFallenObjects() + 2);
-			if (i%14 <8 || (i%14 > 8 && i%14 <13)) {
+			if (i % 14 < 8 || (i % 14 > 8 && i % 14 < 13)) {
 				r = (r + 2) % difficulty.getColorsOfFallenObjects() + 2;
 			} else if (i % 8 == 8) {
 				r = 0;
@@ -49,6 +48,10 @@ public class FallenObjectsGenerator {
 	public static FallenObjectsGenerator getInstance(GameMode mode, GameDifficulty difficulty) {
 		if (instance == null) {
 			instance = new FallenObjectsGenerator(mode, difficulty);
+		}
+		if (!FallenObjectsGenerator.mode.equals(mode) || !FallenObjectsGenerator.difficulty.equals(difficulty)) {
+			instance = new FallenObjectsGenerator(mode, difficulty);
+			System.out.println("new");
 		}
 		return instance;
 	}
