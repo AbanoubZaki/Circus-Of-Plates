@@ -9,6 +9,7 @@ import java.util.Map;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
@@ -83,6 +84,7 @@ public class ModeFactory implements IModeFactory {
 	}
 
 	public GameMode createMode() {
+		OurLogger.info(this.getClass(), mode + " mode has been created with " + difficulty + "difficulty");
 		buildConstant();
 		buildMovable();
 		buildControlable();
@@ -101,6 +103,7 @@ public class ModeFactory implements IModeFactory {
 	}
 
 	public GameMode loadMode() {
+		OurLogger.info(this.getClass(), mode + " mode has been loaded with " + difficulty + "difficulty");
 		buildMovable();
 		buildTracks();
 		return ModeFactory.mode;

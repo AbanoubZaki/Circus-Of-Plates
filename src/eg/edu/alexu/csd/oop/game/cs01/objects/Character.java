@@ -3,11 +3,11 @@ package eg.edu.alexu.csd.oop.game.cs01.objects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.CharacterSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObservableX;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObserverX;
 

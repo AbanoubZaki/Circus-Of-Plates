@@ -1,4 +1,4 @@
-package Strategy;
+package eg.edu.alexu.csd.oop.game.cs01.Strategy;
 
 public class NotMovableY implements IMovableY {
 
@@ -13,7 +13,6 @@ public class NotMovableY implements IMovableY {
 
 	@Override
 	public int setY(int y) {
-		// TODO Auto-generated method stub
 		return initialY;
 	}
 

@@ -6,12 +6,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import Strategy.IMovableX;
-import Strategy.IMovableY;
-import Strategy.MovableX;
-import Strategy.MovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.AbstractSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableX;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableY;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableX;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableY;
 
 public abstract class AbstractGameObject implements GameObject {
 

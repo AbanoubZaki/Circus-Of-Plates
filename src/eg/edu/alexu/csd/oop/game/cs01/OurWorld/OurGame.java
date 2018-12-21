@@ -1,10 +1,10 @@
 package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
@@ -19,6 +19,7 @@ import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.GameSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
@@ -38,6 +39,7 @@ public class OurGame implements World {
 	private CurrentState state;
 	private int counter;
 	private double remainingTime;
+	private javafx.util.Duration duration;
 
 	/**
 	 * @return the remainingTime
@@ -163,6 +165,10 @@ public class OurGame implements World {
 		this.state = state;
 	}
 
+	public javafx.util.Duration getDuration() {
+		return duration;
+	}
+	
 	@Override
 	public boolean refresh() {
 		boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME;
@@ -218,6 +224,7 @@ public class OurGame implements World {
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
+							Track.getInstance().getTrack("present").play();
 							score++;
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
@@ -236,6 +243,7 @@ public class OurGame implements World {
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
+							Track.getInstance().getTrack("present").play();
 							score++;
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
@@ -291,6 +299,7 @@ public class OurGame implements World {
 		this.lives = snapShot.getLives();
 		this.remainingTime = snapShot.getReminingTime();
 		this.difficulty = snapShot.getDifficulty();
+		this.duration = snapShot.getThemeDuration();
 		this.mode = snapShot.getMode();
 		this.mode = ModeFactory.getInstance(this.mode, this.difficulty).loadMode();
 		FallenObjectsGenerator.getInstance(mode, difficulty);

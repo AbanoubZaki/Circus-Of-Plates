@@ -1,4 +1,4 @@
-package Strategy;
+package eg.edu.alexu.csd.oop.game.cs01.Strategy;
 
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 

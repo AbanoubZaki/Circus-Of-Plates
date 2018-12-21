@@ -42,7 +42,6 @@ public class Track {
 				mediaPlayers.put(trackFile.getName().substring(0, trackFile.getName().lastIndexOf(".")), media);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 	}
 
@@ -53,7 +52,6 @@ public class Track {
 			}
 			return new MediaPlayer(mediaPlayers.get(name));
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 		return null;
 	}

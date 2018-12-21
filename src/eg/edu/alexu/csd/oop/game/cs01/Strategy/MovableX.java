@@ -1,4 +1,4 @@
-package Strategy;
+package eg.edu.alexu.csd.oop.game.cs01.Strategy;
 
 public class MovableX implements IMovableX {
 
@@ -7,7 +7,6 @@ public class MovableX implements IMovableX {
 
 	@Override
 	public int setX(int x) {
-		// TODO Auto-generated method stub
 		return x;
 	}
 

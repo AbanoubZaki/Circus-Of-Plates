@@ -12,6 +12,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import eg.edu.alexu.csd.oop.game.World;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame;
 
 public class SnapShot implements SnapShotInterface {
@@ -30,7 +31,7 @@ public class SnapShot implements SnapShotInterface {
 
 	@Override
 	public void saveGame(World ourGame, String fileName) {
-
+		OurLogger.info(this.getClass(), fileName + "'s game has been saved");
 		File folder = new File("SavedGames");
 		System.out.println(folder.mkdirs());
 		File savedFile = new File("SavedGames\\" + fileName + ".json");
@@ -53,6 +54,7 @@ public class SnapShot implements SnapShotInterface {
 
 	@Override
 	public World loadGame(String fileName) {
+		OurLogger.info(this.getClass(), fileName + "'s game has been loaded");
 		FileReader fileReader;
 		BufferedReader bufferReader;
 		StringBuilder builder = new StringBuilder();
