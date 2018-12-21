@@ -129,8 +129,9 @@ public class MenuBarManager {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//add a edit text field to take file name.
-				
-				SnapShot.getSnapShot().saveGame(game, "mashy ya donya");
+				if (((OurGame)game).getState() != CurrentState.gameOver) {
+					SnapShot.getSnapShot().saveGame(game, "mashy ya donya");
+				}
 			}
 		});
 		
