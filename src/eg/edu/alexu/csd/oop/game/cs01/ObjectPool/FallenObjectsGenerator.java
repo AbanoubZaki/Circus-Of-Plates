@@ -13,7 +13,7 @@ import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 public class FallenObjectsGenerator {
 
 	private static FallenObjectsGenerator instance;
-	private final int MAX_FALLEN_OBJECTS = 150;
+	private final int MAX_FALLEN_OBJECTS = 75;
 	private Map<String, List<GameObject>> map;
 	private static GameDifficulty difficulty;
 	private GameObject fallenObject;

@@ -13,7 +13,7 @@ import eg.edu.alexu.csd.oop.game.cs01.Strategy.NotMovableY;
 
 public class CharacterStack extends AbstractGameObject {
 
-	private final int MAX_FALLEN_OBJECTS = 50;
+	private final int MAX_FALLEN_OBJECTS = 15;
 	private Stack<GameObject> stack;
 	private List<GameObject> controlable;
 	private ObjectType type;
