@@ -16,8 +16,8 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 
-		MenuBarManager.setGame(new OurGame(GameDifficulty.easy,
-				ModeFactory.getInstance(GameMode.christmass, GameDifficulty.easy).createMode()));
+		MenuBarManager.setGame(new OurGame(GameDifficulty.hard,
+				ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode()));
 		Controller.getInstance().setGameController(
 				GameEngine.start("Circus of plates", MenuBarManager.getGame(), MenuBarManager.getInstance().getMenuBar()));
 		MenuBarManager.setFrame((JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent());

@@ -96,6 +96,7 @@ public class Character extends AbstractGameObject {
 		((CharacterStack) this.rightStack).loadCharacterStack(snapShot.getRight());
 		this.mode = snapShot.getMode();
 		this.type = snapShot.getType();
+		setMovableY(new NotMovableY(getY()));
 
 	}
 

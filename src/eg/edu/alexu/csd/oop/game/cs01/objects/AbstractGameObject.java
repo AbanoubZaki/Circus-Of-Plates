@@ -183,6 +183,8 @@ public abstract class AbstractGameObject implements GameObject {
 		this.setX(snapShot.getX());
 		this.setY(snapShot.getY());
 		this.setVisible(true);
+		this.setMovableX(new MovableX());
+		this.setMovableY(new MovableY());
 		try {
 			File[] images = new File[snapShot.getPaths().length];
 			for (int i = 0; i < snapShot.getPaths().length; i++) {

@@ -13,7 +13,7 @@ import eg.edu.alexu.csd.oop.game.cs01.Strategy.NotMovableY;
 
 public class CharacterStack extends AbstractGameObject {
 
-	private final int MAX_FALLEN_OBJECTS = 15;
+	private final int MAX_FALLEN_OBJECTS = 50;
 	private Stack<GameObject> stack;
 	private List<GameObject> controlable;
 	private ObjectType type;
@@ -27,8 +27,7 @@ public class CharacterStack extends AbstractGameObject {
 		this.type = type;
 	}
 
-	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable, int backGroundWidth,
-			int noOfCharacter) {
+	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable) {
 		this.controlable = controlable;
 		if (CheckColors(fallenObject)) {
 			removeFallenObject();
@@ -40,8 +39,7 @@ public class CharacterStack extends AbstractGameObject {
 			fallenObject.setY(getY());
 			stack.push(fallenObject);
 			((AbstractGameObject) fallenObject).setMovableY(new NotMovableY(fallenObject.getY()));
-			((AbstractGameObject) fallenObject).setMovableX(new MovableXCondition(backGroundWidth,
-					controlable.get(noOfCharacter).getWidth(), type, fallenObject.getX()));
+			((AbstractGameObject) fallenObject).setMovableX(new MovableXCondition(this));
 			this.controlable.add(fallenObject);
 			return Score.noChange;
 		}
@@ -86,6 +84,8 @@ public class CharacterStack extends AbstractGameObject {
 		for (int i = 0; i < snapShot.getStack().size(); i++) {
 			FallenObject o = new FallenObject();
 			o.loadFallenObject((FallenObjectSnapShot) snapShot.getStack().get(i));
+			o.setMovableY(new NotMovableY(o.getY()));
+			o.setMovableX(new MovableXCondition(this));
 			stack.add(o);
 		}
 		this.type = snapShot.getType();

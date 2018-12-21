@@ -1,6 +1,5 @@
 package eg.edu.alexu.csd.oop.game.cs01.OurWorld;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -19,7 +18,6 @@ import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.GameSnapShot;
-import eg.edu.alexu.csd.oop.game.cs01.Strategy.NotMovableY;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
@@ -168,7 +166,7 @@ public class OurGame implements World {
 	public javafx.util.Duration getDuration() {
 		return duration;
 	}
-	
+
 	@Override
 	public boolean refresh() {
 		boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME;
@@ -220,7 +218,7 @@ public class OurGame implements World {
 							((Character) this.controlable.get(i)).getLeftStack())) {
 						OurLogger.info(this.getClass(), "intersection of left stack with a plate happened");
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getLeftStack();
-						Score s = stack.addFallenObject(o, controlable.getList(), getWidth(), i);
+						Score s = stack.addFallenObject(o, controlable.getList());
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
@@ -239,7 +237,7 @@ public class OurGame implements World {
 							((Character) this.controlable.get(i)).getRightStack())) {
 						OurLogger.info(this.getClass(), "intersection of right stack with a plate happened");
 						CharacterStack stack = (CharacterStack) ((Character) this.controlable.get(i)).getRightStack();
-						Score s = stack.addFallenObject(o, controlable.getList(), getWidth(), i);
+						Score s = stack.addFallenObject(o, controlable.getList());
 						movable.remove(o);
 						objectRemoved = true;
 						if (s == Score.win) {
@@ -292,6 +290,13 @@ public class OurGame implements World {
 		return new GameSnapShot(this);
 	}
 
+	/**
+	 * @return the counter
+	 */
+	public int getCounter() {
+		return counter;
+	}
+
 	@SuppressWarnings("unchecked")
 	public void loadGame(GameSnapShot snapShot) {
 		this.score = snapShot.getScore();
@@ -317,21 +322,27 @@ public class OurGame implements World {
 			list.add(fallenOject);
 		}
 		this.movable = new GameObjectCollection((List<GameObject>) list.clone());
-		list = new ArrayList<GameObject>();
+		List<GameObject> controllableList = new ArrayList<GameObject>();
 		for (int i = 0; i < snapShot.getControlableCharacters().size(); i++) {
 			Character o = new Character();
 			((Character) o).loadCharacter(snapShot.getControlableCharacters().get(i));
-			((Character) o).setMovableY(new NotMovableY());
-			list.add(o);
+			controllableList.add(o);
 		}
-		for (int i = 0; i < snapShot.getControlableFallenObject().size(); i++) {
-			FallenObject o = new FallenObject();
-			((FallenObject) o).loadFallenObject(snapShot.getControlableFallenObject().get(i));
-			((FallenObject) o).setMovableY(new NotMovableY());
-			list.add(o);
+		list = new ArrayList<GameObject>();
+		for (GameObject c : controllableList) {
+			for (GameObject o : ((CharacterStack) ((Character) c).getLeftStack()).getStack()) {
+				list.add(o);
+			}
+			for (GameObject o : ((CharacterStack) ((Character) c).getRightStack()).getStack()) {
+				list.add(o);
+			}
 		}
-		this.controlable = new GameObjectCollection(list);
+		controllableList.addAll(list);
+		this.controlable = new GameObjectCollection(controllableList);
 		startTime = System.currentTimeMillis();
+		counter = snapShot.getCounter();
+		this.mode.setConstant(getConstantObjects());
+		this.mode.setControlable(getControlableObjects());
 
 	}
 }

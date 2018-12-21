@@ -8,14 +8,12 @@ import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame;
-import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import javafx.util.Duration;
 
 public class GameSnapShot {
 	private List<BackGroundSnapShot> constant;
 	private List<FallenObjectSnapShot> movable;
 	private List<CharacterSnapShot> controlableCharacters;
-	private List<FallenObjectSnapShot> controlableFallenObject;
 	private int lives;
 	private int score;
 	private GameMode mode;
@@ -23,6 +21,7 @@ public class GameSnapShot {
 	private double reminingTime;
 	private GameDifficulty difficulty;
 	private Duration themeDuration;
+	private int counter;
 
 	public GameSnapShot() {
 	}
@@ -35,10 +34,10 @@ public class GameSnapShot {
 		this.reminingTime = game.getRemainingTime();
 		this.difficulty = game.getDifficulty();
 		this.themeDuration = Track.getInstance().getTrack("theme").getCurrentTime();
+		this.counter = game.getCounter();
 		constant = new ArrayList<BackGroundSnapShot>();
 		movable = new ArrayList<FallenObjectSnapShot>();
 		controlableCharacters = new ArrayList<CharacterSnapShot>();
-		controlableFallenObject = new ArrayList<FallenObjectSnapShot>();
 		for (int i = 0; i < game.getConstantObjects().size(); i++) {
 			BackGroundSnapShot snapShot = new BackGroundSnapShot(game.getConstantObjects().get(i));
 			constant.add(snapShot);
@@ -47,16 +46,17 @@ public class GameSnapShot {
 			FallenObjectSnapShot snapShot = new FallenObjectSnapShot(game.getMovableObjects().get(i));
 			movable.add(snapShot);
 		}
-		for (int i = 0; i < game.getControlableObjects().size(); i++) {
-			if (game.getControlableObjects().get(i) instanceof Character) {
-				CharacterSnapShot snapShot = new CharacterSnapShot(game.getControlableObjects().get(i));
-				controlableCharacters.add(snapShot);
-			} else {
-				FallenObjectSnapShot snapShot = new FallenObjectSnapShot(game.getControlableObjects().get(i));
-				controlableFallenObject.add(snapShot);
-
-			}
+		for (int i = 0; i < game.getDifficulty().getNoOfCharacters(); i++) {
+			CharacterSnapShot snapShot = new CharacterSnapShot(game.getControlableObjects().get(i));
+			controlableCharacters.add(snapShot);
 		}
+	}
+
+	/**
+	 * @return the counter
+	 */
+	public int getCounter() {
+		return counter;
 	}
 
 	/**
@@ -64,13 +64,6 @@ public class GameSnapShot {
 	 */
 	public List<CharacterSnapShot> getControlableCharacters() {
 		return controlableCharacters;
-	}
-
-	/**
-	 * @return the controlableFallenObject
-	 */
-	public List<FallenObjectSnapShot> getControlableFallenObject() {
-		return controlableFallenObject;
 	}
 
 	/**
@@ -128,6 +121,7 @@ public class GameSnapShot {
 	public CurrentState getState() {
 		return state;
 	}
+
 	/**
 	 * @return theme stopping duration
 	 */
