@@ -15,7 +15,7 @@ import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame;
 
-public class SnapShot implements SnapShotInterface {
+public class SnapShot implements ISnapShot {
 
 	private static SnapShot snapShot;
 
