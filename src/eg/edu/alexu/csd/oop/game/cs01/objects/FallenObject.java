@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 
 public class FallenObject extends AbstractGameObject {
@@ -15,7 +16,7 @@ public class FallenObject extends AbstractGameObject {
 
 	public FallenObject(int x, int y, File[] imageFiles) {
 		super(x, y, imageFiles);
-		this.path = imageFiles[0].getParent();
+		this.path = imageFiles[0].getParentFile().getName();
 	}
 
 	public FallenObject(int x, int y, BufferedImage[] images, String path) {
@@ -42,5 +43,10 @@ public class FallenObject extends AbstractGameObject {
 	public void loadFallenObject(FallenObjectSnapShot snapShot) {
 		this.loadGameObject(snapShot);
 		this.path = snapShot.getPath();
+		try {
+			this.setImages(FallenObjectsGenerator.getInstance().getMap().get(this.path).getSpriteImages());
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 }

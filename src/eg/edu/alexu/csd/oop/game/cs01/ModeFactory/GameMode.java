@@ -15,7 +15,7 @@ public enum GameMode {
 	private List<GameObject> constant;
 	private List<GameObject> movable;
 	private List<GameObject> controlable;
-	private Map<String, List<GameObject>> mapMovable;
+	private Map<String, GameObject> mapMovable;
 	private String path;
 
 	public List<GameObject> getConstant() {
@@ -49,7 +49,7 @@ public enum GameMode {
 	/**
 	 * @return the mapMovable
 	 */
-	public Map<String, List<GameObject>> getMapMovable() {
+	public Map<String,GameObject> getMapMovable() {
 		return mapMovable;
 	}
 
@@ -57,7 +57,7 @@ public enum GameMode {
 	 * @param mapMovable
 	 *            the mapMovable to set
 	 */
-	public void setMapMovable(Map<String, List<GameObject>> mapMovable) {
+	public void setMapMovable(Map<String, GameObject> mapMovable) {
 		this.mapMovable = mapMovable;
 	}
 

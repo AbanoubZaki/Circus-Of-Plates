@@ -55,13 +55,9 @@ public class ModeFactory implements IModeFactory {
 	@Override
 	public void buildMovable() {
 		folder = new File(mode.getPath() + "\\plates");
-		Map<String, List<GameObject>> map = new HashMap<String, List<GameObject>>();
+		Map<String,GameObject> map = new HashMap<String,GameObject>();
 		for (File f1 : folder.listFiles()) {
-			List<GameObject> list = new ArrayList<GameObject>();
-			for (File f2 : f1.listFiles()) {
-				list.add(new FallenObject(0, 0, new File[] { f2 }));
-			}
-			map.put(f1.getName(), list);
+			map.put(f1.getName(),new FallenObject(0, 0,f1.listFiles()));
 		}
 		mode.setMapMovable(map);
 	}

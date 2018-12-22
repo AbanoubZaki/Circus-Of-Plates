@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.AbstractSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableX;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableY;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableX;
@@ -93,7 +94,7 @@ public abstract class AbstractGameObject implements GameObject {
 	public AbstractGameObject() {
 		this.movableX = new MovableX();
 		this.movableY = new MovableY();
-		images = new BufferedImage[200];
+		images = new BufferedImage[175];
 	}
 
 	public AbstractGameObject(int x, int y, int width, int height) {
@@ -185,16 +186,18 @@ public abstract class AbstractGameObject implements GameObject {
 		this.setVisible(true);
 		this.setMovableX(new MovableX());
 		this.setMovableY(new MovableY());
-		try {
-			File[] images = new File[snapShot.getPaths().length];
-			for (int i = 0; i < snapShot.getPaths().length; i++) {
-				images[i] = new File(snapShot.getPaths()[i]);
+		if (!(snapShot instanceof FallenObjectSnapShot)) {
+			try {
+				File[] images = new File[snapShot.getPaths().length];
+				for (int i = 0; i < snapShot.getPaths().length; i++) {
+					images[i] = new File(snapShot.getPaths()[i]);
 
+				}
+				this.setImageFiles(images);
+				loadImages();
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
-			this.setImageFiles(images);
-			loadImages();
-		} catch (Exception e) {
-			// TODO: handle exception
 		}
 	}
 

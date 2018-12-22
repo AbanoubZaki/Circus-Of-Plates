@@ -86,7 +86,6 @@ public class MenuBarManager {
 						ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
 				Controller.getInstance().setGameController(
 						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
-				Controller.getInstance().changeWorld(game);
 				frame = (JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent();
 			}
 		});
@@ -146,6 +145,11 @@ public class MenuBarManager {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				try {
+					FallenObjectsGenerator.getInstance().clear();
+				} catch (Exception e1) {
+				}
+				Track.getInstance().getTrack("theme").stop();
 				game = SnapShot.getSnapShot().loadGame("mashy ya donya");
 				Controller.getInstance().setGameController(
 						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));

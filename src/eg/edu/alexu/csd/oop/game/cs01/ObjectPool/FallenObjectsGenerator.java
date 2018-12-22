@@ -1,7 +1,6 @@
 package eg.edu.alexu.csd.oop.game.cs01.ObjectPool;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -15,8 +14,8 @@ import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 public class FallenObjectsGenerator {
 
 	private static FallenObjectsGenerator instance;
-	private final int MAX_FALLEN_OBJECTS = 75;
-	private Map<String, List<GameObject>> map;
+	private final int MAX_FALLEN_OBJECTS = 150;
+	private Map<String, GameObject> map;
 	private static GameDifficulty difficulty;
 	private GameObject fallenObject;
 	private static GameMode mode;
@@ -41,10 +40,12 @@ public class FallenObjectsGenerator {
 				r = 1;
 			}
 			// System.out.println(r + 1);
-			for (GameObject o : map.get(Integer.toString(r))) {
-				pool.add(((FallenObject) o).clone());
-			}
+				pool.add(((FallenObject)map.get(Integer.toString(r))).clone());
 		}
+	}
+
+	public Map<String,GameObject> getMap() {
+		return map;
 	}
 
 	public static FallenObjectsGenerator getInstance(GameMode mode, GameDifficulty difficulty) {
