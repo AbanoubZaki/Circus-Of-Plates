@@ -18,7 +18,12 @@ public class GameSnapShot {
 	private int score;
 	private GameMode mode;
 	private CurrentState state;
-	private double reminingTime;
+	private double passedTime;
+
+	public double getPassedTime() {
+		return passedTime;
+	}
+
 	private GameDifficulty difficulty;
 	private Duration themeDuration;
 	private int counter;
@@ -30,8 +35,8 @@ public class GameSnapShot {
 		this.lives = game.getLives();
 		this.score = game.getScore();
 		this.mode = game.getMode();
+		this.passedTime = game.getPassedTime();
 		this.state = CurrentState.paused;
-		this.reminingTime = game.getRemainingTime();
 		this.difficulty = game.getDifficulty();
 		this.themeDuration = Track.getInstance().getTrack("theme").getCurrentTime();
 		this.counter = game.getCounter();
@@ -71,13 +76,6 @@ public class GameSnapShot {
 	 */
 	public GameDifficulty getDifficulty() {
 		return difficulty;
-	}
-
-	/**
-	 * @return the reminingTime
-	 */
-	public double getReminingTime() {
-		return reminingTime;
 	}
 
 	/**

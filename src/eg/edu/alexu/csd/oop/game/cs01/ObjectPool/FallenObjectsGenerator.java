@@ -8,6 +8,8 @@ import java.util.Random;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableX;
+import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableY;
 import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 
 public class FallenObjectsGenerator {
@@ -76,9 +78,17 @@ public class FallenObjectsGenerator {
 	}
 
 	public void releaseObject(GameObject oldObject) {
+		System.out.println("used= " + used.size());
+		System.out.println("pool= " + pool.size());
 		used.remove(oldObject);
 		oldObject.setX(0);
 		oldObject.setY(0);
+		((FallenObject) oldObject).setMovableX(new MovableX());
+		((FallenObject) oldObject).setMovableY(new MovableY());
 		pool.add(oldObject);
+	}
+
+	public void clear() {
+		instance = null;
 	}
 }

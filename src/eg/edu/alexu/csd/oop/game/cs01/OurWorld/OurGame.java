@@ -36,15 +36,13 @@ public class OurGame implements World {
 	private GameMode mode;
 	private CurrentState state;
 	private int counter;
-	private double remainingTime;
-	private javafx.util.Duration duration;
+	private double passedTime;
 
-	/**
-	 * @return the remainingTime
-	 */
-	public double getRemainingTime() {
-		return remainingTime;
+	public double getPassedTime() {
+		return passedTime;
 	}
+
+	private javafx.util.Duration duration;
 
 	public OurGame() {
 	}
@@ -65,7 +63,7 @@ public class OurGame implements World {
 		counter = 0;
 		score = 0;
 		state = CurrentState.running;
-		Track.getInstance().getTrack("theme").setVolume(10);
+		Track.getInstance().getTrack("theme").setVolume(50);
 		Track.getInstance().getTrack("theme").play();
 	}
 
@@ -105,8 +103,8 @@ public class OurGame implements World {
 
 	@Override
 	public String getStatus() {
-		String status = "Score=" + score + "   |   Time="
-				+ Math.max(0, this.remainingTime = (MAX_TIME - (System.currentTimeMillis() - startTime)) / 1000);
+		int remainingTime = (int) (MAX_TIME - (this.passedTime = System.currentTimeMillis() - startTime));
+		String status = "Score=" + score + "   |   Time=" + Math.max(0, remainingTime / 1000);
 		for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
 			status += "   |    left = " + ((CharacterStack) (((Character) controlable.get(i)).getLeftStack())).getSize()
 					+ "    |    right = "
@@ -169,7 +167,7 @@ public class OurGame implements World {
 
 	@Override
 	public boolean refresh() {
-		boolean timeout = System.currentTimeMillis() - startTime > MAX_TIME;
+		boolean timeout = (this.passedTime = System.currentTimeMillis() - startTime) > MAX_TIME;
 		if (lives == 0) {
 			Controller.getInstance().pause();
 			state = CurrentState.gameOver;
@@ -199,7 +197,9 @@ public class OurGame implements World {
 							((Character) this.controlable.get(i)).getRightStack())) {
 						OurLogger.info(this.getClass(), "intersection with good object happened");
 						movable.remove(o);
-						objectRemoved = true;
+						counter++;
+						FallenObjectsGenerator.getInstance().releaseObject(o);
+						OurLogger.info(this.getClass(), "plate released into pool");
 						Track.getInstance().getTrack("present").play();
 						score++;
 						break;
@@ -208,7 +208,9 @@ public class OurGame implements World {
 							((Character) this.controlable.get(i)).getRightStack())) {
 						OurLogger.info(this.getClass(), "intersection with good object happened");
 						movable.remove(o);
-						objectRemoved = true;
+						counter++;
+						FallenObjectsGenerator.getInstance().releaseObject(o);
+						OurLogger.info(this.getClass(), "plate released into pool");
 						lives--;
 						constant.remove(constant.size() - 1);
 						Track.getInstance().getTrack("bomb").play();
@@ -302,7 +304,6 @@ public class OurGame implements World {
 		this.score = snapShot.getScore();
 		this.state = snapShot.getState();
 		this.lives = snapShot.getLives();
-		this.remainingTime = snapShot.getReminingTime();
 		this.difficulty = snapShot.getDifficulty();
 		this.duration = snapShot.getThemeDuration();
 		this.mode = snapShot.getMode();
@@ -341,6 +342,7 @@ public class OurGame implements World {
 		this.controlable = new GameObjectCollection(controllableList);
 		startTime = System.currentTimeMillis();
 		counter = snapShot.getCounter();
+		MAX_TIME -= snapShot.getPassedTime();
 		this.mode.setConstant(getConstantObjects());
 		this.mode.setControlable(getControlableObjects());
 

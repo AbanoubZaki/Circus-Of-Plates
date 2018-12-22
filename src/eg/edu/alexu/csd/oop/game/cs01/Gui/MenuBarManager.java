@@ -15,18 +15,19 @@ import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.ModeFactory;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
+import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.Controller;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.SnapShot;
 
 public class MenuBarManager {
-	
+
 	private static MenuBarManager manager;
-	
+
 	private JMenuBar menuBar;
 	private static volatile World game;
 	private static volatile JFrame frame;
-	
+
 	public static World getGame() {
 		return game;
 	}
@@ -43,23 +44,23 @@ public class MenuBarManager {
 		MenuBarManager.frame = frame;
 	}
 
-	private MenuBarManager () {
+	private MenuBarManager() {
 		menuBar = new JMenuBar();
 	}
-	
+
 	public static MenuBarManager getInstance() {
 		if (manager == null) {
 			manager = new MenuBarManager();
 		}
 		return manager;
 	}
-	
+
 	public JMenuBar getMenuBar() {
 		return menuBar;
 	}
-	
+
 	public JMenu setMainMenu() {
-		//new game, pause, resume, exit.
+		// new game, pause, resume, exit.
 		JMenu mainMenu = new JMenu("Main Menu");
 		JMenuItem newGame = new JMenuItem("New Game");
 		JMenuItem pause = new JMenuItem("Pause");
@@ -71,11 +72,16 @@ public class MenuBarManager {
 		mainMenu.addSeparator();
 		mainMenu.add(exit);
 		menuBar.add(mainMenu);
-		
+
 		newGame.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				try {
+					FallenObjectsGenerator.getInstance().clear();
+				} catch (Exception e1) {
+				}
+				Track.getInstance().getTrack("theme").stop();
 				game = new OurGame(GameDifficulty.hard,
 						ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
 				Controller.getInstance().setGameController(
@@ -97,13 +103,13 @@ public class MenuBarManager {
 		resume.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 Controller.getInstance().resume();
-				 ((OurGame) game).setState(CurrentState.running);
+				Controller.getInstance().resume();
+				((OurGame) game).setState(CurrentState.running);
 				Track.getInstance().getTrack("theme").play();
 
 			}
 		});
-		
+
 		exit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -114,29 +120,29 @@ public class MenuBarManager {
 		});
 		return mainMenu;
 	}
-	
+
 	public JMenu setFileMenu() {
-		//mode, difficulty, leader board.
+		// mode, difficulty, leader board.
 		JMenu file = new JMenu("File");
 		JMenuItem save = new JMenuItem("Save Game");
 		JMenuItem load = new JMenuItem("Load Game");
 		file.add(save);
 		file.add(load);
 		menuBar.add(file);
-		
+
 		save.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//add a edit text field to take file name.
-				if (((OurGame)game).getState() != CurrentState.gameOver) {
+				// add a edit text field to take file name.
+				if (((OurGame) game).getState() != CurrentState.gameOver) {
 					SnapShot.getSnapShot().saveGame(game, "mashy ya donya");
 				}
 			}
 		});
-		
+
 		load.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -145,17 +151,17 @@ public class MenuBarManager {
 						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
 				Controller.getInstance().changeWorld(game);
 				frame = (JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent();
-				Track.getInstance().getTrack("theme").seek(((OurGame)game).getDuration());
+				Track.getInstance().getTrack("theme").seek(((OurGame) game).getDuration());
 				Track.getInstance().getTrack("theme").play();
 			}
 		});
-		
+
 		return file;
 	}
-	
-	public void setMenuBar () {
+
+	public void setMenuBar() {
 		setMainMenu();
 		setFileMenu();
-		
+
 	}
 }

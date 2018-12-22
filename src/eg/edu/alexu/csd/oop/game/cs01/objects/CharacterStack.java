@@ -6,6 +6,8 @@ import java.util.Stack;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
+import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.CharacterStackSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableXCondition;
@@ -30,6 +32,8 @@ public class CharacterStack extends AbstractGameObject {
 	public Score addFallenObject(GameObject fallenObject, List<GameObject> controlable) {
 		this.controlable = controlable;
 		if (CheckColors(fallenObject)) {
+			FallenObjectsGenerator.getInstance().releaseObject(fallenObject);
+			OurLogger.info(this.getClass(), "plate released into pool");
 			removeFallenObject();
 			return Score.win;
 		}
@@ -51,8 +55,14 @@ public class CharacterStack extends AbstractGameObject {
 	 */
 	private void removeFallenObject() {
 		try {
-			this.controlable.remove(stack.pop());
-			this.controlable.remove(stack.pop());
+			FallenObjectsGenerator.getInstance().releaseObject(stack.peek());
+			OurLogger.info(this.getClass(), "plate released into pool");
+			this.controlable.remove(stack.peek());
+			stack.pop();
+			FallenObjectsGenerator.getInstance().releaseObject(stack.peek());
+			OurLogger.info(this.getClass(), "plate released into pool");
+			this.controlable.remove(stack.peek());
+			stack.pop();
 			setY(getY() + 14);
 		} catch (Exception e) {
 		}
