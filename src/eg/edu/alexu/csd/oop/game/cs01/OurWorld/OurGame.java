@@ -26,6 +26,7 @@ import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 public class OurGame implements World {
 
 	private static int MAX_TIME = 2 * 60 * 1000; // 1 minute
+	private String name;
 	private int lives;
 	private int score;
 	private long startTime;
@@ -47,7 +48,8 @@ public class OurGame implements World {
 	public OurGame() {
 	}
 
-	public OurGame(GameDifficulty difficulty, GameMode mode) {
+	public OurGame(GameDifficulty difficulty, GameMode mode, String name) {
+		this.name = name;
 		lives = 5;
 		this.difficulty = difficulty;
 		this.setMode(mode);
@@ -113,7 +115,13 @@ public class OurGame implements World {
 		status += "   |   lives = " + lives;
 		return status;
 	}
-
+	/**
+	 * @return user name.
+	 */
+	public String getName() {
+		return name;
+	}
+	
 	/**
 	 * @return the lives
 	 */

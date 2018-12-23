@@ -14,10 +14,11 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 
+		String name = "bebo";
 		GameDifficulty d = GameDifficulty.medium;
 		GameMode m = GameMode.christmass;
 
-		MenuBarManager.setGame(new OurGame(d, ModeFactory.getInstance(m, d).createMode()));
+		MenuBarManager.setGame(new OurGame(d, ModeFactory.getInstance(m, d).createMode(), name));
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", MenuBarManager.getGame(),
 				MenuBarManager.getInstance().getMenuBar()));
 		MenuBarManager.setFrame((JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent());
@@ -26,7 +27,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage arg0) throws Exception {
-
+		
 	}
 
 }

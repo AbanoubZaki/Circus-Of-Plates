@@ -2,6 +2,9 @@ package eg.edu.alexu.csd.oop.game.cs01.Gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -10,9 +13,7 @@ import javax.swing.JMenuItem;
 
 import eg.edu.alexu.csd.oop.game.GameEngine;
 import eg.edu.alexu.csd.oop.game.World;
-import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
-import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.ModeFactory;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
@@ -82,8 +83,11 @@ public class MenuBarManager {
 				} catch (Exception e1) {
 				}
 				Track.getInstance().getTrack("theme").stop();
-				game = new OurGame(GameDifficulty.easy,
-						ModeFactory.getInstance(GameMode.christmass, GameDifficulty.easy).createMode());
+
+				game = new OurGame(
+						((OurGame) game).getDifficulty(), ModeFactory.getInstance(((OurGame) game).getMode(),
+								((OurGame) game).getDifficulty()).createMode(),((OurGame) game).getName());
+
 				Controller.getInstance().setGameController(
 						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
 				frame = (JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent();
@@ -135,7 +139,12 @@ public class MenuBarManager {
 			public void actionPerformed(ActionEvent e) {
 				// add a edit text field to take file name.
 				if (((OurGame) game).getState() != CurrentState.gameOver) {
-					SnapShot.getSnapShot().saveGame(game, "mashy ya donya");
+					Date date = new Date();
+				    String strDateFormat = "hh-mm-ss a";
+				    DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+				    String formattedDate= dateFormat.format(date);
+				    System.out.println(formattedDate);
+					SnapShot.getSnapShot().saveGame(game, ((OurGame)game).getName() + " " + formattedDate);
 				}
 			}
 		});
@@ -150,7 +159,8 @@ public class MenuBarManager {
 				} catch (Exception e1) {
 				}
 				Track.getInstance().getTrack("theme").stop();
-				game = SnapShot.getSnapShot().loadGame("mashy ya donya");
+				game = SnapShot.getSnapShot().loadGame(((OurGame)game).getName() + new Date().getTime());
+				
 				Controller.getInstance().setGameController(
 						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
 				Controller.getInstance().changeWorld(game);
@@ -166,6 +176,5 @@ public class MenuBarManager {
 	public void setMenuBar() {
 		setMainMenu();
 		setFileMenu();
-
 	}
 }
