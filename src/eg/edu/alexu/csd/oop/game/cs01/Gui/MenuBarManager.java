@@ -82,8 +82,8 @@ public class MenuBarManager {
 				} catch (Exception e1) {
 				}
 				Track.getInstance().getTrack("theme").stop();
-				game = new OurGame(GameDifficulty.hard,
-						ModeFactory.getInstance(GameMode.robot, GameDifficulty.hard).createMode());
+				game = new OurGame(GameDifficulty.easy,
+						ModeFactory.getInstance(GameMode.christmass, GameDifficulty.easy).createMode());
 				Controller.getInstance().setGameController(
 						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
 				frame = (JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent();

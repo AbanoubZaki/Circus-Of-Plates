@@ -13,8 +13,11 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 	public static void main(String[] args) {
-		MenuBarManager.setGame(new OurGame(GameDifficulty.medium,
-				ModeFactory.getInstance(GameMode.robot, GameDifficulty.medium).createMode()));
+
+		GameDifficulty d = GameDifficulty.medium;
+		GameMode m = GameMode.christmass;
+
+		MenuBarManager.setGame(new OurGame(d, ModeFactory.getInstance(m, d).createMode()));
 		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", MenuBarManager.getGame(),
 				MenuBarManager.getInstance().getMenuBar()));
 		MenuBarManager.setFrame((JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent());
