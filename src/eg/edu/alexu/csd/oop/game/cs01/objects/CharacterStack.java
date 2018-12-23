@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Stack;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.DynamicLinkage.GameObjectLoader;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
 import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
@@ -42,8 +43,8 @@ public class CharacterStack extends AbstractGameObject {
 			fallenObject.setX(getX());
 			fallenObject.setY(getY());
 			stack.push(fallenObject);
-			((AbstractGameObject) fallenObject).setMovableY(new NotMovableY(fallenObject.getY()));
-			((AbstractGameObject) fallenObject).setMovableX(new MovableXCondition(this));
+			((AbstractFallenObject) fallenObject).setMovableY(new NotMovableY(fallenObject.getY()));
+			((AbstractFallenObject) fallenObject).setMovableX(new MovableXCondition(this));
 			this.controlable.add(fallenObject);
 			return Score.noChange;
 		}
@@ -70,9 +71,10 @@ public class CharacterStack extends AbstractGameObject {
 
 	private boolean CheckColors(GameObject fallenObject) {
 		try {
-			if (((FallenObject) stack.get(stack.size() - 1)).getPath().equals(((FallenObject) fallenObject).getPath())
-					&& ((FallenObject) stack.get(stack.size() - 2)).getPath()
-							.equals(((FallenObject) fallenObject).getPath())) {
+			if (((AbstractFallenObject) stack.get(stack.size() - 1)).getColor()
+					.equals(((AbstractFallenObject) fallenObject).getColor())
+					&& ((AbstractFallenObject) stack.get(stack.size() - 2)).getColor()
+							.equals(((AbstractFallenObject) fallenObject).getColor())) {
 				return true;
 			}
 		} catch (Exception e) {
@@ -92,7 +94,8 @@ public class CharacterStack extends AbstractGameObject {
 		this.loadGameObject(snapShot);
 		stack = new Stack<GameObject>();
 		for (int i = 0; i < snapShot.getStack().size(); i++) {
-			FallenObject o = new FallenObject();
+			AbstractFallenObject o = GameObjectLoader.getInstance()
+					.newInstance(((FallenObjectSnapShot) snapShot.getStack().get(i)).getClassName());
 			o.loadFallenObject((FallenObjectSnapShot) snapShot.getStack().get(i));
 			o.setMovableY(new NotMovableY(o.getY()));
 			o.setMovableX(new MovableXCondition(this));

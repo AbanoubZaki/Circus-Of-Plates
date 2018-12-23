@@ -1,7 +1,7 @@
 package eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
-import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
+import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
 
 public class Refresh implements IRefresh {
 
@@ -25,12 +25,14 @@ public class Refresh implements IRefresh {
 
 	@Override
 	public boolean intersectWithGood(GameObject o, GameObject gameObject, GameObject gameObject2) {
-		return (((FallenObject) o).getPath().contains("0") && (intersect(o, gameObject) || intersect(o, gameObject2)));
+		return (((AbstractFallenObject) o).getColor().equals("0")
+				&& (intersect(o, gameObject) || intersect(o, gameObject2)));
 	}
 
 	@Override
 	public boolean intersectWithBad(GameObject o, GameObject leftStack, GameObject rightStack) {
-		return (((FallenObject) o).getPath().contains("1") && (intersect(o, leftStack) || intersect(o, rightStack)));
+		return (((AbstractFallenObject) o).getColor().equals("1")
+				&& (intersect(o, leftStack) || intersect(o, rightStack)));
 	}
 
 	@Override

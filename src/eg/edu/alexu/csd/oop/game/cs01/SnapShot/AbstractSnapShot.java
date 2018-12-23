@@ -34,7 +34,7 @@ public class AbstractSnapShot {
 				paths[i] = ((AbstractGameObject) gameObject).getImageFiles()[i].getPath();
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
 		}
 
 	}

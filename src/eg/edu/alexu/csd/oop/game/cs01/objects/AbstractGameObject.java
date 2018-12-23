@@ -8,13 +8,12 @@ import javax.imageio.ImageIO;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.AbstractSnapShot;
-import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableX;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableY;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableX;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableY;
 
-public abstract class AbstractGameObject implements GameObject {
+public class AbstractGameObject implements GameObject {
 
 	private int x;
 	private int y;
@@ -186,18 +185,16 @@ public abstract class AbstractGameObject implements GameObject {
 		this.setVisible(true);
 		this.setMovableX(new MovableX());
 		this.setMovableY(new MovableY());
-		if (!(snapShot instanceof FallenObjectSnapShot)) {
-			try {
-				File[] images = new File[snapShot.getPaths().length];
-				for (int i = 0; i < snapShot.getPaths().length; i++) {
-					images[i] = new File(snapShot.getPaths()[i]);
+		try {
+			File[] images = new File[snapShot.getPaths().length];
+			for (int i = 0; i < snapShot.getPaths().length; i++) {
+				images[i] = new File(snapShot.getPaths()[i]);
 
-				}
-				this.setImageFiles(images);
-				loadImages();
-			} catch (Exception e) {
-				// TODO: handle exception
 			}
+			this.setImageFiles(images);
+			loadImages();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 	}
 

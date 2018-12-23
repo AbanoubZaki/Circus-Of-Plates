@@ -7,6 +7,7 @@ import java.util.List;
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
+import eg.edu.alexu.csd.oop.game.cs01.DynamicLinkage.GameObjectLoader;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.Iterator.GameObjectCollection;
@@ -17,11 +18,12 @@ import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.ModeFactory;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
+import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.GameSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
 import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
-import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 
 public class OurGame implements World {
 
@@ -49,10 +51,11 @@ public class OurGame implements World {
 	}
 
 	public OurGame(GameDifficulty difficulty, GameMode mode, String name) {
+		GameObjectLoader.getInstance().loadClasses();
+		this.setMode(ModeFactory.getInstance(mode, difficulty).createMode());
 		this.name = name;
 		lives = 5;
 		this.difficulty = difficulty;
-		this.setMode(mode);
 		startTime = System.currentTimeMillis();
 		constant = new GameObjectCollection(mode.getConstant());
 		movable = new GameObjectCollection(new ArrayList<GameObject>());
@@ -115,13 +118,14 @@ public class OurGame implements World {
 		status += "   |   lives = " + lives;
 		return status;
 	}
+
 	/**
 	 * @return user name.
 	 */
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * @return the lives
 	 */
@@ -326,9 +330,11 @@ public class OurGame implements World {
 		this.constant = new GameObjectCollection((List<GameObject>) list.clone());
 		list = new ArrayList<GameObject>();
 		for (int i = 0; i < snapShot.getMovable().size(); i++) {
-			FallenObject fallenOject = new FallenObject();
-			fallenOject.loadFallenObject(snapShot.getMovable().get(i));
-			list.add(fallenOject);
+			;
+			AbstractFallenObject o = GameObjectLoader.getInstance()
+					.newInstance(((FallenObjectSnapShot) snapShot.getMovable().get(i)).getClassName());
+			o.loadFallenObject(snapShot.getMovable().get(i));
+			list.add(o);
 		}
 		this.movable = new GameObjectCollection((List<GameObject>) list.clone());
 		List<GameObject> controllableList = new ArrayList<GameObject>();

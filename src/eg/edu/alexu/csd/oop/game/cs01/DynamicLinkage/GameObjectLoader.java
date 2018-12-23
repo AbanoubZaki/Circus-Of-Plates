@@ -1,6 +1,8 @@
 package eg.edu.alexu.csd.oop.game.cs01.DynamicLinkage;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Enumeration;
@@ -9,9 +11,13 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
+
 public class GameObjectLoader {
 
 	private static GameObjectLoader instance;
+	// map of classes that were loaded from jarfile .... classes's name was
+	// lowerCase.
 	private Map<String, Class<?>> classesMap;
 
 	private GameObjectLoader() {
@@ -26,7 +32,7 @@ public class GameObjectLoader {
 	}
 
 	@SuppressWarnings("resource")
-	private Class<?> loadClass(String jarPath) {
+	public void loadClass(String jarPath) {
 		try {
 			JarFile jarFile = new JarFile(jarPath);
 			Enumeration<JarEntry> e = jarFile.entries();
@@ -40,8 +46,9 @@ public class GameObjectLoader {
 				String className = je.getName().substring(0, je.getName().length() - 6);
 				className = className.replace('/', '.');
 				try {
+					System.out.println(className);
 					Class<?> c = classLoader.loadClass(className);
-					return c;
+					classesMap.put(className.substring(className.lastIndexOf(".") + 1).toLowerCase(), c);
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -51,7 +58,6 @@ public class GameObjectLoader {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
 	}
 
 	public Map<String, Class<?>> getClassesMap() {
@@ -62,15 +68,32 @@ public class GameObjectLoader {
 		this.classesMap = classesMap;
 	}
 
-	public void loadClasses() {
-		addClass("", "");
-		addClass("", "");
-		addClass("", "");
-		addClass("", "");
-
+	public Class<?> getClass(String className) {
+		return classesMap.get(className);
 	}
 
-	public void addClass(String name, String jarPath) {
-		classesMap.put(name, loadClass(jarPath));
+	public AbstractFallenObject newInstance(String className) {
+		return newInstance(className, new Object[] {});
+	}
+
+	public AbstractFallenObject newInstance(String className, Object[] parameters) {
+		Constructor<?> constrcutor = null;
+		try {
+			Class<?>[] paramTypes = new Class[parameters.length];
+			for (int i = 0; i < parameters.length; i++) {
+				paramTypes[i] = parameters[i].getClass();
+			}
+			constrcutor = classesMap.get(className).getConstructor(paramTypes);
+			return (AbstractFallenObject) constrcutor.newInstance(parameters);
+		} catch (Exception e) {
+		}
+		return null;
+	}
+
+	public void loadClasses() {
+		File fileJars = new File("platesJars");
+		for (File jar : fileJars.listFiles()) {
+			loadClass(jar.getAbsolutePath());
+		}
 	}
 }

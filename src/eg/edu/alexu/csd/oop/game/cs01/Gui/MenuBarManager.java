@@ -159,7 +159,7 @@ public class MenuBarManager {
 				} catch (Exception e1) {
 				}
 				Track.getInstance().getTrack("theme").stop();
-				game = SnapShot.getSnapShot().loadGame(((OurGame)game).getName() + new Date().getTime());
+				game = SnapShot.getSnapShot().loadGame("bebo 10-40-15 PM");
 				
 				Controller.getInstance().setGameController(
 						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));

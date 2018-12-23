@@ -1,12 +1,12 @@
 package eg.edu.alexu.csd.oop.game.cs01.Strategy;
 
-import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
+import eg.edu.alexu.csd.oop.game.GameObject;
 
 public class MovableXCondition implements IMovableX {
 
-	CharacterStack stack;
+	GameObject stack;
 
-	public MovableXCondition(CharacterStack stack) {
+	public MovableXCondition(GameObject stack) {
 		this.stack = stack;
 	}
 

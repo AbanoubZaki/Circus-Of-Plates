@@ -8,12 +8,13 @@ import java.util.Map;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
+import eg.edu.alexu.csd.oop.game.cs01.DynamicLinkage.GameObjectLoader;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.ObjectType;
 import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
+import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
-import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObservableX;
 import eg.edu.alexu.csd.oop.game.cs01.observer.ObserverX;
 
@@ -55,9 +56,12 @@ public class ModeFactory implements IModeFactory {
 	@Override
 	public void buildMovable() {
 		folder = new File(mode.getPath() + "\\plates");
-		Map<String,GameObject> map = new HashMap<String,GameObject>();
+		Map<String, GameObject> map = new HashMap<String, GameObject>();
 		for (File f1 : folder.listFiles()) {
-			map.put(f1.getName(),new FallenObject(0, 0,f1.listFiles()));
+			AbstractFallenObject o = GameObjectLoader.getInstance().newInstance("fallenobjectimage",
+					new Object[] { 0, 0, f1.listFiles()});
+			// map.put(f1.getName(), new FallenObjectImage(0, 0, f1.listFiles()));
+			map.put(f1.getName(), o);
 		}
 		mode.setMapMovable(map);
 	}
@@ -103,5 +107,19 @@ public class ModeFactory implements IModeFactory {
 		buildMovable();
 		buildTracks();
 		return ModeFactory.mode;
+	}
+
+	/**
+	 * @return the difficulty
+	 */
+	public static GameDifficulty getDifficulty() {
+		return difficulty;
+	}
+
+	/**
+	 * @return the factory
+	 */
+	public static ModeFactory getFactory() {
+		return factory;
 	}
 }

@@ -9,7 +9,7 @@ import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableX;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableY;
-import eg.edu.alexu.csd.oop.game.cs01.objects.FallenObject;
+import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
 
 public class FallenObjectsGenerator {
 
@@ -40,7 +40,12 @@ public class FallenObjectsGenerator {
 				r = 1;
 			}
 			// System.out.println(r + 1);
-				pool.add(((FallenObject)map.get(Integer.toString(r))).clone());
+				try {
+					pool.add((GameObject) ((AbstractFallenObject)map.get(Integer.toString(r))).clone());
+				} catch (CloneNotSupportedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 	}
 
@@ -84,8 +89,8 @@ public class FallenObjectsGenerator {
 		used.remove(oldObject);
 		oldObject.setX(0);
 		oldObject.setY(0);
-		((FallenObject) oldObject).setMovableX(new MovableX());
-		((FallenObject) oldObject).setMovableY(new MovableY());
+		((AbstractFallenObject) oldObject).setMovableX(new MovableX());
+		((AbstractFallenObject) oldObject).setMovableY(new MovableY());
 		pool.add(oldObject);
 	}
 
