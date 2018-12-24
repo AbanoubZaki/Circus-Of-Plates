@@ -1,0 +1,324 @@
+{
+  "constant": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1103,
+      "height": 688,
+      "paths": [
+        "resources\\christmass\\backgrounds\\bg01.png",
+        "resources\\christmass\\backgrounds\\bg02.png",
+        "resources\\christmass\\backgrounds\\bg03.png",
+        "resources\\christmass\\backgrounds\\bg04.png",
+        "resources\\christmass\\backgrounds\\bg05.png",
+        "resources\\christmass\\backgrounds\\bg06.png",
+        "resources\\christmass\\backgrounds\\bg07.png"
+      ]
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    },
+    {
+      "x": 55,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    },
+    {
+      "x": 110,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    },
+    {
+      "x": 165,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    }
+  ],
+  "movable": [
+    {
+      "color": "6",
+      "className": "fallenobjectimage",
+      "x": 66,
+      "y": 308,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "5",
+      "className": "fallenobjectimage",
+      "x": 631,
+      "y": 323,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "6",
+      "className": "fallenobjectimage",
+      "x": 1037,
+      "y": 310,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "4",
+      "className": "fallenobjectimage",
+      "x": 700,
+      "y": 308,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "2",
+      "className": "fallenobjectimage",
+      "x": 735,
+      "y": 333,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "5",
+      "className": "fallenobjectimage",
+      "x": 27,
+      "y": 83,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "2",
+      "className": "fallenobjectimage",
+      "x": 849,
+      "y": 81,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "4",
+      "className": "fallenobjectimage",
+      "x": 55,
+      "y": 90,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "4",
+      "className": "fallenobjectimage",
+      "x": 550,
+      "y": 99,
+      "width": 50,
+      "height": 13
+    },
+    {
+      "color": "2",
+      "className": "fallenobjectimage",
+      "x": 975,
+      "y": 103,
+      "width": 50,
+      "height": 13
+    }
+  ],
+  "controlableCharacters": [
+    {
+      "left": {
+        "stack": [
+          {
+            "color": "5",
+            "className": "fallenobjectimage",
+            "x": 383,
+            "y": 474,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "5",
+            "className": "fallenobjectimage",
+            "x": 383,
+            "y": 467,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "2",
+            "className": "fallenobjectimage",
+            "x": 383,
+            "y": 460,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "4",
+            "className": "fallenobjectimage",
+            "x": 383,
+            "y": 453,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "3",
+            "className": "fallenobjectimage",
+            "x": 383,
+            "y": 446,
+            "width": 50,
+            "height": 13
+          }
+        ],
+        "type": "left",
+        "x": 383,
+        "y": 446,
+        "width": 35,
+        "height": 0
+      },
+      "right": {
+        "stack": [
+          {
+            "color": "4",
+            "className": "fallenobjectimage",
+            "x": 533,
+            "y": 474,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "5",
+            "className": "fallenobjectimage",
+            "x": 533,
+            "y": 467,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "4",
+            "className": "fallenobjectimage",
+            "x": 533,
+            "y": 460,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "3",
+            "className": "fallenobjectimage",
+            "x": 533,
+            "y": 453,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "6",
+            "className": "fallenobjectimage",
+            "x": 533,
+            "y": 446,
+            "width": 50,
+            "height": 13
+          }
+        ],
+        "type": "right",
+        "x": 533,
+        "y": 446,
+        "width": 35,
+        "height": 0
+      },
+      "type": "left",
+      "mode": "christmass",
+      "x": 383,
+      "y": 481,
+      "width": 183,
+      "height": 203,
+      "paths": [
+        "resources\\christmass\\controlable\\clown1\\clown01.png",
+        "resources\\christmass\\controlable\\clown1\\clown02.png"
+      ]
+    },
+    {
+      "left": {
+        "stack": [
+          {
+            "color": "3",
+            "className": "fallenobjectimage",
+            "x": 779,
+            "y": 474,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "6",
+            "className": "fallenobjectimage",
+            "x": 779,
+            "y": 467,
+            "width": 50,
+            "height": 13
+          }
+        ],
+        "type": "left",
+        "x": 779,
+        "y": 467,
+        "width": 35,
+        "height": 0
+      },
+      "right": {
+        "stack": [
+          {
+            "color": "4",
+            "className": "fallenobjectimage",
+            "x": 929,
+            "y": 474,
+            "width": 50,
+            "height": 13
+          },
+          {
+            "color": "4",
+            "className": "fallenobjectimage",
+            "x": 929,
+            "y": 467,
+            "width": 50,
+            "height": 13
+          }
+        ],
+        "type": "right",
+        "x": 929,
+        "y": 467,
+        "width": 35,
+        "height": 0
+      },
+      "type": "right",
+      "mode": "christmass",
+      "x": 779,
+      "y": 481,
+      "width": 183,
+      "height": 203,
+      "paths": [
+        "resources\\christmass\\controlable\\clown2\\clown01.png",
+        "resources\\christmass\\controlable\\clown2\\clown02.png"
+      ]
+    }
+  ],
+  "lives": 4,
+  "score": 0,
+  "mode": "christmass",
+  "passedTime": 10598.0,
+  "player": {
+    "name": "bebo",
+    "score": 1
+  },
+  "difficulty": "hard",
+  "themeDuration": {
+    "millis": 10050.770975000001
+  },
+  "counter": 0
+}

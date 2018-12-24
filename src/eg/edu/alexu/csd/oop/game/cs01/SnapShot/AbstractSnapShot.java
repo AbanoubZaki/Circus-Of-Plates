@@ -28,15 +28,16 @@ public class AbstractSnapShot {
 		this.y = gameObject.getY();
 		this.width = gameObject.getWidth();
 		this.height = gameObject.getHeight();
-		try {
-			this.paths = new String[((AbstractGameObject) gameObject).getImageFiles().length];
-			for (int i = 0; i < ((AbstractGameObject) gameObject).getImageFiles().length; i++) {
-				paths[i] = ((AbstractGameObject) gameObject).getImageFiles()[i].getPath();
+		if (gameObject instanceof AbstractGameObject) {
+			try {
+				this.paths = new String[((AbstractGameObject) gameObject).getImageFiles().length];
+				for (int i = 0; i < ((AbstractGameObject) gameObject).getImageFiles().length; i++) {
+					paths[i] = ((AbstractGameObject) gameObject).getImageFiles()[i].getPath();
+				}
+			} catch (Exception e) {
+				System.out.println(e);
 			}
-		} catch (Exception e) {
-			System.out.println(e);
 		}
-
 	}
 
 	/**

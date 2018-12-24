@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
-import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame;
@@ -18,7 +17,6 @@ public class GameSnapShot {
 	private int lives;
 	private int score;
 	private GameMode mode;
-	private CurrentState state;
 	private double passedTime;
 	private Player player;
 
@@ -42,7 +40,6 @@ public class GameSnapShot {
 		this.lives = game.getLives();
 		this.mode = game.getMode();
 		this.passedTime = game.getPassedTime();
-		this.state = CurrentState.paused;
 		this.difficulty = game.getDifficulty();
 		this.themeDuration = Track.getInstance().getTrack("theme").getCurrentTime();
 		this.counter = game.getCounter();
@@ -117,13 +114,6 @@ public class GameSnapShot {
 	 */
 	public GameMode getMode() {
 		return mode;
-	}
-
-	/**
-	 * @return the state
-	 */
-	public CurrentState getState() {
-		return state;
 	}
 
 	/**

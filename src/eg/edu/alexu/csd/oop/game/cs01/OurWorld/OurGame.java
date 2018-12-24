@@ -9,7 +9,9 @@ import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.DynamicLinkage.GameObjectLoader;
 import eg.edu.alexu.csd.oop.game.cs01.Enums.Score;
-import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
+import eg.edu.alexu.csd.oop.game.cs01.GameStates.GameOverState;
+import eg.edu.alexu.csd.oop.game.cs01.GameStates.IState;
+import eg.edu.alexu.csd.oop.game.cs01.GameStates.RunningState;
 import eg.edu.alexu.csd.oop.game.cs01.Iterator.GameObjectCollection;
 import eg.edu.alexu.csd.oop.game.cs01.Iterator.IGameObjectCollection;
 import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
@@ -20,7 +22,6 @@ import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.GameSnapShot;
-import eg.edu.alexu.csd.oop.game.cs01.leaderboard.LeaderboardManager;
 import eg.edu.alexu.csd.oop.game.cs01.leaderboard.Player;
 import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
@@ -34,6 +35,7 @@ public class OurGame implements World {
 	private Player player;
 //	private String name;
 //	private int score;
+	private IState currentState;
 
 	private int lives;
 	private long startTime;
@@ -42,7 +44,6 @@ public class OurGame implements World {
 	private IGameObjectCollection controlable;
 	private GameDifficulty difficulty;
 	private GameMode mode;
-	private CurrentState state;
 	private int counter;
 	private double passedTime;
 
@@ -53,6 +54,7 @@ public class OurGame implements World {
 	private javafx.util.Duration duration;
 
 	public OurGame() {
+		GameObjectLoader.getInstance().loadClasses();
 	}
 
 	public OurGame(GameDifficulty difficulty, GameMode mode, String name) {
@@ -73,9 +75,7 @@ public class OurGame implements World {
 		controlable = new GameObjectCollection(mode.getControlable());
 		counter = 0;
 		player.setScore(0);
-		state = CurrentState.running;
-		Track.getInstance().getTrack("theme").setVolume(50);
-		Track.getInstance().getTrack("theme").play();
+		this.setCurrentState(RunningState.getInstance());
 	}
 
 	@Override
@@ -175,14 +175,6 @@ public class OurGame implements World {
 		this.mode = mode;
 	}
 
-	public CurrentState getState() {
-		return state;
-	}
-
-	public void setState(CurrentState state) {
-		this.state = state;
-	}
-
 	public javafx.util.Duration getDuration() {
 		return duration;
 	}
@@ -191,13 +183,7 @@ public class OurGame implements World {
 	public boolean refresh() {
 		boolean timeout = (this.passedTime = System.currentTimeMillis() - startTime) > MAX_TIME;
 		if (lives == 0) {
-			Controller.getInstance().pause();
-			state = CurrentState.gameOver;
-			LeaderboardManager.getInstance().addPlayer(player);
-			LeaderboardManager.getInstance().writePlayers();
-			Track.getInstance().getTrack("theme").stop();
-			Track.getInstance().getTrack("gameover").play();
-			OurLogger.info(this.getClass(), "game has ended with 0 lives");
+			this.setCurrentState(GameOverState.getInstance());
 			return false;
 		}
 		try {
@@ -251,13 +237,7 @@ public class OurGame implements World {
 							Track.getInstance().getTrack("present").play();
 							player.setScore(player.getScore() + 1);
 						} else if (s == Score.lose) {
-							Controller.getInstance().pause();
-							state = CurrentState.gameOver;
-							LeaderboardManager.getInstance().addPlayer(player);
-							LeaderboardManager.getInstance().writePlayers();
-							// System.out.println("1");
-							Track.getInstance().getTrack("theme").stop();
-							Track.getInstance().getTrack("gameover").play();
+							this.setCurrentState(GameOverState.getInstance());
 							return false;
 						}
 						break;
@@ -272,13 +252,7 @@ public class OurGame implements World {
 							Track.getInstance().getTrack("present").play();
 							player.setScore(player.getScore() + 1);
 						} else if (s == Score.lose) {
-							Controller.getInstance().pause();
-							state = CurrentState.gameOver;
-							LeaderboardManager.getInstance().addPlayer(player);
-							LeaderboardManager.getInstance().writePlayers();
-							// System.out.println("2");
-							Track.getInstance().getTrack("theme").stop();
-							Track.getInstance().getTrack("gameover").play();
+							this.setCurrentState(GameOverState.getInstance());
 							return false;
 						}
 						break;
@@ -305,20 +279,13 @@ public class OurGame implements World {
 		} catch (Exception e) {
 		}
 		if (timeout) {
-			Controller.getInstance().pause();
-			state = CurrentState.gameOver;
-			LeaderboardManager.getInstance().addPlayer(player);
-			LeaderboardManager.getInstance().writePlayers();
-			Track.getInstance().getTrack("theme").stop();
-			Track.getInstance().getTrack("gameover").play();
-			OurLogger.info(this.getClass(), "game is over, time ended");
-
-			// System.out.println("3");
+			this.setCurrentState(GameOverState.getInstance());
 		}
 		return !timeout;
 	}
 
 	public GameSnapShot getSnapShot() {
+		this.setCurrentState(RunningState.getInstance());
 		return new GameSnapShot(this);
 	}
 
@@ -329,10 +296,19 @@ public class OurGame implements World {
 		return counter;
 	}
 
+	public IState getCurrentState() {
+		return currentState;
+	}
+
+	public void setCurrentState(IState currentState) {
+		this.currentState = currentState;
+		this.currentState.action();
+	}
+
 	@SuppressWarnings("unchecked")
 	public void loadGame(GameSnapShot snapShot) {
 		player = snapShot.getPlayer();
-		this.state = snapShot.getState();
+		this.currentState = RunningState.getInstance();
 		this.lives = snapShot.getLives();
 		this.difficulty = snapShot.getDifficulty();
 		this.duration = snapShot.getThemeDuration();

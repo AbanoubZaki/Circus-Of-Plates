@@ -13,6 +13,8 @@ import javax.swing.JMenuItem;
 
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
+import eg.edu.alexu.csd.oop.game.cs01.GameStates.PauseState;
+import eg.edu.alexu.csd.oop.game.cs01.GameStates.RunningState;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.Controller;
@@ -24,8 +26,8 @@ public class MenuBarManager {
 	private static MenuBarManager manager;
 
 	private JMenuBar menuBar;
-	private static volatile World game;
-	private static volatile JFrame frame;
+	private static World game;
+	private static JFrame frame;
 
 	public static World getGame() {
 		return game;
@@ -66,14 +68,12 @@ public class MenuBarManager {
 		JMenuItem pause = new JMenuItem("Pause");
 		JMenuItem resume = new JMenuItem("Resume");
 		JMenuItem save = new JMenuItem("Save Game");
-//		JMenuItem load = new JMenuItem("Load Game");
 		JMenuItem exit = new JMenuItem("Exit");
 		options.add(mainMenu);
 		options.add(pause);
 		options.add(resume);
 		options.addSeparator();
 		options.add(save);
-//		options.add(load);
 		options.addSeparator();
 		options.add(exit);
 		menuBar.add(options);
@@ -87,25 +87,26 @@ public class MenuBarManager {
 				} catch (Exception e1) {
 				}
 				Track.getInstance().getTrack("theme").stop();
+				System.out.println(Thread.currentThread().getName());
+				if (Thread.currentThread().getName().equals("AWT-EventQueue-0")) {
+					 Thread t = Thread.currentThread();
+				}
+				System.out.println(Thread.currentThread().getName());
 			}
 		});
 
 		pause.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Controller.getInstance().pause();
-				((OurGame) game).setState(CurrentState.paused);
-				Track.getInstance().getTrack("theme").pause();
+				((OurGame) game).setCurrentState(PauseState.getInstance());
 			}
 		});
 
 		resume.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				((OurGame) game).setCurrentState(RunningState.getInstance());
 				Controller.getInstance().resume();
-				((OurGame) game).setState(CurrentState.running);
-				Track.getInstance().getTrack("theme").play();
-
 			}
 		});
 
@@ -114,43 +115,16 @@ public class MenuBarManager {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// add a edit text field to take file name.
-				if (((OurGame) game).getState() != CurrentState.gameOver) {
+				if (((OurGame) game).getCurrentState().getType() != CurrentState.gameOver) {
 					Date date = new Date();
-				    String strDateFormat = "hh-mm-ss a";
-				    DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
-				    String formattedDate= dateFormat.format(date);
-				    System.out.println(formattedDate);
-					SnapShot.getSnapShot().saveGame(game, ((OurGame)game).getName() + " " + formattedDate);
+					String strDateFormat = "hh-mm-ss a";
+					DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+					String formattedDate = dateFormat.format(date);
+					System.out.println(formattedDate);
+					SnapShot.getSnapShot().saveGame(game, ((OurGame) game).getName() + " " + formattedDate);
 				}
 			}
 		});
-//
-//		load.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose();
-//				try {
-//					FallenObjectsGenerator.getInstance().clear();
-//				} catch (Exception e1) {
-//				}
-//				Track.getInstance().getTrack("theme").stop();
-//				// open the pane of the saved games.
-//				MyNewController toLoad = null;
-//				toLoad.loadGameAct(new javafx.scene.input.MouseEvent(null, 0, 0, 0, 0, null, 0, false, false, false, false, false, false, false, false, false, false, null));
-//				
-//				game = SnapShot.getSnapShot().loadGame("");
-//				
-//				Controller.getInstance().setGameController(
-//						GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
-//				Controller.getInstance().changeWorld(game);
-//				frame = (JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent();
-//				Track.getInstance().getTrack("theme").seek(((OurGame) game).getDuration());
-//				Track.getInstance().getTrack("theme").play();
-//			}
-//		});
-
-		
 		exit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

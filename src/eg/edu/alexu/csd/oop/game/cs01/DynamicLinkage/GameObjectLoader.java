@@ -91,9 +91,11 @@ public class GameObjectLoader {
 	}
 
 	public void loadClasses() {
-		File fileJars = new File("platesJars");
-		for (File jar : fileJars.listFiles()) {
-			loadClass(jar.getAbsolutePath());
+		if (classesMap.isEmpty()) {
+			File fileJars = new File("platesJars");
+			for (File jar : fileJars.listFiles()) {
+				loadClass(jar.getAbsolutePath());
+			}
 		}
 	}
 }

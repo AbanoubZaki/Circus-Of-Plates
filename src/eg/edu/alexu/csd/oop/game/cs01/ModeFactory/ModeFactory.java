@@ -60,7 +60,6 @@ public class ModeFactory implements IModeFactory {
 		for (File f1 : folder.listFiles()) {
 			AbstractFallenObject o = GameObjectLoader.getInstance().newInstance("fallenobjectimage",
 					new Object[] { 0, 0, f1.listFiles()});
-			// map.put(f1.getName(), new FallenObjectImage(0, 0, f1.listFiles()));
 			map.put(f1.getName(), o);
 		}
 		mode.setMapMovable(map);

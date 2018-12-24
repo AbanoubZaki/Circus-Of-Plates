@@ -26,28 +26,32 @@ public class LoadGameController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		File folder = new File("SavedGames");
-		ArrayList<String> fileNames = new ArrayList<>();
-		for (int i = 0; i < folder.listFiles().length; i++) {
-			fileNames.add(folder.listFiles()[i].getName().substring(0, folder.listFiles()[i].getName().length()-5));
+		try {
+			File folder = new File("SavedGames");
+			ArrayList<String> fileNames = new ArrayList<>();
+			for (int i = 0; i < folder.listFiles().length; i++) {
+				fileNames.add(
+						folder.listFiles()[i].getName().substring(0, folder.listFiles()[i].getName().length() - 5));
+			}
+			ObservableList<String> savedGames = FXCollections.observableArrayList(fileNames);
+			myList.setItems(savedGames);
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		ObservableList<String> savedGames =  FXCollections.observableArrayList(fileNames);
-		myList.setItems(savedGames);
 	}
-	
-    @FXML
-    private ListView<String> myList;
 
-    @FXML
-    void mouseClickAct(MouseEvent event) {
-    	try {
-        	Track.getInstance().getTrack("theme").stop();
+	@FXML
+	private ListView<String> myList;
+
+	@FXML
+	void mouseClickAct(MouseEvent event) {
+		try {
+			Track.getInstance().getTrack("theme").stop();
 		} catch (Exception e) {
 		}
 		World game = SnapShot.getSnapShot().loadGame(myList.getSelectionModel().getSelectedItem());
 		MenuBarManager.setGame(game);
-		
+
 		Controller.getInstance().setGameController(
 				GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
 		Controller.getInstance().changeWorld(game);
@@ -56,9 +60,9 @@ public class LoadGameController implements Initializable {
 		Track.getInstance().getTrack("theme").play();
 		MenuBarManager.getInstance().setMenuBar();
 		// get a handle to the stage
-	    Stage stage = (Stage) myList.getScene().getWindow();
-	    // do what you have to do
-	    stage.close();
-    }
+		Stage stage = (Stage) myList.getScene().getWindow();
+		// do what you have to do
+		stage.close();
+	}
 
 }
