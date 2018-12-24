@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
 
 public class GameObjectLoader {
@@ -52,11 +53,13 @@ public class GameObjectLoader {
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					OurLogger.error(getClass(), e1.getMessage());
 				}
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			OurLogger.error(getClass(), e.getMessage());
 		}
 	}
 
@@ -84,8 +87,10 @@ public class GameObjectLoader {
 				paramTypes[i] = parameters[i].getClass();
 			}
 			constrcutor = classesMap.get(className).getConstructor(paramTypes);
+			OurLogger.info(getClass(), "platesClasses were  loaded");
 			return (AbstractFallenObject) constrcutor.newInstance(parameters);
 		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
 		}
 		return null;
 	}

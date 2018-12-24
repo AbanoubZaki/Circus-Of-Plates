@@ -48,6 +48,7 @@ public class SnapShot implements ISnapShot {
 			writer.println(prettyJsonString);
 			writer.close();
 		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -71,6 +72,7 @@ public class SnapShot implements ISnapShot {
 				line = bufferReader.readLine();
 			}
 		} catch (Exception exception) {
+			OurLogger.error(getClass(), exception.getMessage());
 			exception.printStackTrace();
 		}
 		Gson gson = new Gson();

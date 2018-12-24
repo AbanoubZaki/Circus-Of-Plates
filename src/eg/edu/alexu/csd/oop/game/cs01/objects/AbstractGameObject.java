@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.AbstractSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableX;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableY;
@@ -194,7 +195,7 @@ public class AbstractGameObject implements GameObject {
 			this.setImageFiles(images);
 			loadImages();
 		} catch (Exception e) {
-			// TODO: handle exception
+			OurLogger.error(getClass(), e.getMessage());
 		}
 	}
 
@@ -206,6 +207,7 @@ public class AbstractGameObject implements GameObject {
 					image[i] = ImageIO.read(imageFiles[i]);
 				} catch (IOException e) {
 					e.printStackTrace();
+					OurLogger.error(getClass(), e.getMessage());
 				}
 			}
 			if (imageFiles[0].getParent().contains("backgrounds")) {
@@ -217,6 +219,7 @@ public class AbstractGameObject implements GameObject {
 				images = image;
 			}
 		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
 		}
 	}
 

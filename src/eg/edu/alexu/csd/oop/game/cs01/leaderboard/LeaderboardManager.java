@@ -65,6 +65,7 @@ public class LeaderboardManager {
 			fileReader.close();
 		} catch (Exception exception) {
 			exception.printStackTrace();
+			OurLogger.error(getClass(), exception.getMessage());
 		}
 		Gson gson = new Gson();
 		players = (List<Player>) gson.fromJson(builder.toString(), new TypeToken<List<Player>>() {
@@ -91,12 +92,12 @@ public class LeaderboardManager {
 			writer.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			OurLogger.error(getClass(), e.getMessage());
 		}
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public TableView<Object> getTable() {
-		TableView<Object> fillTable = new TableView<>();
+	public void fillTable(TableView fillTable) {
 		ObservableList<Object> data = FXCollections.observableArrayList();
 		String[] cols = new String[] { "Name", "Score" };
 		for (int i = 0; i < cols.length; i++) {
@@ -108,8 +109,8 @@ public class LeaderboardManager {
 					return new SimpleStringProperty(param.getValue().get(j).toString());
 				}
 			});
-			col.setResizable(true);
-//			col.setPrefWidth(fillTable.getWidth() / resultSet.getMetaData().getColumnCount());
+			col.setPrefWidth(fillTable.getPrefWidth() / 2);
+			col.setResizable(false);
 			fillTable.getColumns().addAll(col);
 		}
 
@@ -120,7 +121,6 @@ public class LeaderboardManager {
 			data.add(row);
 		}
 		fillTable.setItems(data);
-		return fillTable;
 
 	}
 }

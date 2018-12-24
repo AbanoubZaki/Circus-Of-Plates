@@ -66,6 +66,7 @@ public class CharacterStack extends AbstractGameObject {
 			stack.pop();
 			setY(getY() + 14);
 		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
 		}
 	}
 
@@ -78,6 +79,7 @@ public class CharacterStack extends AbstractGameObject {
 				return true;
 			}
 		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
 		}
 		return false;
 	}

@@ -3,6 +3,7 @@ package eg.edu.alexu.csd.oop.game.cs01.objects;
 import java.awt.image.BufferedImage;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableX;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.IMovableY;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableX;
@@ -61,7 +62,7 @@ public abstract class AbstractFallenObject implements GameObject, Cloneable {
 		try {
 			return images[0].getWidth();
 		} catch (Exception e) {
-			// TODO: handle exception
+			OurLogger.error(getClass(), e.getMessage());
 		}
 		return 0;
 	}
@@ -72,7 +73,7 @@ public abstract class AbstractFallenObject implements GameObject, Cloneable {
 		try {
 			return images[0].getHeight();
 		} catch (Exception e) {
-			// TODO: handle exception
+			OurLogger.error(getClass(), e.getMessage());
 		}
 		return 0;
 	}

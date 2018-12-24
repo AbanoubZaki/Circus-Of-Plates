@@ -6,6 +6,7 @@ import java.util.Random;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableX;
 import eg.edu.alexu.csd.oop.game.cs01.Strategy.MovableY;
@@ -45,6 +46,7 @@ public class FallenObjectsGenerator {
 				} catch (CloneNotSupportedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					OurLogger.error(getClass(), e.getMessage());
 				}
 		}
 	}
@@ -78,7 +80,7 @@ public class FallenObjectsGenerator {
 			used.add(fallenObject);
 			return fallenObject;
 		} catch (Exception e) {
-
+			OurLogger.error(getClass(), e.getMessage());
 		}
 		return null;
 	}

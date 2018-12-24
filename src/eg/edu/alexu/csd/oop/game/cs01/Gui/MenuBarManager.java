@@ -15,6 +15,7 @@ import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.PauseState;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.RunningState;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.Controller;
@@ -85,14 +86,15 @@ public class MenuBarManager {
 				try {
 					FallenObjectsGenerator.getInstance().clear();
 				} catch (Exception e1) {
+					OurLogger.error(getClass(), e1.getMessage());
 				}
 				Track.getInstance().getTrack("theme").stop();
-				System.out.println(Thread.currentThread().getName());
-				if (Thread.currentThread().getName().equals("AWT-EventQueue-0")) {
-					 Thread t = Thread.currentThread();
-					 t.interrupt();
-				}
-				System.out.println(Thread.currentThread().getName());
+//				System.out.println(Thread.currentThread().getName());
+//				if (Thread.currentThread().getName().equals("AWT-EventQueue-0")) {
+//					 Thread t = Thread.currentThread();
+//					 t.interrupt();
+//				}
+//				System.out.println(Thread.currentThread().getName());
 			}
 		});
 

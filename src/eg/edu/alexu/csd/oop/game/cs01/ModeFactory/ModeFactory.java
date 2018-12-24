@@ -70,12 +70,12 @@ public class ModeFactory implements IModeFactory {
 		folder = new File(mode.getPath() + "\\controlable");
 		List<GameObject> list = new ArrayList<>();
 		list.add(new Character((int) (mode.getConstant().get(0).getWidth() * 0.33),
-				(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles()[0].listFiles(), ObjectType.left,
+				(int) (mode.getConstant().get(0).getHeight() * 0.65), folder.listFiles()[0].listFiles(), ObjectType.left,
 				mode));
 		if (difficulty == GameDifficulty.hard) {
 			ObservableX.getInstance().addPropertyChangeListener(ObserverX.getInstance());
 			list.add(new Character((int) (mode.getConstant().get(0).getWidth() * 0.67),
-					(int) (mode.getConstant().get(0).getHeight() * 0.7), folder.listFiles()[1].listFiles(),
+					(int) (mode.getConstant().get(0).getHeight() * 0.65), folder.listFiles()[1].listFiles(),
 					ObjectType.right, mode));
 		}
 		System.out.println(mode.getConstant().get(0).getWidth() * 0.33 - mode.getConstant().get(0).getWidth() * 0.67);

@@ -1,6 +1,7 @@
 package eg.edu.alexu.csd.oop.game.cs01.SnapShot;
 
 import eg.edu.alexu.csd.oop.game.GameObject;
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractGameObject;
 
 public class AbstractSnapShot {
@@ -35,7 +36,7 @@ public class AbstractSnapShot {
 					paths[i] = ((AbstractGameObject) gameObject).getImageFiles()[i].getPath();
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				OurLogger.error(getClass(), e.getMessage());
 			}
 		}
 	}

@@ -12,10 +12,10 @@ public class LeaderboardController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		leaderboardTable = LeaderboardManager.getInstance().getTable();
+		LeaderboardManager.getInstance().fillTable(leaderboardTable);
 	}
 
 	@FXML
-	private TableView<Object> leaderboardTable;
+	private TableView<?> leaderboardTable;
 
 }

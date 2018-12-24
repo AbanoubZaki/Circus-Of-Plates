@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import eg.edu.alexu.csd.oop.game.cs01.Logger4J.OurLogger;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -42,6 +43,7 @@ public class Track {
 				mediaPlayers.put(trackFile.getName().substring(0, trackFile.getName().lastIndexOf(".")), media);
 			}
 		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
 		}
 	}
 
@@ -52,6 +54,7 @@ public class Track {
 			}
 			return new MediaPlayer(mediaPlayers.get(name));
 		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
 		}
 		return null;
 	}

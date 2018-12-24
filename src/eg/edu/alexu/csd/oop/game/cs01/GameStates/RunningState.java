@@ -24,7 +24,6 @@ public class RunningState implements IState {
 
 	@Override
 	public CurrentState getType() {
-		// TODO Auto-generated method stub
 		return CurrentState.running;
 	}
 

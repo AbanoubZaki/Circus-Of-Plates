@@ -12,7 +12,6 @@ public class MovableXCondition implements IMovableX {
 
 	@Override
 	public int setX(int x) {
-		// TODO Auto-generated method stub
 		return stack.getX();
 	}
 
