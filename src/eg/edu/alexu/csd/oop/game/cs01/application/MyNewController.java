@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -21,6 +23,9 @@ public class MyNewController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		LeaderboardManager.getInstance().readPlayers();
+		backGround.setImage(new Image("File:welcome02.jpg"));
+		closeView.setImage(new Image("File:close.png"));
+
 	}
 
 	@FXML
@@ -36,6 +41,11 @@ public class MyNewController implements Initializable {
 	void leaderBoardAct(MouseEvent event) {
 		loadFxml("/eg/edu/alexu/csd/oop/game/cs01/application/LeaderboardTable.fxml", "Leader Board");
 	}
+
+	@FXML
+	private ImageView backGround;
+	@FXML
+	private ImageView closeView;
 
 	@FXML
 	public void loadGameAct(MouseEvent event) {
