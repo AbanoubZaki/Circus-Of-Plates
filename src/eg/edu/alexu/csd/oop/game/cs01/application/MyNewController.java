@@ -34,59 +34,36 @@ public class MyNewController implements Initializable {
 
 	@FXML
 	void leaderBoardAct(MouseEvent event) {
-		try {
-			Stage primaryStage = new Stage();
-			Parent root = FXMLLoader
-					.load(getClass().getResource("/eg/edu/alexu/csd/oop/game/cs01/application/LeaderboardTable.fxml"));
-			StackPane pane = new StackPane();
-			pane.getChildren().add(root);
-			Scene scene = new Scene(pane);
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
-			primaryStage.setTitle("Leader Board");
-			primaryStage.initStyle(StageStyle.UTILITY);
-			primaryStage.show();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		loadFxml("/eg/edu/alexu/csd/oop/game/cs01/application/LeaderboardTable.fxml", "Leader Board");
 	}
 
 	@FXML
 	public void loadGameAct(MouseEvent event) {
-		try {
-			Stage primaryStage = new Stage();
-			Parent root = FXMLLoader
-					.load(getClass().getResource("/eg/edu/alexu/csd/oop/game/cs01/application/LoadGame.fxml"));
-			StackPane pane = new StackPane();
-			pane.getChildren().add(root);
-			Scene scene = new Scene(pane);
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
-			primaryStage.setTitle("World of Plates");
-			primaryStage.initStyle(StageStyle.UTILITY);
-			primaryStage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		loadFxml("/eg/edu/alexu/csd/oop/game/cs01/application/LoadGame.fxml", "Load Game");
 	}
 
 	@FXML
 	void newGameAct(MouseEvent event) {
+		loadFxml("/eg/edu/alexu/csd/oop/game/cs01/application/NewGame.fxml", "New Game");
+	}
+
+	@FXML
+	private void closeApp(MouseEvent event) {
+		System.exit(0);
+	}
+
+	private void loadFxml(String fxmlPath, String title) {
 		try {
 			Stage primaryStage = new Stage();
-			Parent root = FXMLLoader
-					.load(getClass().getResource("/eg/edu/alexu/csd/oop/game/cs01/application/NewGame.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
 			StackPane pane = new StackPane();
-			// pane.getChildren().add(mv);
 			pane.getChildren().add(root);
 			Scene scene = new Scene(pane);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
-			primaryStage.setTitle("World of Plates");
+			primaryStage.setTitle(title);
 			primaryStage.initStyle(StageStyle.UTILITY);
+			HandleDragging.getInstance().makeStageDragebale(root, primaryStage);
 			primaryStage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
