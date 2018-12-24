@@ -50,12 +50,12 @@ public class LoadGameController implements Initializable {
 		} catch (Exception e) {
 		}
 		World game = SnapShot.getSnapShot().loadGame(myList.getSelectionModel().getSelectedItem());
-		MenuBarManager.setGame(game);
+		MenuBarManager.getInstance().setGame(game);
 
 		Controller.getInstance().setGameController(
 				GameEngine.start("Circus of plates", game, MenuBarManager.getInstance().getMenuBar()));
 		Controller.getInstance().changeWorld(game);
-		MenuBarManager.setFrame((JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent());
+		MenuBarManager.getInstance().setFrame((JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent());
 		Track.getInstance().getTrack("theme").seek(((OurGame) game).getDuration());
 		Track.getInstance().getTrack("theme").play();
 		MenuBarManager.getInstance().setMenuBar();

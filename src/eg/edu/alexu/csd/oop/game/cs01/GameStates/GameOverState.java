@@ -24,7 +24,7 @@ public class GameOverState implements IState {
 	@Override
 	public void action() {
 		Controller.getInstance().pause();
-		LeaderboardManager.getInstance().addPlayer(((OurGame) MenuBarManager.getGame()).getPlayer());
+		LeaderboardManager.getInstance().addPlayer(((OurGame) MenuBarManager.getInstance().getGame()).getPlayer());
 		LeaderboardManager.getInstance().writePlayers();
 		Track.getInstance().getTrack("theme").stop();
 		Track.getInstance().getTrack("gameover").play();

@@ -33,8 +33,8 @@ public class OurGame implements World {
 	private static int MAX_TIME = 2 * 60 * 1000; // 1 minute
 
 	private Player player;
-//	private String name;
-//	private int score;
+	// private String name;
+	// private int score;
 	private IState currentState;
 
 	private int lives;
@@ -46,6 +46,7 @@ public class OurGame implements World {
 	private GameMode mode;
 	private int counter;
 	private double passedTime;
+	private boolean isClosed;
 
 	public double getPassedTime() {
 		return passedTime;
@@ -55,6 +56,7 @@ public class OurGame implements World {
 
 	public OurGame() {
 		GameObjectLoader.getInstance().loadClasses();
+		isClosed = false;
 	}
 
 	public OurGame(GameDifficulty difficulty, GameMode mode, String name) {
@@ -76,6 +78,27 @@ public class OurGame implements World {
 		counter = 0;
 		player.setScore(0);
 		this.setCurrentState(RunningState.getInstance());
+		isClosed = false;
+	}
+
+	/**
+	 * @return the isClosed
+	 */
+	public boolean isClosed() {
+		return isClosed;
+	}
+
+	/**
+	 * @param isClosed
+	 *            the isClosed to set
+	 */
+	public void close() {
+		this.isClosed = true;
+		player =null;
+		constant = null;
+		controlable = null;
+		movable = null;
+		
 	}
 
 	@Override
@@ -181,6 +204,9 @@ public class OurGame implements World {
 
 	@Override
 	public boolean refresh() {
+		if (isClosed()) {
+			return false;
+		}
 		boolean timeout = (this.passedTime = System.currentTimeMillis() - startTime) > MAX_TIME;
 		if (lives == 0) {
 			this.setCurrentState(GameOverState.getInstance());

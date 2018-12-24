@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import eg.edu.alexu.csd.oop.game.World;
 import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
@@ -27,23 +28,46 @@ public class MenuBarManager {
 	private static MenuBarManager manager;
 
 	private JMenuBar menuBar;
-	private static World game;
-	private static JFrame frame;
+	private World game;
+	private JFrame frame;
 
-	public static World getGame() {
+	public World getGame() {
 		return game;
 	}
 
-	public static void setGame(World game) {
-		MenuBarManager.game = game;
+	public void setGame(World game) {
+		this.game = game;
 	}
 
-	public static JFrame getFrame() {
+	public JFrame getFrame() {
 		return frame;
 	}
 
-	public static void setFrame(JFrame frame) {
-		MenuBarManager.frame = frame;
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		try {
+			frame.addWindowListener(new java.awt.event.WindowAdapter() {
+				@Override
+				public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+					if (JOptionPane.showConfirmDialog(frame, "Are you sure you want to close this game?",
+							"End Game?", JOptionPane.YES_NO_OPTION,
+							JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+						Track.getInstance().getTrack("theme").stop();
+						frame.dispose();
+						try {
+							FallenObjectsGenerator.getInstance().clear();
+							((OurGame) game).close();
+							Controller.getInstance().pause();
+						} catch (Exception e1) {
+							OurLogger.error(getClass(), e1.getMessage());
+						}
+					}
+				}
+			});
+		} catch (Exception e) {
+			OurLogger.error(getClass(), e.getMessage());
+		}
 	}
 
 	private MenuBarManager() {
@@ -85,16 +109,12 @@ public class MenuBarManager {
 				frame.dispose();
 				try {
 					FallenObjectsGenerator.getInstance().clear();
+					((OurGame) game).close();
+					Controller.getInstance().pause();
 				} catch (Exception e1) {
 					OurLogger.error(getClass(), e1.getMessage());
 				}
 				Track.getInstance().getTrack("theme").stop();
-//				System.out.println(Thread.currentThread().getName());
-//				if (Thread.currentThread().getName().equals("AWT-EventQueue-0")) {
-//					 Thread t = Thread.currentThread();
-//					 t.interrupt();
-//				}
-//				System.out.println(Thread.currentThread().getName());
 			}
 		});
 
@@ -133,7 +153,13 @@ public class MenuBarManager {
 			public void actionPerformed(ActionEvent e) {
 				Track.getInstance().getTrack("theme").stop();
 				frame.dispose();
-				System.exit(0);
+				try {
+					FallenObjectsGenerator.getInstance().clear();
+					((OurGame) game).close();
+					Controller.getInstance().pause();
+				} catch (Exception e1) {
+					OurLogger.error(getClass(), e1.getMessage());
+				}
 			}
 		});
 		return options;
