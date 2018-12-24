@@ -14,16 +14,19 @@ public class OurLogger {
 	public static void info(final Class<?> Class, final String message) {
 		log = LogManager.getLogger(Class);
 		log.info(message);
+		log.debug(message);
 	}
 	
 	public static void error(final Class<?> Class, final String message) {
 		log = LogManager.getLogger(Class);
 		log.error(message);
+		log.debug(message);
 	}
 	
 	public static void warn(final Class<?> Class, final String message) {
 		log = LogManager.getLogger(Class);
 		log.warn(message);
+		log.debug(message);
 	}
 
 }

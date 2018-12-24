@@ -90,6 +90,7 @@ public class MenuBarManager {
 				System.out.println(Thread.currentThread().getName());
 				if (Thread.currentThread().getName().equals("AWT-EventQueue-0")) {
 					 Thread t = Thread.currentThread();
+					 t.interrupt();
 				}
 				System.out.println(Thread.currentThread().getName());
 			}
