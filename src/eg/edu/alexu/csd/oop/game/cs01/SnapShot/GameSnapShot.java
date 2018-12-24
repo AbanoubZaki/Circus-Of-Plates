@@ -8,6 +8,7 @@ import eg.edu.alexu.csd.oop.game.cs01.GameStates.CurrentState;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
 import eg.edu.alexu.csd.oop.game.cs01.Music.Track;
 import eg.edu.alexu.csd.oop.game.cs01.OurWorld.OurGame;
+import eg.edu.alexu.csd.oop.game.cs01.leaderboard.Player;
 import javafx.util.Duration;
 
 public class GameSnapShot {
@@ -19,6 +20,11 @@ public class GameSnapShot {
 	private GameMode mode;
 	private CurrentState state;
 	private double passedTime;
+	private Player player;
+
+	public Player getPlayer() {
+		return player;
+	}
 
 	public double getPassedTime() {
 		return passedTime;
@@ -32,8 +38,8 @@ public class GameSnapShot {
 	}
 
 	public GameSnapShot(OurGame game) {
+		this.player = game.getPlayer();
 		this.lives = game.getLives();
-		this.score = game.getScore();
 		this.mode = game.getMode();
 		this.passedTime = game.getPassedTime();
 		this.state = CurrentState.paused;

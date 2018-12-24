@@ -6,27 +6,45 @@ import eg.edu.alexu.csd.oop.game.GameEngine;
 import eg.edu.alexu.csd.oop.game.cs01.Difficulty.GameDifficulty;
 import eg.edu.alexu.csd.oop.game.cs01.Gui.MenuBarManager;
 import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.GameMode;
-import javafx.application.Application;
-import javafx.stage.Stage;
+import eg.edu.alexu.csd.oop.game.cs01.ModeFactory.ModeFactory;
 
-public class Main extends Application {
+public class Main {
 
-	public static void main(String[] args) {
+	private static Main m;
+	
+	private Main() {
+		name = new String();
+	}
+	
+	public static Main getInstance () {
+		if (m == null) {
+			m = new Main();
+		}
+		return m;
+	}
+	
+	private static String name;
+	private static GameDifficulty difficulty;
+	private static GameMode mode;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public GameDifficulty getDifficulty() {
+		return difficulty;
+	}
 
-		String name = "bebo";
-		GameDifficulty d = GameDifficulty.medium;
-		GameMode m = GameMode.christmass;
+	public GameMode getMode() {
+		return mode;
+	}
 
-		MenuBarManager.setGame(new OurGame(d, m, name));
-		Controller.getInstance().setGameController(GameEngine.start("Circus of plates", MenuBarManager.getGame(),
+	public void start(GameMode mode, GameDifficulty difficulty, String name) throws Exception {
+		MenuBarManager.setGame(new OurGame(difficulty, mode, name));
+		Controller.getInstance().setGameController(GameEngine.start("World of plates", MenuBarManager.getGame(),
 				MenuBarManager.getInstance().getMenuBar()));
 		MenuBarManager.setFrame((JFrame) MenuBarManager.getInstance().getMenuBar().getParent().getParent().getParent());
 		MenuBarManager.getInstance().setMenuBar();
-	}
-
-	@Override
-	public void start(Stage arg0) throws Exception {
-		
 	}
 
 }

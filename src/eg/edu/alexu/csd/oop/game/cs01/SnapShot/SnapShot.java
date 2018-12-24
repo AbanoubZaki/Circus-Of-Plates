@@ -2,7 +2,6 @@ package eg.edu.alexu.csd.oop.game.cs01.SnapShot;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
 
@@ -32,9 +31,6 @@ public class SnapShot implements ISnapShot {
 	@Override
 	public void saveGame(World ourGame, String fileName) {
 		OurLogger.info(this.getClass(), fileName + "'s game has been saved");
-		File folder = new File("SavedGames");
-		System.out.println(folder.mkdirs());
-		File savedFile = new File("SavedGames\\" + fileName + ".json");
 		Gson gsonT = new Gson();
 		String json = gsonT.toJson(((OurGame) ourGame).getSnapShot());
 
@@ -44,10 +40,14 @@ public class SnapShot implements ISnapShot {
 		String prettyJsonString = gson.toJson(je);
 
 		try {
-			PrintWriter writer = new PrintWriter(savedFile);
+			File folder = new File("SavedGames");
+			folder.mkdirs();
+			File file = new File("SavedGames\\" + fileName + ".json");
+			file.createNewFile();
+			PrintWriter writer = new PrintWriter(file);
 			writer.println(prettyJsonString);
 			writer.close();
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -59,7 +59,11 @@ public class SnapShot implements ISnapShot {
 		BufferedReader bufferReader;
 		StringBuilder builder = new StringBuilder();
 		try {
-			fileReader = new FileReader(new File("SavedGames\\" + fileName + ".json"));
+			File folder = new File("SavedGames");
+			folder.mkdirs();
+			File file = new File("SavedGames\\" + fileName + ".json");
+			file.createNewFile();
+			fileReader = new FileReader(file);
 			bufferReader = new BufferedReader(fileReader);
 			String line = bufferReader.readLine();
 			while (line != null) {

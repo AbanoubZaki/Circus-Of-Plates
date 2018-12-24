@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eg.edu.alexu.csd.oop.game.cs01.application.MyNewController">
+   <center>
+      <AnchorPane prefHeight="516.0" prefWidth="784.0" BorderPane.alignment="CENTER">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/D:/College/CSED02/OOP/circusofplates/welcome02.jpg" />
+               </source>
+            </ImageInput>
+         </effect>
+         <children>
+            <Label fx:id="newGameLabel" layoutX="372.0" layoutY="230.0" onMouseClicked="#newGameAct" prefHeight="59.0" prefWidth="364.0" />
+            <Label fx:id="loadGameLabel" layoutX="357.0" layoutY="318.0" onMouseClicked="#loadGameAct" prefHeight="59.0" prefWidth="390.0" />
+            <Label fx:id="leaderBoardLabel" layoutX="308.0" layoutY="397.0" onMouseClicked="#leaderBoardAct" prefHeight="59.0" prefWidth="488.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

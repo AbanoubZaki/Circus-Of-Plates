@@ -20,6 +20,8 @@ import eg.edu.alexu.csd.oop.game.cs01.ObjectPool.FallenObjectsGenerator;
 import eg.edu.alexu.csd.oop.game.cs01.RefreshDelegation.Refresh;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.FallenObjectSnapShot;
 import eg.edu.alexu.csd.oop.game.cs01.SnapShot.GameSnapShot;
+import eg.edu.alexu.csd.oop.game.cs01.leaderboard.LeaderboardManager;
+import eg.edu.alexu.csd.oop.game.cs01.leaderboard.Player;
 import eg.edu.alexu.csd.oop.game.cs01.objects.AbstractFallenObject;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Background;
 import eg.edu.alexu.csd.oop.game.cs01.objects.Character;
@@ -28,9 +30,12 @@ import eg.edu.alexu.csd.oop.game.cs01.objects.CharacterStack;
 public class OurGame implements World {
 
 	private static int MAX_TIME = 2 * 60 * 1000; // 1 minute
-	private String name;
+
+	private Player player;
+//	private String name;
+//	private int score;
+
 	private int lives;
-	private int score;
 	private long startTime;
 	private IGameObjectCollection constant;
 	private IGameObjectCollection movable;
@@ -52,10 +57,11 @@ public class OurGame implements World {
 
 	public OurGame(GameDifficulty difficulty, GameMode mode, String name) {
 		GameObjectLoader.getInstance().loadClasses();
-		this.setMode(ModeFactory.getInstance(mode, difficulty).createMode());
-		this.name = name;
+		player = new Player();
+		player.setName(name);
 		lives = 5;
 		this.difficulty = difficulty;
+		this.setMode(ModeFactory.getInstance(mode, difficulty).createMode());
 		startTime = System.currentTimeMillis();
 		constant = new GameObjectCollection(mode.getConstant());
 		movable = new GameObjectCollection(new ArrayList<GameObject>());
@@ -66,7 +72,7 @@ public class OurGame implements World {
 		}
 		controlable = new GameObjectCollection(mode.getControlable());
 		counter = 0;
-		score = 0;
+		player.setScore(0);
 		state = CurrentState.running;
 		Track.getInstance().getTrack("theme").setVolume(50);
 		Track.getInstance().getTrack("theme").play();
@@ -109,7 +115,7 @@ public class OurGame implements World {
 	@Override
 	public String getStatus() {
 		int remainingTime = (int) (MAX_TIME - (this.passedTime = System.currentTimeMillis() - startTime));
-		String status = "Score=" + score + "   |   Time=" + Math.max(0, remainingTime / 1000);
+		String status = "Score=" + player.getScore() + "   |   Time=" + Math.max(0, remainingTime / 1000);
 		for (int i = 0; i < difficulty.getNoOfCharacters(); i++) {
 			status += "   |    left = " + ((CharacterStack) (((Character) controlable.get(i)).getLeftStack())).getSize()
 					+ "    |    right = "
@@ -123,7 +129,11 @@ public class OurGame implements World {
 	 * @return user name.
 	 */
 	public String getName() {
-		return name;
+		return player.getName();
+	}
+
+	public Player getPlayer() {
+		return player;
 	}
 
 	/**
@@ -137,7 +147,7 @@ public class OurGame implements World {
 	 * @return the score
 	 */
 	public int getScore() {
-		return score;
+		return player.getScore();
 	}
 
 	/**
@@ -183,6 +193,8 @@ public class OurGame implements World {
 		if (lives == 0) {
 			Controller.getInstance().pause();
 			state = CurrentState.gameOver;
+			LeaderboardManager.getInstance().addPlayer(player);
+			LeaderboardManager.getInstance().writePlayers();
 			Track.getInstance().getTrack("theme").stop();
 			Track.getInstance().getTrack("gameover").play();
 			OurLogger.info(this.getClass(), "game has ended with 0 lives");
@@ -213,7 +225,7 @@ public class OurGame implements World {
 						FallenObjectsGenerator.getInstance().releaseObject(o);
 						OurLogger.info(this.getClass(), "plate released into pool");
 						Track.getInstance().getTrack("present").play();
-						score++;
+						player.setScore(player.getScore() + 1);
 						break;
 					} else if (Refresh.getInstance().intersectWithBad(o,
 							((Character) this.controlable.get(i)).getLeftStack(),
@@ -237,10 +249,12 @@ public class OurGame implements World {
 						objectRemoved = true;
 						if (s == Score.win) {
 							Track.getInstance().getTrack("present").play();
-							score++;
+							player.setScore(player.getScore() + 1);
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
+							LeaderboardManager.getInstance().addPlayer(player);
+							LeaderboardManager.getInstance().writePlayers();
 							// System.out.println("1");
 							Track.getInstance().getTrack("theme").stop();
 							Track.getInstance().getTrack("gameover").play();
@@ -256,10 +270,12 @@ public class OurGame implements World {
 						objectRemoved = true;
 						if (s == Score.win) {
 							Track.getInstance().getTrack("present").play();
-							score++;
+							player.setScore(player.getScore() + 1);
 						} else if (s == Score.lose) {
 							Controller.getInstance().pause();
 							state = CurrentState.gameOver;
+							LeaderboardManager.getInstance().addPlayer(player);
+							LeaderboardManager.getInstance().writePlayers();
 							// System.out.println("2");
 							Track.getInstance().getTrack("theme").stop();
 							Track.getInstance().getTrack("gameover").play();
@@ -291,6 +307,8 @@ public class OurGame implements World {
 		if (timeout) {
 			Controller.getInstance().pause();
 			state = CurrentState.gameOver;
+			LeaderboardManager.getInstance().addPlayer(player);
+			LeaderboardManager.getInstance().writePlayers();
 			Track.getInstance().getTrack("theme").stop();
 			Track.getInstance().getTrack("gameover").play();
 			OurLogger.info(this.getClass(), "game is over, time ended");
@@ -313,7 +331,7 @@ public class OurGame implements World {
 
 	@SuppressWarnings("unchecked")
 	public void loadGame(GameSnapShot snapShot) {
-		this.score = snapShot.getScore();
+		player = snapShot.getPlayer();
 		this.state = snapShot.getState();
 		this.lives = snapShot.getLives();
 		this.difficulty = snapShot.getDifficulty();
@@ -330,10 +348,9 @@ public class OurGame implements World {
 		this.constant = new GameObjectCollection((List<GameObject>) list.clone());
 		list = new ArrayList<GameObject>();
 		for (int i = 0; i < snapShot.getMovable().size(); i++) {
-			;
 			AbstractFallenObject o = GameObjectLoader.getInstance()
 					.newInstance(((FallenObjectSnapShot) snapShot.getMovable().get(i)).getClassName());
-			o.loadFallenObject(snapShot.getMovable().get(i));
+			o.loadFallenObject((FallenObjectSnapShot) snapShot.getMovable().get(i));
 			list.add(o);
 		}
 		this.movable = new GameObjectCollection((List<GameObject>) list.clone());

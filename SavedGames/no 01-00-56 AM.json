@@ -1,0 +1,443 @@
+{
+  "constant": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1103,
+      "height": 688,
+      "paths": [
+        "resources\\christmass\\backgrounds\\bg01.png",
+        "resources\\christmass\\backgrounds\\bg02.png",
+        "resources\\christmass\\backgrounds\\bg03.png",
+        "resources\\christmass\\backgrounds\\bg04.png",
+        "resources\\christmass\\backgrounds\\bg05.png",
+        "resources\\christmass\\backgrounds\\bg06.png",
+        "resources\\christmass\\backgrounds\\bg07.png"
+      ]
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    },
+    {
+      "x": 55,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    },
+    {
+      "x": 110,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    },
+    {
+      "x": 165,
+      "y": 10,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\live\\heart.png"
+      ]
+    }
+  ],
+  "movable": [
+    {
+      "path": "4",
+      "x": 303,
+      "y": 502,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\4\\plate4.png"
+      ]
+    },
+    {
+      "path": "3",
+      "x": 527,
+      "y": 492,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\3\\plate3.png"
+      ]
+    },
+    {
+      "path": "2",
+      "x": 694,
+      "y": 497,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\2\\plate2.png"
+      ]
+    },
+    {
+      "path": "4",
+      "x": 330,
+      "y": 287,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\4\\plate4.png"
+      ]
+    },
+    {
+      "path": "5",
+      "x": 600,
+      "y": 289,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\5\\plate5.png"
+      ]
+    },
+    {
+      "path": "3",
+      "x": 864,
+      "y": 304,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\3\\plate3.png"
+      ]
+    },
+    {
+      "path": "5",
+      "x": 36,
+      "y": 296,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\5\\plate5.png"
+      ]
+    },
+    {
+      "path": "3",
+      "x": 601,
+      "y": 285,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\3\\plate3.png"
+      ]
+    },
+    {
+      "path": "2",
+      "x": 665,
+      "y": 82,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\2\\plate2.png"
+      ]
+    },
+    {
+      "path": "4",
+      "x": 649,
+      "y": 88,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\4\\plate4.png"
+      ]
+    },
+    {
+      "path": "1",
+      "x": 894,
+      "y": 63,
+      "width": 52,
+      "height": 42,
+      "paths": [
+        "resources\\christmass\\plates\\1\\bomb.png"
+      ]
+    },
+    {
+      "path": "2",
+      "x": 105,
+      "y": 87,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\2\\plate2.png"
+      ]
+    },
+    {
+      "path": "4",
+      "x": 820,
+      "y": 78,
+      "width": 50,
+      "height": 13,
+      "paths": [
+        "resources\\christmass\\plates\\4\\plate4.png"
+      ]
+    }
+  ],
+  "controlableCharacters": [
+    {
+      "left": {
+        "stack": [
+          {
+            "path": "5",
+            "x": 223,
+            "y": 474,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\5\\plate5.png"
+            ]
+          },
+          {
+            "path": "3",
+            "x": 223,
+            "y": 467,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\3\\plate3.png"
+            ]
+          },
+          {
+            "path": "4",
+            "x": 223,
+            "y": 460,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          },
+          {
+            "path": "5",
+            "x": 223,
+            "y": 453,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\5\\plate5.png"
+            ]
+          },
+          {
+            "path": "5",
+            "x": 223,
+            "y": 446,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\5\\plate5.png"
+            ]
+          },
+          {
+            "path": "4",
+            "x": 223,
+            "y": 439,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          }
+        ],
+        "type": "left",
+        "x": 223,
+        "y": 439,
+        "width": 35,
+        "height": 0
+      },
+      "right": {
+        "stack": [
+          {
+            "path": "4",
+            "x": 373,
+            "y": 474,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          },
+          {
+            "path": "2",
+            "x": 373,
+            "y": 467,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\2\\plate2.png"
+            ]
+          },
+          {
+            "path": "4",
+            "x": 373,
+            "y": 460,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          },
+          {
+            "path": "5",
+            "x": 373,
+            "y": 453,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\5\\plate5.png"
+            ]
+          },
+          {
+            "path": "5",
+            "x": 373,
+            "y": 446,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\5\\plate5.png"
+            ]
+          },
+          {
+            "path": "2",
+            "x": 373,
+            "y": 439,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\2\\plate2.png"
+            ]
+          },
+          {
+            "path": "2",
+            "x": 373,
+            "y": 432,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\2\\plate2.png"
+            ]
+          },
+          {
+            "path": "5",
+            "x": 373,
+            "y": 425,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\5\\plate5.png"
+            ]
+          },
+          {
+            "path": "4",
+            "x": 373,
+            "y": 418,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          },
+          {
+            "path": "2",
+            "x": 373,
+            "y": 411,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\2\\plate2.png"
+            ]
+          },
+          {
+            "path": "4",
+            "x": 373,
+            "y": 404,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          },
+          {
+            "path": "4",
+            "x": 373,
+            "y": 397,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          },
+          {
+            "path": "3",
+            "x": 373,
+            "y": 390,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\3\\plate3.png"
+            ]
+          },
+          {
+            "path": "4",
+            "x": 373,
+            "y": 383,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\4\\plate4.png"
+            ]
+          },
+          {
+            "path": "2",
+            "x": 373,
+            "y": 376,
+            "width": 50,
+            "height": 13,
+            "paths": [
+              "resources\\christmass\\plates\\2\\plate2.png"
+            ]
+          }
+        ],
+        "type": "right",
+        "x": 373,
+        "y": 376,
+        "width": 35,
+        "height": 0
+      },
+      "type": "left",
+      "mode": "christmass",
+      "x": 223,
+      "y": 481,
+      "width": 183,
+      "height": 203,
+      "paths": [
+        "resources\\christmass\\controlable\\clown1\\clown01.png",
+        "resources\\christmass\\controlable\\clown1\\clown02.png"
+      ]
+    }
+  ],
+  "lives": 4,
+  "score": 0,
+  "mode": "christmass",
+  "state": "paused",
+  "passedTime": 27578.0,
+  "player": {
+    "name": "no",
+    "score": 1
+  },
+  "difficulty": "medium",
+  "themeDuration": {
+    "millis": 27070.022675
+  },
+  "counter": 2
+}
